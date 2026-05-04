@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "model_name": "Qwen/Qwen2.5-3B-Instruct",
+  "max_new_tokens": 384,
+  "temperature": 0.1,
+  "top_p": 0.9,
+  "device_map": "auto",
+  "trust_remote_code": false
+}

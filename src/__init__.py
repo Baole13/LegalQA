@@ -1,0 +1,2 @@
+"""Legal QA MVP package."""
+

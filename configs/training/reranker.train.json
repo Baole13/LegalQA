@@ -1,0 +1,11 @@
+{
+  "model_name": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+  "train_path": "data/aligned/reranker_train.jsonl",
+  "output_dir": "models/reranker-best",
+  "batch_size": 16,
+  "epochs": 2,
+  "warmup_ratio": 0.1,
+  "learning_rate": 2e-5,
+  "max_samples": 0,
+  "use_amp": true
+}

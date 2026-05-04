@@ -1,0 +1,11 @@
+{
+  "model_name": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+  "train_path": "data/aligned/retriever_train.jsonl",
+  "output_dir": "models/retriever-best",
+  "batch_size": 16,
+  "epochs": 2,
+  "warmup_ratio": 0.1,
+  "learning_rate": 2e-5,
+  "max_samples": 0,
+  "use_amp": true
+}
