@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from pathlib import Path
 
 from src.utils.io import load_json
 
@@ -12,6 +13,7 @@ class QwenReasoner:
         self.config = load_json(config_path)
         self.enabled = bool(self.config.get("enabled", True))
         self.model_name = self.config.get("model_name", "Qwen/Qwen2.5-3B-Instruct")
+        self.local_files_only = bool(self.config.get("local_files_only", True))
         self._generator = None
         self.loaded = False
         self.load_error: str | None = None
@@ -27,6 +29,13 @@ class QwenReasoner:
     def _lazy_load(self) -> None:
         if self.loaded or self.load_error is not None:
             return
+        self._load_transformers_backend()
+
+    def _load_transformers_backend(self) -> None:
+        if self.local_files_only and not Path(self.model_name).exists():
+            self.load_error = "local_model_not_found"
+            return
+
         try:
             from transformers import pipeline
         except ImportError as exc:  # pragma: no cover
@@ -39,6 +48,7 @@ class QwenReasoner:
                 model=self.model_name,
                 device_map=self.config.get("device_map", "auto"),
                 trust_remote_code=bool(self.config.get("trust_remote_code", False)),
+                local_files_only=self.local_files_only,
             )
             self.loaded = True
         except Exception as exc:  # pragma: no cover
@@ -48,18 +58,22 @@ class QwenReasoner:
         if not self.is_available():
             return None
         try:
-            outputs = self._generator(
-                prompt,
-                max_new_tokens=int(self.config.get("max_new_tokens", 384)),
-                temperature=float(self.config.get("temperature", 0.1)),
-                top_p=float(self.config.get("top_p", 0.9)),
-                do_sample=True,
-                return_full_text=False,
-            )
-            text = outputs[0]["generated_text"].strip()
+            text = self._generate_transformers(prompt)
             return self._parse_json(text)
-        except Exception:  # pragma: no cover
+        except Exception as exc:  # pragma: no cover
+            self.load_error = str(exc)
             return None
+
+    def _generate_transformers(self, prompt: str) -> str:
+        outputs = self._generator(
+            prompt,
+            max_new_tokens=int(self.config.get("max_new_tokens", 384)),
+            temperature=float(self.config.get("temperature", 0.1)),
+            top_p=float(self.config.get("top_p", 0.9)),
+            do_sample=True,
+            return_full_text=False,
+        )
+        return outputs[0]["generated_text"].strip()
 
     def _parse_json(self, text: str) -> dict | None:
         if not text:

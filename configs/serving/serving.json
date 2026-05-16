@@ -2,5 +2,6 @@
   "use_llm_reasoning": true,
   "llm_config_path": "configs/serving/llm.qwen.json",
   "reranker_model_path": "models/reranker-best",
-  "retriever_model_path": "models/retriever-best"
+  "retriever_model_path": "models/retriever-best",
+  "retriever_config_path": "configs/serving/retrieval.hybrid.json"
 }

@@ -8,9 +8,12 @@ to improve answer relevance and ranking quality.
 from __future__ import annotations
 
 from src.utils.text import (
+    detect_question_intent,
+    direct_answer_score,
     important_query_phrases,
     important_query_terms,
     keyword_coverage_score,
+    procedural_noise_score,
     phrase_coverage_score,
     tokenize,
 )
@@ -42,6 +45,7 @@ class HeuristicReranker:
         query_tokens = set(tokenize(query))
         query_keywords = important_query_terms(query)
         query_phrases = important_query_phrases(query)
+        query_intent = detect_question_intent(query)
         reranked: list[dict] = []
 
         for candidate in candidates:
@@ -55,6 +59,9 @@ class HeuristicReranker:
             phrase_coverage = phrase_coverage_score(query, text)
             exact_keyword_bonus = sum(0.2 for keyword in query_keywords if keyword in lowered)
             exact_phrase_bonus = sum(0.8 for phrase in query_phrases if phrase in lowered)
+            direct_bonus = direct_answer_score(query, text)
+            procedural_penalty = procedural_noise_score(text)
+            intent_weight = 1.8 if query_intent in {"quantity", "authority", "yes_no"} else 1.0
             score = (
                 float(candidate.get("hybrid_score", 0.0))
                 + overlap
@@ -64,6 +71,8 @@ class HeuristicReranker:
                 + (phrase_coverage * 4.5)
                 + exact_keyword_bonus
                 + exact_phrase_bonus
+                + (direct_bonus * intent_weight)
+                - (procedural_penalty * (0.45 if query_intent == "quantity" else 0.2))
             )
             reranked.append(
                 {
@@ -71,6 +80,9 @@ class HeuristicReranker:
                     "rerank_score": round(score, 6),
                     "keyword_coverage": round(coverage, 4),
                     "phrase_coverage": round(phrase_coverage, 4),
+                    "direct_answer_score": round(direct_bonus, 4),
+                    "procedural_noise": round(procedural_penalty, 4),
+                    "question_intent": query_intent,
                 }
             )
 

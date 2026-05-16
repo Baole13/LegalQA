@@ -1,0 +1,41 @@
+{
+  "per_source_k": 120,
+  "preselect_multiplier": 8,
+  "preselect_min": 80,
+  "max_chunks_per_cid": 2,
+  "merge_weights": {
+    "bm25": 0.5,
+    "dense": 0.3,
+    "elasticsearch": 0.15,
+    "rank_bonus": 0.35,
+    "keyword_coverage": 0.2,
+    "phrase_coverage": 0.35,
+    "qa_boost": 0.8
+  },
+  "qa_memory": {
+    "top_k": 12,
+    "seed_top_hits": 6,
+    "seed_score_threshold": 0.6,
+    "seed_cids_per_hit": 2,
+    "seed_chunks_per_cid": 2
+  },
+  "embedding_models": [
+    {
+      "name": "bge-m3",
+      "path": "models/bge-m3",
+      "weight": 0.9
+    },
+    {
+      "name": "multilingual-e5",
+      "path": "models/multilingual-e5-large",
+      "weight": 0.8
+    }
+  ],
+  "elasticsearch": {
+    "enabled": false,
+    "url": "http://localhost:9200",
+    "index": "legalqa_chunks",
+    "top_k": 60,
+    "timeout_seconds": 5
+  }
+}

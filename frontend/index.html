@@ -3,50 +3,102 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vietnamese Legal QA</title>
+    <title>LegalQA Chat</title>
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <main class="shell">
-      <section class="hero">
-        <p class="eyebrow">Vietnamese Legal QA</p>
-        <h1>Tra cứu pháp luật bằng full-corpus retrieval</h1>
-        <p class="lede">
-          Hệ thống truy xuất từ corpus pháp luật, tận dụng QA-memory từ tập huấn luyện,
-          rerank lại evidence rồi mới tổng hợp câu trả lời có căn cứ.
-        </p>
-      </section>
-
-      <section class="panel">
-        <label for="question">Câu hỏi</label>
-        <textarea id="question" placeholder="Ví dụ: Người lao động được nghỉ bao nhiêu ngày phép năm?"></textarea>
-        <div class="actions">
-          <button id="ask-btn">Hỏi hệ thống</button>
-          <button id="debug-btn" class="secondary">Debug retrieval</button>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-card">
+          <p class="eyebrow">LegalQA</p>
+          <h1>Tro ly phap ly theo kieu chatbot.</h1>
+          <p class="sidebar-copy">
+            Tra loi se uu tien dung trong tam, co ket luan truc tiep, can cu phap ly, trich dan va luu y ap dung.
+          </p>
         </div>
-      </section>
 
-      <section class="panel" id="answer-panel">
-        <h2>Câu trả lời</h2>
-        <div id="answer">Chưa có kết quả.</div>
-      </section>
+        <div class="sidebar-card">
+          <p class="eyebrow">Cau hoi mau</p>
+          <div class="example-list">
+            <button class="example-btn" data-question="Người lao động được nghỉ bao nhiêu ngày phép năm?">Nghi phep nam</button>
+            <button class="example-btn" data-question="Ai có thẩm quyền quyết định thành lập Hội đồng tư vấn cấp Chứng chỉ hành nghề dược Sở Y tế?">Tham quyen cap chung chi</button>
+            <button class="example-btn" data-question="Việc ký kết, thực hiện thỏa thuận quốc tế nhân danh đơn vị trực thuộc có phải báo cáo định kỳ hàng năm không?">Bao cao dinh ky</button>
+          </div>
+        </div>
 
-      <section class="grid">
-        <article class="panel">
-          <h2>Trích dẫn</h2>
-          <div id="citations">Chưa có dữ liệu.</div>
-        </article>
-        <article class="panel">
-          <h2>Evidence</h2>
-          <div id="evidence">Chưa có dữ liệu.</div>
-        </article>
-      </section>
+        <div class="sidebar-card compact">
+          <div class="status-row">
+            <span class="eyebrow">Trang thai</span>
+            <span class="status-pill" id="health-status">Dang tai...</span>
+          </div>
+          <p class="sidebar-copy" id="health-mode">Dang ket noi he thong.</p>
+          <div class="mini-stats">
+            <span><strong id="health-retriever">-</strong> retriever</span>
+            <span><strong id="health-reranker">-</strong> reranker</span>
+            <span><strong id="health-chunks">-</strong> chunks</span>
+          </div>
+        </div>
+      </aside>
 
-      <section class="panel">
-        <h2>Retrieval Debug</h2>
-        <div id="debug">Chưa có dữ liệu.</div>
+      <section class="chat-shell">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">Vietnamese LegalQA</p>
+            <h2>Hoi dap phap ly co can cu</h2>
+          </div>
+          <div class="header-pills">
+            <span class="meta-pill" id="request-state">San sang</span>
+            <span class="meta-pill" id="confidence-badge">Do tin cay: -</span>
+            <span class="meta-pill" id="generator-badge">Generator: -</span>
+          </div>
+        </header>
+
+        <section class="thread" id="thread">
+          <article class="message assistant">
+            <div class="avatar">LQ</div>
+            <div class="bubble assistant-bubble">
+              <p class="message-title">Tro ly phap ly</p>
+              <div class="message-content">
+                Dat cau hoi de kiem tra LegalQA. He thong se tra loi theo 4 phan: Ket luan, Can cu phap ly, Trich dan, Luu y ap dung.
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <details class="debug-panel">
+          <summary>Retrieval debug</summary>
+          <div class="debug-toolbar">
+            <button id="debug-btn" class="ghost-btn" type="button">Xem retrieval</button>
+          </div>
+          <div id="debug" class="drawer-content">Chua co du lieu.</div>
+        </details>
+
+        <footer class="composer">
+          <label class="sr-only" for="question">Cau hoi phap ly</label>
+          <textarea id="question" placeholder="Nhap cau hoi phap ly..."></textarea>
+          <div class="composer-actions">
+            <span class="hint">Ctrl/Cmd + Enter de gui</span>
+            <button id="ask-btn" type="button">Gui cau hoi</button>
+          </div>
+        </footer>
       </section>
     </main>
+
+    <div class="detail-modal hidden" id="detail-modal" aria-hidden="true">
+      <div class="detail-backdrop" id="detail-backdrop"></div>
+      <section class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+        <div class="detail-header">
+          <div>
+            <p class="eyebrow">Chi tiet can cu</p>
+            <h3 id="detail-title">Can cu phap ly</h3>
+          </div>
+          <button id="detail-close" class="ghost-btn" type="button">Dong</button>
+        </div>
+        <p class="detail-meta" id="detail-meta">Khong co du lieu.</p>
+        <pre class="detail-body" id="detail-body"></pre>
+      </section>
+    </div>
+
     <script src="/static/app.js"></script>
   </body>
 </html>

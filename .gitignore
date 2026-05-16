@@ -1,8 +1,49 @@
-bussiness_plan
-technical_plan
-excutation
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test and type-check caches
+.pytest_cache/
+pytest-cache-files-*/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.log
+
+# Local databases
+*.db
+*.db-journal
+tmp_sqlite.db
+tmp_sqlite.db-journal
+
+# Training / inference artifacts
+models/
+checkpoints/
+outputs/
+logs/
+wandb/
+
+# Generated data artifacts
+data/*.parquet
+data/*.csv
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*
@@ -13,14 +54,6 @@ data/indexes/*
 !data/indexes/.gitkeep
 data/evaluation/*
 !data/evaluation/.gitkeep
-models/
-outputs/
-logs/
-checkpoints/
-wandb/
-tmp_sqlite.db
-tmp_sqlite.db-journal
-data/*.parquet
-data/*.csv
-.venv/
-__pycache__/
+
+# Optional local notebooks and experiment dumps
+notebooks/.ipynb_checkpoints/

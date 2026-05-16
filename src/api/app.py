@@ -7,6 +7,7 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from src.api.schemas import AskRequest, RetrievalDebugRequest
@@ -32,21 +33,21 @@ app.add_middleware(
 async def validation_error_handler(request, exc: ValidationError):
     """Handle validation errors with proper HTTP status code."""
     logger.warning(f"Validation error: {exc.message}")
-    return HTTPException(status_code=400, detail=exc.message)
+    return JSONResponse(status_code=400, content={"detail": exc.message})
 
 
 @app.exception_handler(LegalQAException)
 async def legal_qa_error_handler(request, exc: LegalQAException):
     """Handle LegalQA errors with proper HTTP status code."""
     logger.error(f"LegalQA error [{exc.error_code}]: {exc.message}")
-    return HTTPException(status_code=500, detail=f"{exc.error_code}: {exc.message}")
+    return JSONResponse(status_code=500, content={"detail": f"{exc.error_code}: {exc.message}"})
 
 
 @app.exception_handler(Exception)
 async def general_error_handler(request, exc: Exception):
     """Handle unexpected errors."""
     logger.exception(f"Unexpected error: {exc}")
-    return HTTPException(status_code=500, detail="Internal server error")
+    return JSONResponse(status_code=500, content={"detail": "Internal server error"})
 
 
 frontend_dir = Path("frontend")
@@ -83,17 +84,32 @@ def root() -> FileResponse:
 @app.get("/health")
 def health() -> dict:
     pipeline = get_pipeline()
+    retriever = pipeline.artifacts.retriever
     return {
         "status": "ok",
         "chunks": pipeline.artifacts.store.manifest["corpus_chunks"],
         "qa_memory_records": pipeline.artifacts.store.manifest["qa_memory_records"],
         "artifact_version": pipeline.artifacts.store.manifest["version"],
-        "retriever_mode": "embedding-boosted" if pipeline.artifacts.retriever.embedding_retriever.available() else "sparse-hybrid",
+        "retriever_mode": "embedding-boosted" if retriever.embedding_retriever.available() else "sparse-hybrid",
         "retriever_model_path": pipeline.serving_config.retriever_model_path,
+        "retriever_config_path": pipeline.serving_config.retriever_config_path,
+        "retriever_components": {
+            "bm25": True,
+            "char_dense": True,
+            "local_embedding": retriever.embedding_retriever.available(),
+            "local_embedding_error": retriever.embedding_retriever.load_error,
+            "embedding_ensemble_loaded": len(getattr(retriever.embedding_ensemble, "models", [])),
+            "embedding_ensemble_errors": getattr(retriever.embedding_ensemble, "load_errors", []),
+            "elasticsearch_enabled": retriever.elasticsearch.enabled,
+            "elasticsearch_available": retriever.elasticsearch.available(),
+            "elasticsearch_error": retriever.elasticsearch.load_error,
+        },
         "reranker_mode": "cross-encoder" if pipeline.model_reranker.available() else "heuristic",
         "reranker_model_path": pipeline.serving_config.reranker_model_path,
         "llm_loaded": pipeline.reasoner.loaded,
         "llm_enabled": pipeline.serving_config.use_llm_reasoning,
+        "llm_backend": pipeline.reasoner.backend,
+        "llm_model_name": pipeline.reasoner.model_name,
         "llm_config_path": pipeline.serving_config.llm_config_path,
         "llm_error": pipeline.reasoner.load_error,
     }

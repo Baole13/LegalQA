@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import _bootstrap
+
 from src.qa.pipeline import LegalQAPipeline
 
 

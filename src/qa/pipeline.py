@@ -41,7 +41,11 @@ class LegalQAPipeline:
         serving_config = load_serving_config()
         artifacts = PipelineArtifacts(
             store=store,
-            retriever=HybridRetriever(store, retriever_model_path=serving_config.retriever_model_path),
+            retriever=HybridRetriever(
+                store,
+                retriever_model_path=serving_config.retriever_model_path,
+                retrieval_config_path=serving_config.retriever_config_path,
+            ),
         )
         return cls(artifacts, serving_config)
 
@@ -54,17 +58,8 @@ class LegalQAPipeline:
             similar_questions = self.artifacts.retriever.similar_questions(question, top_k=5)
             logger.debug(f"Found {len(similar_questions)} similar questions")
             
-            # Stage 2: Retrieve candidates
-            candidates = self.artifacts.retriever.search(question, top_k=max(top_k * 2, 10))
-            logger.debug(f"Retrieved {len(candidates)} candidates from hybrid search")
-            
-            # Stage 3: Add QA memory candidates
-            qa_memory = self._qa_memory_candidates(similar_questions)
-            candidates.extend(qa_memory)
-            logger.debug(f"Added {len(qa_memory)} QA memory candidates (total: {len(candidates)})")
-            
-            # Stage 4: Heuristic reranking
-            heuristic = self.heuristic_reranker.rerank(question, candidates, top_k=max(top_k * 2, 10))
+            # Stage 2-4: Retrieve and heuristic rerank
+            heuristic = self._heuristic_retrieval(question, similar_questions, top_k=max(top_k * 2, 10))
             logger.debug(f"After heuristic rerank: {len(heuristic)} candidates")
             
             # Stage 5: Model reranking
@@ -99,11 +94,24 @@ class LegalQAPipeline:
             raise
 
     def retrieval_debug(self, question: str, top_k: int = 10) -> dict:
+        similar_questions = self.artifacts.retriever.similar_questions(question, top_k=5)
         return {
             "question": question,
-            "results": self.artifacts.retriever.search(question, top_k=top_k),
-            "similar_questions": self.artifacts.retriever.similar_questions(question, top_k=5),
+            "results": self._heuristic_retrieval(question, similar_questions, top_k=top_k),
+            "similar_questions": similar_questions,
         }
+
+    def _heuristic_retrieval(self, question: str, similar_questions: list[dict], top_k: int) -> list[dict]:
+        candidates = self.artifacts.retriever.search(
+            question,
+            top_k=max(top_k * 4, 20),
+            per_source_k=max(top_k * 24, 120),
+        )
+        qa_memory = self._qa_memory_candidates(similar_questions)
+        qa_corpus = self._qa_corpus_candidates(similar_questions)
+        candidates.extend(qa_memory)
+        candidates.extend(qa_corpus)
+        return self.heuristic_reranker.rerank(question, candidates, top_k=top_k)
 
     def _qa_memory_candidates(self, similar_questions: list[dict]) -> list[dict]:
         candidates: list[dict] = []
@@ -129,4 +137,35 @@ class LegalQAPipeline:
                         "hybrid_score": qa_score * 2.0,
                     }
                 )
+        return candidates
+
+    def _qa_corpus_candidates(self, similar_questions: list[dict]) -> list[dict]:
+        boosted_cids: list[tuple[str, float]] = []
+        for item in similar_questions[:5]:
+            qa_score = float(item.get("qa_score", 0.0))
+            if qa_score < 0.6:
+                continue
+            for cid in item.get("cids") or []:
+                boosted_cids.append((str(cid), qa_score))
+
+        if not boosted_cids:
+            return []
+
+        best_scores: dict[str, float] = {}
+        for cid, score in boosted_cids:
+            best_scores[cid] = max(score, best_scores.get(cid, 0.0))
+
+        chunks = self.artifacts.store.fetch_chunks_by_cids(list(best_scores.keys()), limit_per_cid=2)
+        candidates: list[dict] = []
+        for chunk in chunks:
+            qa_score = best_scores.get(str(chunk["cid"]), 0.0)
+            candidates.append(
+                {
+                    **chunk,
+                    "bm25_score": 0.0,
+                    "dense_score": 0.0,
+                    "qa_boost": qa_score,
+                    "hybrid_score": qa_score * 1.8,
+                }
+            )
         return candidates

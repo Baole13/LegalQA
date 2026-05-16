@@ -1,9 +1,12 @@
 {
   "enabled": true,
+  "backend": "transformers",
   "model_name": "Qwen/Qwen2.5-3B-Instruct",
+  "local_files_only": true,
   "max_new_tokens": 384,
   "temperature": 0.1,
   "top_p": 0.9,
   "device_map": "auto",
-  "trust_remote_code": false
+  "trust_remote_code": false,
+  "timeout_seconds": 60
 }

@@ -1,0 +1,9 @@
+{
+  "dataset_path": "data/aligned/raft_sft.jsonl",
+  "positive_ratio": 0.8,
+  "contexts_per_sample": 4,
+  "distractors_per_positive": 2,
+  "instruction_template": "Chi duoc tra loi dua tren cac doan luat duoc cung cap. Neu khong co can cu, phai tra loi: Toi khong biet.",
+  "target_model": "Qwen",
+  "runpod_gpu": "A40"
+}

@@ -6,7 +6,7 @@ from typing import Iterable
 
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+", re.UNICODE)
 ARTICLE_PATTERN = re.compile(r"(?:^|\n)\s*Điều\s+(\d+[A-Za-z]?)", re.IGNORECASE)
-CLAUSE_PATTERN = re.compile(r"(?:^|\n)\s*(\d+[.)])")
+CLAUSE_PATTERN = re.compile(r"(?:^|\n)\s*(\d+)[.)]")
 STOPWORDS = {
     "ai",
     "bao",
@@ -26,7 +26,6 @@ STOPWORDS = {
     "mot",
     "nao",
     "neu",
-    "nguoi",
     "nhieu",
     "nhung",
     "roi",
@@ -41,10 +40,6 @@ STOPWORDS = {
     "va",
     "ve",
     "voi",
-    "lao",
-    "dong",
-    "ngay",
-    "nam",
 }
 SYNONYM_PHRASES = {
     "nghi phep": ["nghi hang nam", "nghi phep nam"],
@@ -53,6 +48,58 @@ SYNONYM_PHRASES = {
     "hop dong lao dong": ["hdld", "hop dong"],
     "don phuong cham dut": ["cham dut hop dong"],
 }
+PROCEDURAL_NOISE_PHRASES = {
+    "bao cao",
+    "don xin",
+    "ho so",
+    "quy trinh",
+    "thu tuc",
+    "thanh toan",
+    "thu truong",
+    "giai quyet",
+    "om dau",
+    "tro cap",
+}
+QUANTITY_ANSWER_PHRASES = {
+    "bao nhieu",
+    "so ngay",
+    "muc huong",
+    "thoi han",
+    "toi da",
+    "it nhat",
+    "khong qua",
+    "duoc nghi",
+    "duoc huong",
+}
+AUTHORITY_ANSWER_PHRASES = {
+    "co tham quyen",
+    "ra quyet dinh",
+    "giam doc",
+    "bo truong",
+    "chu tich",
+    "uy ban",
+    "co quan",
+    "nguoi dung dau",
+}
+YES_NO_ANSWER_PHRASES = {
+    "co trach nhiem",
+    "khong co trach nhiem",
+    "phai",
+    "khong phai",
+    "duoc",
+    "khong duoc",
+    "bat buoc",
+}
+LEGAL_TITLE_HINTS = (
+    "bo luat",
+    "luat",
+    "nghi dinh",
+    "thong tu",
+    "nghi quyet",
+    "quyet dinh",
+    "phap lenh",
+    "thoa thuan quoc te",
+)
 
 
 def normalize_text(text: str) -> str:
@@ -64,9 +111,9 @@ def normalize_text(text: str) -> str:
 
 def strip_accents(text: str) -> str:
     text = normalize_text(text)
+    text = text.replace("đ", "d").replace("Đ", "D")
     text = unicodedata.normalize("NFD", text)
     text = "".join(char for char in text if unicodedata.category(char) != "Mn")
-    text = text.replace("đ", "d").replace("Đ", "D")
     return unicodedata.normalize("NFC", text)
 
 
@@ -98,7 +145,7 @@ def detect_clause(text: str) -> str | None:
     match = CLAUSE_PATTERN.search(text or "")
     if not match:
         return None
-    return match.group(1).rstrip(".)")
+    return match.group(1)
 
 
 def split_sentences(text: str) -> list[str]:
@@ -107,6 +154,10 @@ def split_sentences(text: str) -> list[str]:
         return []
     parts = re.split(r"(?<=[.!?;:])\s+|\n+", text)
     return [normalize_text(part) for part in parts if normalize_text(part)]
+
+
+def normalized_text(text: str) -> str:
+    return keyword_text(text)
 
 
 def important_query_terms(text: str) -> list[str]:
@@ -118,6 +169,76 @@ def important_query_phrases(text: str) -> list[str]:
     if len(keywords) < 2:
         return []
     return [" ".join(keywords[index : index + 2]) for index in range(len(keywords) - 1)]
+
+
+def detect_question_intent(text: str) -> str:
+    normalized = normalized_text(text)
+    if any(phrase in normalized for phrase in ("bao nhieu", "bao lau", "may", "thoi han", "muc huong")):
+        return "quantity"
+    if normalized.startswith("ai ") or " ai " in f" {normalized} " or "co tham quyen" in normalized or "co quan nao" in normalized:
+        return "authority"
+    if any(phrase in normalized for phrase in ("co phai", "hay khong", "co duoc", "co can", "co bat buoc")):
+        return "yes_no"
+    return "general"
+
+
+def count_numeric_tokens(text: str) -> int:
+    return sum(1 for token in tokenize(text) if token.isdigit())
+
+
+def procedural_noise_score(text: str) -> float:
+    normalized = normalized_text(text)
+    return float(sum(1 for phrase in PROCEDURAL_NOISE_PHRASES if phrase in normalized))
+
+
+def direct_answer_score(question: str, text: str) -> float:
+    normalized = normalized_text(text)
+    intent = detect_question_intent(question)
+    score = 0.0
+
+    if intent == "quantity":
+        score += min(count_numeric_tokens(text), 3) * 0.8
+        score += sum(0.55 for phrase in QUANTITY_ANSWER_PHRASES if phrase in normalized)
+        if "nghi hang nam" in normalized or "phep nam" in normalized:
+            score += 0.75
+        score -= procedural_noise_score(text) * 0.55
+    elif intent == "authority":
+        score += sum(0.75 for phrase in AUTHORITY_ANSWER_PHRASES if phrase in normalized)
+        if re.search(r"\b(giam doc|bo truong|chu tich|tong cuc truong|thu truong)\b", normalized):
+            score += 1.1
+        score -= procedural_noise_score(text) * 0.3
+    elif intent == "yes_no":
+        score += sum(0.6 for phrase in YES_NO_ANSWER_PHRASES if phrase in normalized)
+        if "khong" in normalized:
+            score += 0.3
+        score -= procedural_noise_score(text) * 0.2
+    else:
+        score += keyword_coverage_score(question, text)
+        score += phrase_coverage_score(question, text) * 1.5
+
+    return score
+
+
+def infer_document_title(text: str) -> str | None:
+    lines = [normalize_text(line) for line in re.split(r"[\r\n]+", text or "") if normalize_text(line)]
+    for line in lines[:8]:
+        lowered = strip_accents(line).lower()
+        if any(hint in lowered for hint in LEGAL_TITLE_HINTS) and len(line) <= 180:
+            return line
+    return None
+
+
+def infer_yes_no_prefix(question: str, sentence: str) -> str | None:
+    if detect_question_intent(question) != "yes_no":
+        return None
+    normalized = normalized_text(sentence)
+    negative_markers = ("khong duoc", "khong phai", "khong co", "khong can", "cam")
+    positive_markers = ("duoc", "phai", "co trach nhiem", "bat buoc", "co")
+    if any(marker in normalized for marker in negative_markers):
+        return "Khong."
+    if any(marker in normalized for marker in positive_markers):
+        return "Co."
+    return None
 
 
 def expand_query(text: str) -> str:

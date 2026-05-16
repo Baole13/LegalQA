@@ -11,6 +11,7 @@ from sklearn.feature_extraction.text import HashingVectorizer
 
 from src.data.load_qa import load_qa_records, parse_cids, parse_context_list
 from src.preprocessing.chunker import build_chunks_from_corpus
+from src.preprocessing.legal_metadata import CANONICAL_FIELD_ALIASES
 from src.utils.io import ensure_dir, load_json, load_jsonl, save_json, save_jsonl
 from src.utils.text import expand_query, keyword_text
 
@@ -40,6 +41,9 @@ class IndexedArtifactStore:
         self.word_vectorizer = build_word_vectorizer()
         self.char_vectorizer = build_char_vectorizer()
         self.qa_vectorizer = build_question_vectorizer()
+        self._cid_to_row_ids: dict[str, list[int]] = {}
+        for item in self.corpus_meta:
+            self._cid_to_row_ids.setdefault(str(item["cid"]), []).append(int(item["row_id"]))
 
     def fetch_chunk_texts(self, row_ids: list[int]) -> dict[int, str]:
         return {
@@ -47,6 +51,14 @@ class IndexedArtifactStore:
             for row_id in row_ids
             if 0 <= row_id < len(self.corpus_meta)
         }
+
+    def fetch_chunks_by_cids(self, cids: list[str], limit_per_cid: int = 2) -> list[dict]:
+        chunks: list[dict] = []
+        for cid in cids:
+            row_ids = self._cid_to_row_ids.get(str(cid), [])
+            for row_id in row_ids[:limit_per_cid]:
+                chunks.append({**self.corpus_meta[row_id]})
+        return chunks
 
 
 def build_word_vectorizer() -> HashingVectorizer:
@@ -119,17 +131,6 @@ def build_full_artifacts(
     if not force and artifacts_exist(active_paths):
         return load_json(active_paths.manifest_path)
 
-    for path in [
-        active_paths.chunks_meta_path,
-        active_paths.qa_meta_path,
-        active_paths.corpus_word_path,
-        active_paths.corpus_char_path,
-        active_paths.qa_path,
-        active_paths.manifest_path,
-    ]:
-        if force and path.exists():
-            path.unlink()
-
     word_vectorizer = build_word_vectorizer()
     char_vectorizer = build_char_vectorizer()
     qa_vectorizer = build_question_vectorizer()
@@ -139,9 +140,10 @@ def build_full_artifacts(
     chunks_meta: list[dict] = []
 
     parquet_file = pq.ParquetFile(corpus_path)
+    requested_columns = _resolve_requested_columns(set(parquet_file.schema.names))
     total_chunks = 0
     row_id = 0
-    for batch in parquet_file.iter_batches(columns=["cid", "text"], batch_size=2048):
+    for batch in parquet_file.iter_batches(columns=requested_columns, batch_size=2048):
         records = batch.to_pylist()
         built_chunks = build_chunks_from_corpus(records)
         if max_chunks:
@@ -162,8 +164,18 @@ def build_full_artifacts(
                 "chunk_id": chunk["chunk_id"],
                 "cid": str(chunk["cid"]),
                 "title": chunk.get("title"),
+                "doc_name": chunk.get("doc_name"),
+                "doc_number": chunk.get("doc_number"),
+                "chapter": chunk.get("chapter"),
                 "article": chunk.get("article"),
                 "clause": chunk.get("clause"),
+                "issued_date": chunk.get("issued_date"),
+                "effective_date": chunk.get("effective_date"),
+                "expiry_date": chunk.get("expiry_date"),
+                "validity_status": chunk.get("validity_status"),
+                "source_path": chunk.get("source_path"),
+                "source_type": chunk.get("source_type"),
+                "chunk_level": chunk.get("chunk_level", "article"),
                 "token_len": int(chunk.get("token_len", 0)),
                 "text": chunk["text"],
             }
@@ -210,3 +222,17 @@ def build_full_artifacts(
     }
     save_json(active_paths.manifest_path, manifest)
     return manifest
+
+
+def _resolve_requested_columns(available_columns: set[str]) -> list[str]:
+    requested: list[str] = []
+    for aliases in CANONICAL_FIELD_ALIASES.values():
+        for alias in aliases:
+            if alias in available_columns:
+                requested.append(alias)
+                break
+    if "cid" not in requested:
+        requested.append("cid")
+    if "text" not in requested:
+        requested.append("text")
+    return requested

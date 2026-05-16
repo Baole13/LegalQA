@@ -14,11 +14,23 @@ def build_hard_negatives(
 
     for pair in aligned_pairs:
         candidates = retrieval_lookup.get(pair["query"], [])
-        negatives = [
-            item
-            for item in candidates
-            if item["chunk_id"] != pair["positive_chunk_id"]
-        ][:negatives_per_query]
+        negatives = []
+        seen_negative_keys: set[tuple[str, str]] = set()
+        positive_cid = str(pair.get("positive_cid", ""))
+
+        for item in candidates:
+            candidate_key = (str(item.get("cid")), str(item.get("chunk_id")))
+            if item["chunk_id"] == pair["positive_chunk_id"]:
+                continue
+            if str(item.get("cid")) == positive_cid:
+                continue
+            if candidate_key in seen_negative_keys:
+                continue
+            seen_negative_keys.add(candidate_key)
+            negatives.append(item)
+            if len(negatives) >= negatives_per_query:
+                break
+
         if not negatives:
             continue
 
@@ -27,6 +39,8 @@ def build_hard_negatives(
                 "query": pair["query"],
                 "positive": pair["positive_text"],
                 "negatives": [item["text"] for item in negatives],
+                "negative_chunk_ids": [item["chunk_id"] for item in negatives],
+                "negative_cids": [item["cid"] for item in negatives],
             }
         )
 
@@ -47,6 +61,8 @@ def build_hard_negatives(
                     "label": 0,
                     "negative_chunk_id": item["chunk_id"],
                     "negative_cid": item["cid"],
+                    "negative_sources": item.get("sources", []),
+                    "negative_hybrid_score": item.get("hybrid_score", 0.0),
                 }
             )
 
