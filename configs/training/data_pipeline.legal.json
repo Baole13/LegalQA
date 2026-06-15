@@ -1,0 +1,23 @@
+{
+  "corpus_path": "data/corpus.parquet",
+  "qa_path": "data/train.parquet",
+  "hierarchical_chunking": {
+    "unit_priority": ["article", "clause"],
+    "max_chars": 1600,
+    "overlap_chars": 120
+  },
+  "required_metadata": [
+    "doc_name",
+    "doc_number",
+    "chapter",
+    "article",
+    "clause",
+    "issued_date",
+    "effective_date",
+    "validity_status"
+  ],
+  "normalization": {
+    "clean_ocr_noise": true,
+    "normalize_legal_abbreviations": true
+  }
+}

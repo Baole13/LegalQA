@@ -1,6 +1,8 @@
 {
   "use_llm_reasoning": true,
   "llm_config_path": "configs/serving/llm.qwen.json",
+  "llm_adapter_path": "models/qwen2.5-7b-legalqa-qlora",
   "reranker_model_path": "models/reranker-best",
-  "retriever_model_path": "models/retriever-best"
+  "retriever_model_path": "models/retriever-best",
+  "retriever_config_path": "configs/serving/retrieval.hybrid.json"
 }

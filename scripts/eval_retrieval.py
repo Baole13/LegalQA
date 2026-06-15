@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import scripts._bootstrap as _bootstrap
+
 from src.evaluation.retrieval_eval import evaluate_retrieval
 from src.qa.pipeline import LegalQAPipeline
 

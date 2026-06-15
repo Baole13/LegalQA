@@ -1,0 +1,8 @@
+{
+  "source_path": "data/raw/thangvip/train.parquet",
+  "train_ratio": 0.9,
+  "val_ratio": 0.05,
+  "random_seed": 42,
+  "reasoning_ratio": 1.0,
+  "max_samples": 0
+}

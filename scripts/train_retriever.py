@@ -3,6 +3,7 @@ from __future__ import annotations
 import math
 from pathlib import Path
 
+import _bootstrap
 from src.training.data import load_json_config, load_training_records
 
 

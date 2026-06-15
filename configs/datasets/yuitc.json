@@ -1,0 +1,7 @@
+{
+  "source_path": "data/raw/yuitc/train.parquet",
+  "output_dir": "data/aligned",
+  "negatives_per_query": 3,
+  "random_seed": 42,
+  "max_samples": 0
+}

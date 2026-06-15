@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import scripts._bootstrap as _bootstrap
+
 from src.indexing.artifacts import build_full_artifacts
 
 

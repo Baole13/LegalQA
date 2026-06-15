@@ -1,0 +1,87 @@
+{
+  "objective": "Compare RAG, reranking, QA-memory, SFT and RAFT variants for Vietnamese LegalQA research.",
+  "datasets": {
+    "retrieval_eval": "data/raw/yuitc/test.parquet",
+    "rag_corpus": "data/raw/yuitc/corpus.parquet",
+    "sft_style": "data/processed/thangvip_legalqa/train.jsonl",
+    "raft_grounding": "data/aligned/raft_sft.jsonl"
+  },
+  "retrieval_metrics": [
+    "gold_coverage_in_index",
+    "recall@1",
+    "recall@5",
+    "recall@10",
+    "recall@20",
+    "mrr",
+    "conditional_mrr"
+  ],
+  "answer_metrics": [
+    "faithfulness_score",
+    "citation_correctness",
+    "directness_score",
+    "refusal_quality",
+    "reasoning_score"
+  ],
+  "top_k_evidence": [
+    3,
+    5,
+    8
+  ],
+  "experiments": [
+    {
+      "name": "baseline_extractive",
+      "retrieval": "hybrid",
+      "qa_memory": true,
+      "reranker": "heuristic",
+      "generator": "extractive"
+    },
+    {
+      "name": "rag_prompt_only_qwen",
+      "retrieval": "hybrid",
+      "qa_memory": true,
+      "reranker": "heuristic",
+      "generator": "qwen_prompt_only"
+    },
+    {
+      "name": "rag_sft_thangvip",
+      "retrieval": "hybrid",
+      "qa_memory": true,
+      "reranker": "heuristic",
+      "generator": "qwen_sft_thangvip"
+    },
+    {
+      "name": "rag_raft_yuitc",
+      "retrieval": "hybrid",
+      "qa_memory": true,
+      "reranker": "heuristic",
+      "generator": "qwen_raft_yuitc"
+    },
+    {
+      "name": "rag_sft_then_raft",
+      "retrieval": "hybrid",
+      "qa_memory": true,
+      "reranker": "heuristic",
+      "generator": "qwen_sft_then_raft"
+    },
+    {
+      "name": "no_qa_memory",
+      "retrieval": "hybrid",
+      "qa_memory": false,
+      "reranker": "heuristic",
+      "generator": "extractive"
+    },
+    {
+      "name": "model_reranker",
+      "retrieval": "hybrid",
+      "qa_memory": true,
+      "reranker": "cross_encoder",
+      "generator": "extractive"
+    }
+  ],
+  "defaults": {
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "training": "QLoRA",
+    "max_seq_length": 4096,
+    "hardware": "RunPod 1 GPU"
+  }
+}
