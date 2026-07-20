@@ -18,6 +18,8 @@ from src.utils.text import (
     tokenize,
 )
 
+LEGAL_RERANK_INTENTS = {"limitation_period", "penalty_amount", "condition", "applicability", "legal_effect"}
+
 
 class HeuristicReranker:
     """
@@ -54,14 +56,14 @@ class HeuristicReranker:
             passage_tokens = tokenize(text)
             overlap = len(query_tokens.intersection(passage_tokens))
             density = overlap / max(len(set(passage_tokens)), 1)
-            legal_boost = 0.15 if candidate.get("article") else 0.0
+            legal_boost = _metadata_boost(query, candidate)
             coverage = keyword_coverage_score(query, text)
             phrase_coverage = phrase_coverage_score(query, text)
             exact_keyword_bonus = sum(0.2 for keyword in query_keywords if keyword in lowered)
             exact_phrase_bonus = sum(0.8 for phrase in query_phrases if phrase in lowered)
             direct_bonus = direct_answer_score(query, text)
             procedural_penalty = procedural_noise_score(text)
-            intent_weight = 1.8 if query_intent in {"quantity", "authority", "yes_no"} else 1.0
+            intent_weight = 1.8 if query_intent in {"quantity", "authority", "yes_no"} | LEGAL_RERANK_INTENTS else 1.0
             score = (
                 float(candidate.get("hybrid_score", 0.0))
                 + overlap
@@ -88,3 +90,20 @@ class HeuristicReranker:
 
         reranked.sort(key=lambda item: item["rerank_score"], reverse=True)
         return reranked[:top_k]
+
+def _metadata_boost(query: str, candidate: dict) -> float:
+    boost = 0.15 if candidate.get("article") else 0.0
+    query_tokens = set(tokenize(query))
+    metadata_text = " ".join(
+        str(candidate.get(key) or "")
+        for key in ("doc_name", "doc_number", "title", "article", "clause")
+    )
+    metadata_tokens = set(tokenize(metadata_text))
+    if query_tokens and metadata_tokens:
+        boost += min(len(query_tokens.intersection(metadata_tokens)) * 0.25, 1.0)
+    if candidate.get("doc_name") or candidate.get("title"):
+        boost += 0.1
+    if candidate.get("clause"):
+        boost += 0.1
+    return boost
+

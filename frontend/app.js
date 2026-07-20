@@ -1,23 +1,15 @@
 const questionInput = document.getElementById("question");
-const askBtn = document.getElementById("ask-btn");
-const debugBtn = document.getElementById("debug-btn");
-const threadEl = document.getElementById("thread");
-const debugEl = document.getElementById("debug");
-const requestStateEl = document.getElementById("request-state");
-const confidenceBadgeEl = document.getElementById("confidence-badge");
-const generatorBadgeEl = document.getElementById("generator-badge");
-const healthStatusEl = document.getElementById("health-status");
-const healthModeEl = document.getElementById("health-mode");
-const healthChunksEl = document.getElementById("health-chunks");
-const healthRetrieverEl = document.getElementById("health-retriever");
-const healthRerankerEl = document.getElementById("health-reranker");
-const exampleButtons = document.querySelectorAll("[data-question]");
-const detailModalEl = document.getElementById("detail-modal");
-const detailBackdropEl = document.getElementById("detail-backdrop");
-const detailCloseEl = document.getElementById("detail-close");
-const detailTitleEl = document.getElementById("detail-title");
-const detailMetaEl = document.getElementById("detail-meta");
-const detailBodyEl = document.getElementById("detail-body");
+const askButton = document.getElementById("ask-btn");
+const threadElement = document.getElementById("thread");
+const requestStateElement = document.getElementById("request-state");
+const healthStatusElement = document.getElementById("health-status");
+const healthLabelElement = document.getElementById("health-label");
+const detailModalElement = document.getElementById("detail-modal");
+const detailBackdropElement = document.getElementById("detail-backdrop");
+const detailCloseElement = document.getElementById("detail-close");
+const detailTitleElement = document.getElementById("detail-title");
+const detailMetaElement = document.getElementById("detail-meta");
+const detailBodyElement = document.getElementById("detail-body");
 
 let lastResponse = null;
 
@@ -28,12 +20,12 @@ async function postJSON(url, body) {
     body: JSON.stringify(body),
   });
   if (!response.ok) {
-    let detail = `Request failed: ${response.status}`;
+    let detail = `Yêu cầu thất bại (${response.status}).`;
     try {
       const payload = await response.json();
       if (payload?.detail) detail = payload.detail;
     } catch (_error) {
-      // ignore
+      // Phản hồi lỗi không phải JSON.
     }
     throw new Error(detail);
   }
@@ -42,7 +34,7 @@ async function postJSON(url, body) {
 
 async function getJSON(url) {
   const response = await fetch(url);
-  if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+  if (!response.ok) throw new Error(`Không thể kết nối (${response.status}).`);
   return response.json();
 }
 
@@ -59,83 +51,51 @@ function escapeMultiline(value) {
   return escapeHTML(value).replaceAll("\n", "<br>");
 }
 
-function numberOrDash(value) {
-  if (value === null || value === undefined || value === "") return "-";
-  if (typeof value === "number") return value.toFixed(3).replace(/\.000$/, "");
-  return value;
-}
-
 function setBusyState(isBusy, label) {
-  askBtn.disabled = isBusy;
-  debugBtn.disabled = isBusy;
-  requestStateEl.textContent = label;
+  askButton.disabled = isBusy;
+  questionInput.disabled = isBusy;
+  requestStateElement.textContent = label;
 }
 
 function appendMessage(role, contentHTML, title) {
   const article = document.createElement("article");
   article.className = `message ${role}`;
   article.innerHTML = `
-    <div class="avatar">${role === "assistant" ? "LQ" : "U"}</div>
-    <div class="bubble ${role === "assistant" ? "assistant-bubble" : "user-bubble"}">
-      <p class="message-title">${escapeHTML(title)}</p>
+    ${role === "assistant" ? '<div class="avatar" aria-hidden="true">LQ</div>' : ""}
+    <div class="message-body">
+      <p class="message-author">${escapeHTML(title)}</p>
       <div class="message-content">${contentHTML}</div>
     </div>
   `;
-  threadEl.appendChild(article);
-  threadEl.scrollTop = threadEl.scrollHeight;
+  threadElement.appendChild(article);
   article.scrollIntoView({ behavior: "smooth", block: "end" });
-}
-
-function splitSections(answer) {
-  const sections = {
-    "Ket luan": "",
-    "Can cu phap ly": "",
-    "Trich dan": "",
-    "Luu y ap dung": "",
-  };
-  let current = null;
-  for (const line of String(answer || "").split("\n")) {
-    const trimmed = line.trim();
-    if (sections[trimmed.replace(":", "")] !== undefined && trimmed.endsWith(":")) {
-      current = trimmed.replace(":", "");
-      continue;
-    }
-    if (current) sections[current] += `${line}\n`;
-  }
-  return sections;
-}
-
-function renderSectionBody(text) {
-  const lines = String(text || "")
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
-  if (!lines.length) return "<p>Khong co du lieu.</p>";
-  const listLike = lines.every((line) => line.startsWith("-"));
-  if (listLike) {
-    return `<ul>${lines.map((line) => `<li>${escapeHTML(line.replace(/^-+\s*/, ""))}</li>`).join("")}</ul>`;
-  }
-  return `<p>${escapeMultiline(lines.join("\n"))}</p>`;
+  return article;
 }
 
 function citationMeta(item) {
   const parts = [];
   if (item.title) parts.push(item.title);
-  if (item.article) parts.push(`Dieu ${item.article}`);
-  if (item.clause) parts.push(`Khoan ${item.clause}`);
-  return parts.join(" | ") || "Can cu phap ly trong corpus";
+  if (item.article) parts.push(`Điều ${item.article}`);
+  if (item.clause) parts.push(`Khoản ${item.clause}`);
+  return parts.join(" · ") || "Căn cứ pháp lý trong kho dữ liệu";
 }
 
-function renderCitationList(citations) {
-  if (!citations?.length) return "<p>Khong co can cu phap ly duoc hien thi.</p>";
+function renderList(items) {
+  const values = (items || []).map((item) => String(item || "").trim()).filter(Boolean);
+  if (!values.length) return "";
+  return `<ul>${values.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
+}
+
+function renderCitations(citations) {
+  if (!citations?.length) return "<p>Chưa tìm thấy căn cứ pháp lý đủ rõ để hiển thị.</p>";
   return `
     <div class="citation-list">
       ${citations
         .map(
           (item, index) => `
-            <button class="citation-link" type="button" data-detail-kind="citation" data-detail-index="${index}">
-              <strong>${escapeHTML(item.label || citationMeta(item))}</strong>
-              <span>${escapeHTML(item.article || item.clause ? "Bam de xem chi tiet dieu khoan." : "Bam de xem doan can cu.")}</span>
+            <button class="citation-button" type="button" data-citation-index="${index}">
+              <span>${escapeHTML(item.label || citationMeta(item))}</span>
+              <span class="citation-arrow" aria-hidden="true">›</span>
             </button>
           `
         )
@@ -144,17 +104,20 @@ function renderCitationList(citations) {
   `;
 }
 
-function renderQuoteList(quotes) {
-  if (!quotes?.length) return "<p>Khong co trich dan du manh de hien thi.</p>";
+function renderEvidence(items) {
+  if (!items?.length) return "<p>Không có dữ liệu truy xuất.</p>";
   return `
-    <div class="quote-list">
-      ${quotes
+    <div class="evidence-list">
+      ${items
         .map(
           (item, index) => `
-            <button class="quote-card" type="button" data-detail-kind="quote" data-detail-index="${index}">
-              <strong>${escapeHTML(item.label || citationMeta(item))}</strong>
-              <span>"${escapeHTML(item.text || "")}"</span>
-            </button>
+            <article class="evidence-item">
+              <header>
+                <strong>Kết quả ${index + 1}${item.cid ? ` · CID ${escapeHTML(item.cid)}` : ""}</strong>
+                <span>Điểm: ${escapeHTML(item.rerank_score ?? item.hybrid_score ?? "-")}</span>
+              </header>
+              <p>${escapeHTML(item.text || "Không có nội dung.")}</p>
+            </article>
           `
         )
         .join("")}
@@ -162,123 +125,91 @@ function renderQuoteList(quotes) {
   `;
 }
 
-function renderSimpleList(items, emptyLabel) {
-  const values = (items || []).map((item) => String(item || "").trim()).filter(Boolean);
-  if (!values.length) return `<p>${escapeHTML(emptyLabel)}</p>`;
-  return `<ul>${values.map((item) => `<li>${escapeHTML(item)}</li>`).join("")}</ul>`;
+function confidenceLabel(value) {
+  const labels = { low: "thấp", medium: "trung bình", high: "cao" };
+  return labels[String(value || "").toLowerCase()] || value || "chưa xác định";
 }
 
-function renderAssistantAnswer(data) {
-  const sourcePills = (data.citations || [])
-    .slice(0, 3)
-    .map((item) => `<span class="source-pill">${escapeHTML(item.label || citationMeta(item))}</span>`)
-    .join("");
-
-  const llmDebug = data.llm_debug || {};
-  const llmStatus = llmDebug.status || (data.generator_mode === "qwen" ? "reasoned" : "fallback");
-
+function renderAnswer(data) {
+  const missingInfo = (data.missing_info || []).filter((item) => String(item || "").trim());
+  const reasoning = String(data.reasoning || "").trim();
   return `
-    <div class="answer-sections">
-      <section class="answer-section">
-        <h4>Trang thai reasoning</h4>
-        <p>${escapeHTML(data.generator_mode === "qwen" ? `Qwen LLM reasoning (${llmStatus})` : `Fallback extractive (${llmStatus})`)}</p>
+    <div class="answer">
+      <div class="answer-meta">
+        <span class="meta-badge">Độ tin cậy: ${escapeHTML(confidenceLabel(data.confidence))}</span>
+      </div>
+      <section class="answer-block">
+        <h3>Trả lời</h3>
+        <p>${escapeMultiline(data.answer || "Tôi không biết dựa trên các căn cứ hiện có.")}</p>
       </section>
-      <section class="answer-section">
-        <h4>Tra loi</h4>
-        <p>${escapeMultiline(data.answer || "Toi khong biet.")}</p>
+      <section class="answer-block">
+        <h3>Căn cứ pháp lý</h3>
+        ${data.citations?.length ? renderCitations(data.citations) : renderList(data.legal_basis || []) || "<p>Chưa tìm thấy căn cứ pháp lý đủ rõ để hiển thị.<\/p>"}
       </section>
-      <section class="answer-section">
-        <h4>Can cu phap ly</h4>
-        ${renderSimpleList(data.legal_basis || [], "Khong co can cu phap ly duoc hien thi.")}
-        ${renderCitationList(data.citations || [])}
-      </section>
-      <section class="answer-section">
-        <h4>Lap luan ngan</h4>
-        <p>${escapeMultiline(data.reasoning || "Khong co lap luan bo sung.")}</p>
-      </section>
-      <section class="answer-section">
-        <h4>Trich dan</h4>
-        ${renderQuoteList(data.quotes || [])}
-      </section>
-      <section class="answer-section">
-        <h4>Thong tin con thieu</h4>
-        ${renderSimpleList(data.missing_info || [], "Khong co them thong tin can bo sung.")}
-      </section>
-      <div class="source-strip">${sourcePills || '<span class="source-pill">Khong co citation.</span>'}</div>
+      ${reasoning ? `<section class="answer-block"><h3>Giải thích ngắn</h3><p>${escapeMultiline(reasoning)}</p></section>` : ""}
+      ${missingInfo.length ? `<section class="answer-block"><h3>Thông tin còn thiếu</h3>${renderList(missingInfo)}</section>` : ""}
+      <details class="technical-details">
+        <summary class="technical-summary">Chi tiết kỹ thuật</summary>
+        ${renderEvidence(data.retrieval || [])}
+      </details>
     </div>
   `;
 }
 
-function renderDebug(data) {
-  if (!data?.length) return "Chua co du lieu.";
-  return data
-    .map(
-      (item) => `
-        <div class="card">
-          <div class="card-header">
-            <strong>${escapeHTML(item.chunk_id || "Result")}</strong>
-            <span class="meta-pill">${escapeHTML(item.question_intent || "general")}</span>
-          </div>
-          <p>${escapeHTML(item.text || "")}</p>
-          <div class="meta-row">
-            <span class="meta-pill">CID: ${escapeHTML(item.cid || "?")}</span>
-            <span class="meta-pill">Hybrid: ${escapeHTML(numberOrDash(item.hybrid_score))}</span>
-            <span class="meta-pill">Rerank: ${escapeHTML(numberOrDash(item.rerank_score))}</span>
-            <span class="meta-pill">Direct: ${escapeHTML(numberOrDash(item.direct_answer_score))}</span>
-            <span class="meta-pill">Noise: ${escapeHTML(numberOrDash(item.procedural_noise))}</span>
-          </div>
-        </div>
-      `
-    )
-    .join("");
-}
-
-function openDetail(kind, index) {
-  if (!lastResponse) return;
-  const source = kind === "quote" ? lastResponse.quotes || [] : lastResponse.citations || [];
-  const item = source[index];
+function openCitation(index) {
+  const item = lastResponse?.citations?.[index];
   if (!item) return;
-
-  detailTitleEl.textContent = item.label || citationMeta(item);
-  detailMetaEl.textContent = [
+  detailTitleElement.textContent = item.label || citationMeta(item);
+  detailMetaElement.textContent = [
     item.title || null,
-    item.article ? `Dieu ${item.article}` : null,
-    item.clause ? `Khoan ${item.clause}` : null,
+    item.article ? `Điều ${item.article}` : null,
+    item.clause ? `Khoản ${item.clause}` : null,
   ]
     .filter(Boolean)
-    .join(" | ") || "Can cu phap ly trong corpus";
-  detailBodyEl.textContent = item.detail_text || item.text || "Khong co noi dung chi tiet.";
-  detailModalEl.classList.remove("hidden");
-  detailModalEl.setAttribute("aria-hidden", "false");
+    .join(" · ") || "Căn cứ pháp lý trong kho dữ liệu";
+  const evidence = [...(lastResponse?.evidence || []), ...(lastResponse?.retrieval || [])].find(
+    (candidate) => candidate.chunk_id === item.chunk_id || String(candidate.cid) === String(item.cid)
+  );
+  detailBodyElement.textContent = item.detail_text || item.text || evidence?.text || "Không có nội dung chi tiết.";
+  detailModalElement.classList.remove("hidden");
+  detailModalElement.setAttribute("aria-hidden", "false");
+  detailCloseElement.focus();
 }
 
-function closeDetail() {
-  detailModalEl.classList.add("hidden");
-  detailModalEl.setAttribute("aria-hidden", "true");
+function closeCitation() {
+  detailModalElement.classList.add("hidden");
+  detailModalElement.setAttribute("aria-hidden", "true");
 }
 
 async function loadHealth() {
   try {
-    const data = await getJSON("/health");
-    healthStatusEl.textContent = (data.status || "unknown").toUpperCase();
-    healthModeEl.textContent = `${data.llm_loaded ? "LLM da nap" : "LLM chua nap"} | QA memory an khoi can cu cuoi`;
-    healthChunksEl.textContent = data.chunks ?? "-";
-    healthRetrieverEl.textContent = data.retriever_mode || "-";
-    healthRerankerEl.textContent = data.reranker_mode || "-";
-  } catch (error) {
-    healthStatusEl.textContent = "ERROR";
-    healthModeEl.textContent = error.message;
+    await getJSON("/health");
+    healthStatusElement.classList.add("is-online");
+    healthStatusElement.classList.remove("is-error");
+    healthLabelElement.textContent = "Đã kết nối";
+  } catch (_error) {
+    healthStatusElement.classList.add("is-error");
+    healthStatusElement.classList.remove("is-online");
+    healthLabelElement.textContent = "Mất kết nối";
   }
 }
 
 async function askQuestion() {
   const question = questionInput.value.trim();
-  if (!question) return;
-  appendMessage("user", `<p>${escapeHTML(question)}</p>`, "Ban");
+  if (!question) {
+    questionInput.focus();
+    return;
+  }
+
+  appendMessage("user", `<p>${escapeHTML(question)}</p>`, "Bạn");
   questionInput.value = "";
-  setBusyState(true, "Dang xu ly");
-  appendMessage("assistant", "<p>Dang phan tich cau hoi, doi chieu can cu va chon dieu khoan phu hop...</p>", "Tro ly phap ly");
-  const placeholder = threadEl.lastElementChild;
+  questionInput.style.height = "auto";
+  setBusyState(true, "Đang xử lý câu hỏi...");
+  const placeholder = appendMessage(
+    "assistant",
+    '<div class="loading-row"><span class="spinner" aria-hidden="true"></span><span>Đang tìm và đối chiếu căn cứ pháp lý...</span></div>',
+    "Trợ lý pháp lý"
+  );
 
   try {
     const data = await postJSON("/ask", {
@@ -288,55 +219,32 @@ async function askQuestion() {
       debug_llm: true,
     });
     lastResponse = data;
-    confidenceBadgeEl.textContent = `Do tin cay: ${data.confidence || "-"}`;
-    const llmStatus = data.llm_debug?.status ? ` / ${data.llm_debug.status}` : "";
-    generatorBadgeEl.textContent = `Generator: ${data.generator_mode || "-"}${llmStatus}`;
-    placeholder.querySelector(".message-content").innerHTML = renderAssistantAnswer(data);
-    debugEl.innerHTML = renderDebug(data.retrieval || []);
+    placeholder.querySelector(".message-content").innerHTML = renderAnswer(data);
   } catch (error) {
-    confidenceBadgeEl.textContent = "Do tin cay: loi";
-    generatorBadgeEl.textContent = "Generator: -";
-    placeholder.querySelector(".message-content").innerHTML = `<p>${escapeHTML(error.message)}</p>`;
+    placeholder.querySelector(".message-content").innerHTML =
+      `<p class="error-message">${escapeHTML(error.message || "Không thể xử lý câu hỏi.")}</p>`;
   } finally {
-    setBusyState(false, "San sang");
+    setBusyState(false, "Sẵn sàng");
+    questionInput.focus();
   }
 }
 
-async function debugRetrieval() {
-  const question = questionInput.value.trim() || lastResponse?.question;
-  if (!question) return;
-  setBusyState(true, "Dang debug");
-  debugEl.innerHTML = "Dang truy xuat retrieval...";
-  try {
-    const data = await postJSON("/retrieval_debug", { question, top_k: 10 });
-    debugEl.innerHTML = renderDebug(data.results || []);
-  } catch (error) {
-    debugEl.textContent = error.message;
-  } finally {
-    setBusyState(false, "San sang");
-  }
-}
-
-askBtn.addEventListener("click", askQuestion);
-debugBtn.addEventListener("click", debugRetrieval);
+askButton.addEventListener("click", askQuestion);
 questionInput.addEventListener("keydown", (event) => {
   if ((event.ctrlKey || event.metaKey) && event.key === "Enter") askQuestion();
 });
-exampleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    questionInput.value = button.dataset.question || "";
-    questionInput.focus();
-  });
+questionInput.addEventListener("input", () => {
+  questionInput.style.height = "auto";
+  questionInput.style.height = `${Math.min(questionInput.scrollHeight, 144)}px`;
 });
-threadEl.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-detail-kind]");
-  if (!button) return;
-  openDetail(button.dataset.detailKind, Number(button.dataset.detailIndex));
+threadElement.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-citation-index]");
+  if (button) openCitation(Number(button.dataset.citationIndex));
 });
-detailCloseEl.addEventListener("click", closeDetail);
-detailBackdropEl.addEventListener("click", closeDetail);
+detailCloseElement.addEventListener("click", closeCitation);
+detailBackdropElement.addEventListener("click", closeCitation);
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeDetail();
+  if (event.key === "Escape") closeCitation();
 });
 
 loadHealth();

@@ -6,6 +6,10 @@ def test_detect_question_intent_for_common_legal_patterns():
     assert detect_question_intent("Nguoi lao dong duoc nghi bao nhieu ngay phep nam?") == "quantity"
     assert detect_question_intent("Ai co tham quyen ra quyet dinh thanh lap hoi dong?") == "authority"
     assert detect_question_intent("Co phai bao cao dinh ky hang nam khong?") == "yes_no"
+    assert detect_question_intent("Thoi hieu xu phat vi pham la bao lau?") == "limitation_period"
+    assert detect_question_intent("Muc phat doi voi hanh vi nay la bao nhieu?") == "penalty_amount"
+    assert detect_question_intent("Khi nao ban an co hieu luc phap luat?") == "legal_effect"
+    assert detect_question_intent("Dieu kien ap dung quy dinh nay la gi?") == "condition"
 
 
 def test_direct_answer_score_prefers_substantive_answer_over_procedure():
@@ -128,3 +132,10 @@ def test_generator_prefers_default_annual_leave_days_over_partial_year_formula()
     )
     assert "12 ngày" in result["answer"]
     assert "chưa đủ 12 tháng" not in result["answer"]
+
+
+def test_legal_phrase_direct_answer_score_boosts_matching_sentence():
+    question = "Thoi hieu xu phat doi voi hanh vi nay la bao lau?"
+    direct_text = "Thoi hieu xu phat vi pham hanh chinh la 01 nam theo quy dinh."
+    vague_text = "Ho so xu phat duoc giai quyet theo thu tuc cua co quan co tham quyen."
+    assert direct_answer_score(question, direct_text) > direct_answer_score(question, vague_text)

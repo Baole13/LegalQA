@@ -90,6 +90,31 @@ YES_NO_ANSWER_PHRASES = {
     "khong duoc",
     "bat buoc",
 }
+LEGAL_INTENT_PHRASES = {
+    "limitation_period": ("thoi hieu xu phat", "thoi hieu", "bao lau"),
+    "penalty_amount": ("muc phat", "phat tien", "bao nhieu tien", "so tien phat"),
+    "condition": ("dieu kien ap dung", "dieu kien", "can dap ung"),
+    "applicability": ("truong hop phai", "doi tuong ap dung", "ap dung doi voi", "khi nao phai"),
+    "legal_effect": ("hieu luc phap luat", "co hieu luc", "hieu luc khi nao"),
+}
+LEGAL_BOOST_PHRASES = {
+    "thoi hieu xu phat",
+    "hieu luc phap luat",
+    "dieu kien ap dung",
+    "truong hop phai",
+    "muc phat",
+    "tham quyen",
+}
+LEGAL_DIRECT_ANSWER_PHRASES = {
+    "thoi hieu",
+    "phat tien",
+    "muc phat",
+    "hieu luc",
+    "dieu kien",
+    "truong hop",
+    "tham quyen",
+    "doi tuong ap dung",
+}
 ANNUAL_LEAVE_MARKERS = {
     "nghi hang nam",
     "nghi phep nam",
@@ -196,9 +221,12 @@ def important_query_phrases(text: str) -> list[str]:
 
 def detect_question_intent(text: str) -> str:
     normalized = normalized_text(text)
+    for intent, phrases in LEGAL_INTENT_PHRASES.items():
+        if any(phrase in normalized for phrase in phrases):
+            return intent
     if any(phrase in normalized for phrase in ("bao nhieu", "bao lau", "may", "thoi han", "muc huong")):
         return "quantity"
-    if normalized.startswith("ai ") or " ai " in f" {normalized} " or "co tham quyen" in normalized or "co quan nao" in normalized:
+    if normalized.startswith("ai ") or " ai " in f" {normalized} " or "co tham quyen" in normalized or "tham quyen" in normalized or "co quan nao" in normalized:
         return "authority"
     if any(phrase in normalized for phrase in ("co phai", "hay khong", "co duoc", "co can", "co bat buoc")):
         return "yes_no"
@@ -219,9 +247,10 @@ def direct_answer_score(question: str, text: str) -> float:
     intent = detect_question_intent(question)
     score = 0.0
 
-    if intent == "quantity":
+    if intent in {"quantity", "limitation_period", "penalty_amount"}:
         score += min(count_numeric_tokens(text), 3) * 0.8
         score += sum(0.55 for phrase in QUANTITY_ANSWER_PHRASES if phrase in normalized)
+        score += sum(0.75 for phrase in LEGAL_DIRECT_ANSWER_PHRASES if phrase in normalized)
         if "nghi hang nam" in normalized or "phep nam" in normalized:
             score += 0.75
         if _asks_annual_leave(question) and re.search(r"\b12\s+ngay\b", normalized) and "duoc nghi" in normalized:
@@ -238,6 +267,11 @@ def direct_answer_score(question: str, text: str) -> float:
         score += sum(0.6 for phrase in YES_NO_ANSWER_PHRASES if phrase in normalized)
         if "khong" in normalized:
             score += 0.3
+        score -= procedural_noise_score(text) * 0.2
+    elif intent in {"condition", "applicability", "legal_effect"}:
+        score += keyword_coverage_score(question, text) * 1.2
+        score += phrase_coverage_score(question, text) * 2.0
+        score += sum(0.75 for phrase in LEGAL_DIRECT_ANSWER_PHRASES if phrase in normalized)
         score -= procedural_noise_score(text) * 0.2
     else:
         score += keyword_coverage_score(question, text)
@@ -278,6 +312,9 @@ def expand_query(text: str) -> str:
     for phrase, aliases in SYNONYM_PHRASES.items():
         if phrase in normalized:
             expansions.extend(aliases)
+    for phrase in LEGAL_BOOST_PHRASES:
+        if phrase in normalized:
+            expansions.extend([phrase, phrase])
     return " ".join(unique_preserve_order(expansions))
 
 

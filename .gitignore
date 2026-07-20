@@ -18,15 +18,13 @@ pytest-cache-files-*/
 .coverage.*
 htmlcov/
 
-# Jupyter
-.ipynb_checkpoints/
-
-# OS and editor files
+# OS, editors and temporary files
 .DS_Store
 Thumbs.db
 Desktop.ini
 *.tmp
 *.log
+*.pid
 
 # Local databases
 *.db
@@ -34,7 +32,7 @@ Desktop.ini
 tmp_sqlite.db
 tmp_sqlite.db-journal
 
-# Training / inference artifacts
+# Training and inference artifacts
 models/
 checkpoints/
 outputs/
@@ -52,8 +50,16 @@ data/aligned/*
 !data/aligned/.gitkeep
 data/indexes/*
 !data/indexes/.gitkeep
-data/evaluation/*
-!data/evaluation/.gitkeep
+data/evaluation/
 
-# Optional local notebooks and experiment dumps
-notebooks/.ipynb_checkpoints/
+# Generated experiment outputs; retain only canonical paper artifacts
+reports/*
+!reports/paper_draft.md
+!reports/references.bib
+!reports/paper_experiments.md
+!reports/paper_experiments.json
+!reports/sharing_guide.md
+
+# Optional notebooks and caches
+notebooks/
+.ipynb_checkpoints/

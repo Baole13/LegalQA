@@ -1,0 +1,1152 @@
+{
+  "dataset_stats": {
+    "corpus_chunks": 643469,
+    "qa_memory_records": 89261,
+    "index_created_at": "2026-05-16T09:33:28.558616+00:00",
+    "sft_total_records": 29145,
+    "sft_train_records": 26230,
+    "sft_val_records": 1457,
+    "sft_test_records": 1458,
+    "retriever_records": 89261,
+    "reranker_records": 357044,
+    "negatives_per_query": 3,
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "qlora_train_records": 26230,
+    "qlora_eval_records": 500
+  },
+  "retrieval": {
+    "variant": "full_with_cross_encoder_reranker",
+    "qa_path": "data/raw/yuitc/test.parquet",
+    "samples": 300,
+    "top_k": 20,
+    "indexed_chunks": 643469,
+    "indexed_unique_cids": 261440,
+    "gold_coverage_in_index": 1.0,
+    "questions_with_gold_in_index": 300,
+    "questions_without_gold_in_index": 0,
+    "mrr": 0.4648,
+    "conditional_mrr": 0.4648,
+    "recall@1": 0.35,
+    "conditional_recall@1": 0.35,
+    "recall@5": 0.6133,
+    "conditional_recall@5": 0.6133,
+    "recall@10": 0.6633,
+    "conditional_recall@10": 0.6633,
+    "recall@20": 0.7033,
+    "conditional_recall@20": 0.7033,
+    "reranker_mode": "cross-encoder",
+    "reranker_model_path": "models/reranker-best",
+    "main_result_note": "Main retrieval result uses the trained cross-encoder reranker; heuristic retrieval is retained as an ablation."
+  },
+  "retrieval_ablations": [
+    {
+      "variant": "bm25_only",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3421,
+      "conditional_mrr": 0.3421,
+      "recall@1": 0.25,
+      "conditional_recall@1": 0.25,
+      "recall@5": 0.45,
+      "conditional_recall@5": 0.45,
+      "recall@10": 0.5567,
+      "conditional_recall@10": 0.5567,
+      "recall@20": 0.6233,
+      "conditional_recall@20": 0.6233
+    },
+    {
+      "variant": "hybrid_no_qa_memory",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3557,
+      "conditional_mrr": 0.3557,
+      "recall@1": 0.2633,
+      "conditional_recall@1": 0.2633,
+      "recall@5": 0.48,
+      "conditional_recall@5": 0.48,
+      "recall@10": 0.56,
+      "conditional_recall@10": 0.56,
+      "recall@20": 0.62,
+      "conditional_recall@20": 0.62
+    },
+    {
+      "variant": "full_without_model_reranker",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3859,
+      "conditional_mrr": 0.3859,
+      "recall@1": 0.2933,
+      "conditional_recall@1": 0.2933,
+      "recall@5": 0.51,
+      "conditional_recall@5": 0.51,
+      "recall@10": 0.5833,
+      "conditional_recall@10": 0.5833,
+      "recall@20": 0.6533,
+      "conditional_recall@20": 0.6533,
+      "reranker_mode": "heuristic"
+    },
+    {
+      "variant": "full_with_cross_encoder_reranker",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.4648,
+      "conditional_mrr": 0.4648,
+      "recall@1": 0.35,
+      "conditional_recall@1": 0.35,
+      "recall@5": 0.6133,
+      "conditional_recall@5": 0.6133,
+      "recall@10": 0.6633,
+      "conditional_recall@10": 0.6633,
+      "recall@20": 0.7033,
+      "conditional_recall@20": 0.7033,
+      "reranker_mode": "cross-encoder",
+      "reranker_model_path": "models/reranker-best"
+    },
+    {
+      "variant": "full",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3859,
+      "conditional_mrr": 0.3859,
+      "recall@1": 0.2933,
+      "conditional_recall@1": 0.2933,
+      "recall@5": 0.51,
+      "conditional_recall@5": 0.51,
+      "recall@10": 0.5833,
+      "conditional_recall@10": 0.5833,
+      "recall@20": 0.6533,
+      "conditional_recall@20": 0.6533
+    },
+    {
+      "variant": "full_top_k_3",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 3,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3522,
+      "conditional_mrr": 0.3522,
+      "recall@1": 0.2933,
+      "conditional_recall@1": 0.2933,
+      "recall@5": 0.4267,
+      "conditional_recall@5": 0.4267,
+      "recall@10": 0.4267,
+      "conditional_recall@10": 0.4267,
+      "recall@20": 0.4267,
+      "conditional_recall@20": 0.4267
+    },
+    {
+      "variant": "full_top_k_5",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 5,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3712,
+      "conditional_mrr": 0.3712,
+      "recall@1": 0.2933,
+      "conditional_recall@1": 0.2933,
+      "recall@5": 0.51,
+      "conditional_recall@5": 0.51,
+      "recall@10": 0.51,
+      "conditional_recall@10": 0.51,
+      "recall@20": 0.51,
+      "conditional_recall@20": 0.51
+    },
+    {
+      "variant": "full_top_k_8",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 8,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3788,
+      "conditional_mrr": 0.3788,
+      "recall@1": 0.2933,
+      "conditional_recall@1": 0.2933,
+      "recall@5": 0.51,
+      "conditional_recall@5": 0.51,
+      "recall@10": 0.5633,
+      "conditional_recall@10": 0.5633,
+      "recall@20": 0.5633,
+      "conditional_recall@20": 0.5633
+    }
+  ],
+  "answer_generation": {
+    "samples": 200,
+    "exact_match": 0.0,
+    "token_f1": 0.5909,
+    "rouge_l": 0.4808,
+    "citation_presence": 0.99,
+    "faithfulness_score": 0.845,
+    "reasoning_score": 0.2098,
+    "directness_score": 0.74,
+    "citation_correctness": 0.99,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 477.7,
+    "avg_gold_length": 886.0,
+    "variant": "qwen_qlora",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": "models/qwen2.5-7b-legalqa-qlora",
+    "format_compliance": 0.001
+  },
+  "retrieved_answer_generation": {
+    "samples": 200,
+    "exact_match": 0.0,
+    "token_f1": 0.5474,
+    "rouge_l": 0.4092,
+    "citation_presence": 1.0,
+    "format_compliance": 0.002,
+    "faithfulness_score": 0.9408,
+    "reasoning_score": 0.2152,
+    "directness_score": 0.8025,
+    "citation_correctness": 1.0,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 537.88,
+    "avg_gold_length": 886.0,
+    "variant": "qwen_qlora",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": "models/qwen2.5-7b-legalqa-qlora",
+    "evidence_mode": "retrieved_context_llm",
+    "baseline_note": "LLM generation over retrieved cross-encoder reranked context.",
+    "retrieval_variant": "full_with_cross_encoder_reranker",
+    "retrieval_top_k": 5,
+    "input_fingerprint": "fe7fc086d319c89fcbf883e5db31527b75ddc6758caf89aa178bbf656d150eb4"
+  },
+  "retrieved_prompt_only_generation": {
+    "samples": 200,
+    "exact_match": 0.0,
+    "token_f1": 0.4896,
+    "rouge_l": 0.3592,
+    "citation_presence": 0.98,
+    "format_compliance": 0.001,
+    "faithfulness_score": 0.9415,
+    "reasoning_score": 0.2056,
+    "directness_score": 0.9825,
+    "citation_correctness": 0.98,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 469.0,
+    "avg_gold_length": 886.0,
+    "variant": "qwen_prompt_only",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": null,
+    "evidence_mode": "retrieved_context_llm",
+    "baseline_note": "LLM generation over retrieved cross-encoder reranked context.",
+    "prompt_style": "default",
+    "retrieval_variant": "full_with_cross_encoder_reranker",
+    "retrieval_top_k": 5,
+    "input_fingerprint": "fe7fc086d319c89fcbf883e5db31527b75ddc6758caf89aa178bbf656d150eb4"
+  },
+  "retrieved_schema_generation": {
+    "samples": 5,
+    "exact_match": 0.0,
+    "token_f1": 0.3797,
+    "rouge_l": 0.2538,
+    "citation_presence": 0.8,
+    "format_compliance": 0.0,
+    "faithfulness_score": 0.8034,
+    "reasoning_score": 0.1663,
+    "directness_score": 1.0,
+    "citation_correctness": 0.8,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 644.0,
+    "avg_gold_length": 940.6,
+    "variant": "qwen_qlora",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": "models/qwen2.5-7b-legalqa-qlora",
+    "evidence_mode": "retrieved_context_llm",
+    "baseline_note": "LLM generation over retrieved cross-encoder reranked context.",
+    "prompt_style": "schema",
+    "retrieval_variant": "full_with_cross_encoder_reranker",
+    "retrieval_top_k": 5,
+    "input_fingerprint": "31d40cf130953722e840ad7c1e972fbe3d1515f337b5957a73606adba34eb28c"
+  },
+  "generation_baselines": {
+    "status": "available",
+    "samples": 200,
+    "limit": 200,
+    "baselines": [
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.5478,
+        "rouge_l": 0.4135,
+        "citation_presence": 0.93,
+        "format_compliance": 0.986,
+        "faithfulness_score": 0.7313,
+        "reasoning_score": 0.7666,
+        "directness_score": 0.915,
+        "citation_correctness": 0.93,
+        "refusal_quality": 0.965,
+        "avg_prediction_length": 481.76,
+        "avg_gold_length": 886.0,
+        "variant": "extractive_only",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": null,
+        "adapter": null,
+        "evidence_mode": "oracle_sft_context_extractive",
+        "baseline_note": "Extractive generator over oracle/SFT context; no LLM inference."
+      },
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.4994,
+        "rouge_l": 0.3896,
+        "citation_presence": 0.99,
+        "format_compliance": 0.002,
+        "faithfulness_score": 0.8687,
+        "reasoning_score": 0.2052,
+        "directness_score": 0.995,
+        "citation_correctness": 0.99,
+        "refusal_quality": 1.0,
+        "avg_prediction_length": 369.46,
+        "avg_gold_length": 886.0,
+        "variant": "qwen_prompt_only",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": "Qwen/Qwen2.5-7B-Instruct",
+        "adapter": null,
+        "evidence_mode": "sft_prompt_context",
+        "baseline_note": "Base Qwen with the same evaluation prompt/context as the main QLoRA run, without adapter."
+      },
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.5909,
+        "rouge_l": 0.4808,
+        "citation_presence": 0.99,
+        "format_compliance": 0.001,
+        "faithfulness_score": 0.845,
+        "reasoning_score": 0.2098,
+        "directness_score": 0.74,
+        "citation_correctness": 0.99,
+        "refusal_quality": 1.0,
+        "avg_prediction_length": 477.7,
+        "avg_gold_length": 886.0,
+        "variant": "qwen_qlora",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": "Qwen/Qwen2.5-7B-Instruct",
+        "adapter": "models/qwen2.5-7b-legalqa-qlora",
+        "evidence_mode": "sft_prompt_context",
+        "baseline_note": "Base Qwen plus LegalQA QLoRA adapter."
+      },
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.4994,
+        "rouge_l": 0.3896,
+        "citation_presence": 0.99,
+        "format_compliance": 0.002,
+        "faithfulness_score": 0.8687,
+        "reasoning_score": 0.2052,
+        "directness_score": 0.995,
+        "citation_correctness": 0.99,
+        "refusal_quality": 1.0,
+        "avg_prediction_length": 369.46,
+        "avg_gold_length": 886.0,
+        "variant": "oracle_evidence_qwen",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": "Qwen/Qwen2.5-7B-Instruct",
+        "adapter": null,
+        "evidence_mode": "oracle_sft_context_llm",
+        "baseline_note": "The current SFT evaluation prompt already contains oracle/gold context; interpret this as oracle-context generation, not retrieved-context generation.",
+        "status": "not_distinct",
+        "exclude_from_main_table": true,
+        "diagnostic_note": "Current SFT evaluation prompt already contains oracle/gold context, so this row is not a distinct upper-bound baseline relative to qwen_prompt_only."
+      }
+    ]
+  },
+  "qa_memory_leakage": {
+    "eval_questions": 1458,
+    "qa_memory_questions": 89261,
+    "near_threshold": 0.9,
+    "exact_duplicates": 0,
+    "normalized_duplicates": 0,
+    "near_duplicates": 2,
+    "max_similarity": 0.9388,
+    "examples": {
+      "exact_duplicates": [],
+      "normalized_duplicates": [],
+      "near_duplicates": [
+        {
+          "question": "Theo Điều 125 Luật Thi hành án dân sự, Thủ trưởng cơ quan thi hành án dân sự phải ra quyết định thành lập Hội đồng tiêu hủy vật chứng, tài sản trong thời hạn bao lâu?",
+          "qa_memory_question": "Thủ trưởng cơ quan thi hành án dân sự phải ra quyết định thành lập Hội đồng tiêu huỷ vật chứng, tài sản trong thời hạn bao lâu?",
+          "similarity": 0.9388
+        },
+        {
+          "question": "Trong trường hợp có nhiều người được thi hành án cùng thuộc một hàng ưu tiên thanh toán, việc thanh toán tiền thi hành án sẽ được thực hiện như thế nào?",
+          "qa_memory_question": "Trường hợp có nhiều người được thi hành án thì việc thanh toán tiền thi hành án được thực hiện như thế nào?",
+          "similarity": 0.9109
+        }
+      ]
+    },
+    "eval_dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "qa_memory": "data/processed/qa_memory_v3.jsonl"
+  },
+  "human_evaluation": {
+    "status": "scored",
+    "evaluation_label": "Human Evaluation",
+    "source": "reports/human_eval_sample_75.csv",
+    "samples": 75,
+    "annotators": 2,
+    "independent": true,
+    "ai_assisted": false,
+    "calibration": "3-5 pilot examples",
+    "rubric_scale": "1-5",
+    "metric_names": [
+      "legal_correctness",
+      "grounding",
+      "citation_correctness",
+      "directness",
+      "refusal"
+    ],
+    "metrics": {
+      "legal_correctness": {
+        "n": 150,
+        "mean": 4.5133,
+        "std": 0.8543
+      },
+      "grounding": {
+        "n": 150,
+        "mean": 3.92,
+        "std": 0.7791
+      },
+      "citation_correctness": {
+        "n": 150,
+        "mean": 3.64,
+        "std": 0.48
+      },
+      "directness": {
+        "n": 150,
+        "mean": 4.4933,
+        "std": 0.8544
+      },
+      "refusal": {
+        "n": 150,
+        "mean": 4.9467,
+        "std": 0.2247
+      }
+    },
+    "per_annotator": {
+      "a1": {
+        "legal_correctness": {
+          "n": 75,
+          "mean": 4.56,
+          "std": 0.7526
+        },
+        "grounding": {
+          "n": 75,
+          "mean": 3.92,
+          "std": 0.7791
+        },
+        "citation_correctness": {
+          "n": 75,
+          "mean": 3.88,
+          "std": 0.325
+        },
+        "directness": {
+          "n": 75,
+          "mean": 4.52,
+          "std": 0.7893
+        },
+        "refusal": {
+          "n": 75,
+          "mean": 4.9467,
+          "std": 0.2247
+        }
+      },
+      "a2": {
+        "legal_correctness": {
+          "n": 75,
+          "mean": 4.4667,
+          "std": 0.9428
+        },
+        "grounding": {
+          "n": 75,
+          "mean": 3.92,
+          "std": 0.7791
+        },
+        "citation_correctness": {
+          "n": 75,
+          "mean": 3.4,
+          "std": 0.4899
+        },
+        "directness": {
+          "n": 75,
+          "mean": 4.4667,
+          "std": 0.9141
+        },
+        "refusal": {
+          "n": 75,
+          "mean": 4.9467,
+          "std": 0.2247
+        }
+      }
+    },
+    "agreement": {
+      "legal_correctness": {
+        "n": 75,
+        "mean_abs_diff": 0.0933,
+        "exact_agreement": 0.9067,
+        "within_1_agreement": 1.0
+      },
+      "grounding": {
+        "n": 75,
+        "mean_abs_diff": 0.0,
+        "exact_agreement": 1.0,
+        "within_1_agreement": 1.0
+      },
+      "citation_correctness": {
+        "n": 75,
+        "mean_abs_diff": 0.48,
+        "exact_agreement": 0.52,
+        "within_1_agreement": 1.0
+      },
+      "directness": {
+        "n": 75,
+        "mean_abs_diff": 0.0533,
+        "exact_agreement": 0.9467,
+        "within_1_agreement": 1.0
+      },
+      "refusal": {
+        "n": 75,
+        "mean_abs_diff": 0.0,
+        "exact_agreement": 1.0,
+        "within_1_agreement": 1.0
+      }
+    },
+    "score_distribution": {
+      "legal_correctness": {
+        "n": 150,
+        "score_1": 0,
+        "score_2": 9,
+        "score_3": 9,
+        "score_4": 28,
+        "score_5": 104,
+        "pass_rate_ge4": 0.88,
+        "weak_fail_rate_le3": 0.12
+      },
+      "grounding": {
+        "n": 150,
+        "score_1": 0,
+        "score_2": 8,
+        "score_3": 28,
+        "score_4": 82,
+        "score_5": 32,
+        "pass_rate_ge4": 0.76,
+        "weak_fail_rate_le3": 0.24
+      },
+      "citation_correctness": {
+        "n": 150,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 54,
+        "score_4": 96,
+        "score_5": 0,
+        "pass_rate_ge4": 0.64,
+        "weak_fail_rate_le3": 0.36
+      },
+      "directness": {
+        "n": 150,
+        "score_1": 0,
+        "score_2": 10,
+        "score_3": 6,
+        "score_4": 34,
+        "score_5": 100,
+        "pass_rate_ge4": 0.8933,
+        "weak_fail_rate_le3": 0.1067
+      },
+      "refusal": {
+        "n": 150,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 0,
+        "score_4": 8,
+        "score_5": 142,
+        "pass_rate_ge4": 1.0,
+        "weak_fail_rate_le3": 0.0
+      }
+    }
+  },
+  "end_to_end_human_evaluation": {
+    "status": "pending_annotations",
+    "evaluation_label": "End-to-End Human Evaluation",
+    "samples": 50,
+    "annotators": 2,
+    "independent": true,
+    "ai_assisted": false,
+    "calibration": "3-5 pilot examples",
+    "rubric_scale": "1-5",
+    "metric_names": [
+      "legal_correctness",
+      "grounding",
+      "citation_correctness",
+      "directness",
+      "refusal",
+      "citation_support_score"
+    ],
+    "notes": "Fill reports/end_to_end_human_eval_sample_50.tsv or pass --end-to-end-human-eval with completed annotations."
+  },
+  "retrieval_error_categories": {
+    "denominator": 300,
+    "denominator_label": "retrieval_samples",
+    "counts": {
+      "low_rank_after_top5": 27,
+      "retrieval_miss": 89
+    },
+    "rates": {
+      "low_rank_after_top5": 0.09,
+      "retrieval_miss": 0.2967
+    },
+    "examples": {
+      "retrieval_miss": {
+        "category": "retrieval_miss",
+        "question": "Thời hiệu xử phạt đối với nhà xuất bản thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước xác nhận đăng ký hoạt động là bao lâu?",
+        "gold_cids": [
+          "63171"
+        ],
+        "gold_evidence": [
+          {
+            "cid": "63171",
+            "chunk_id": "63171",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "snippet": "Điều 5. Thời hiệu xử phạt vi phạm hành chính 1. Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng thực hiện theo quy định tại khoản 1 Điều 6 của Luật Xử lý vi phạm hành chính."
+          }
+        ],
+        "gold_answer": "",
+        "retrieved_evidence": [
+          {
+            "rank": 1,
+            "cid": "14932",
+            "chunk_id": "14932:1",
+            "title": null,
+            "article": null,
+            "clause": "2",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 7.886302471160889,
+            "snippet": "2. Phạt tiền từ 30.000.000 đồng đến 50.000.000 đồng đối với một trong các hành vi sau đây: a) Xuất bản, phát hành xuất bản phẩm điện tử kèm ứng dụng kỹ thuật, công nghệ gây mất an toàn, an ninh thông tin đối với phương tiện điện tử; b) Bổ sung thông tin mà người sử dụng xuất bản phẩm điện tử không yêu cầu, trừ các thông tin được phép theo quy định của pháp luật hoặc có sự đồng ý của cơ quan quản lý nhà nước về hoạt động xuất bản; c) Can thiệp trái phép vào nội dung, hình thức của xuất bản phẩm điện tử để làm sai lệch nội dung hoặc thực hiện hành vi trái pháp luật đối với từng tên xuất bản phẩm"
+          },
+          {
+            "rank": 2,
+            "cid": "14932",
+            "chunk_id": "14932:2",
+            "title": null,
+            "article": null,
+            "clause": "3",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 7.885189533233643,
+            "snippet": "3. Phạt tiền từ 100.000.000 đồng đến 200.000.000 đồng đối với một trong các hành vi sau đây: a) Phát hành trên phương tiện điện tử xuất bản phẩm đã có quyết định đình chỉ phát hành, thu hồi, cấm lưu hành, tiêu hủy đối với từng tên xuất bản phẩm; b) Thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước có thẩm quyền xác nhận đăng ký hoạt động bằng văn bản."
+          },
+          {
+            "rank": 3,
+            "cid": "106701",
+            "chunk_id": "106701",
+            "title": null,
+            "article": null,
+            "clause": "3",
+            "sources": [
+              "bm25",
+              "char-dense",
+              "qa-cid-seed"
+            ],
+            "score": 7.681270122528076,
+            "snippet": "Vi phạm quy định về điều kiện hoạt động xuất bản điện tử và phát hành xuất bản phẩm điện tử ... 3. Phạt tiền từ 100.000.000 đồng đến 200.000.000 đồng đối với một trong các hành vi sau đây: a) Phát hành trên phương tiện điện tử xuất bản phẩm đã có quyết định đình chỉ phát hành, thu hồi, cấm lưu hành, tiêu hủy đối với từng tên xuất bản phẩm; b) Thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước có thẩm quyền xác nhận đăng ký hoạt động bằng văn bản."
+          }
+        ],
+        "prediction": "",
+        "hit_rank": null
+      },
+      "low_rank_after_top5": {
+        "category": "low_rank_after_top5",
+        "question": "Thời hạn nộp hồ sơ khai lệ phí môn bài được quy định như thế nào?",
+        "gold_cids": [
+          "74962"
+        ],
+        "gold_evidence": [
+          {
+            "cid": "74962",
+            "chunk_id": "74962",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "snippet": "\"Điều 10. Thời hạn nộp hồ sơ khai thuế của các khoản thu về đất, lệ phí môn bài, lệ phí trước bạ, tiền cấp quyền và các khoản thu khác theo pháp luật quản lý, sử dụng tài sản công Người nộp thuế thực hiện quy định về thời hạn nộp hồ sơ khai thuế theo quy định tại Điều 44 Luật Quản lý thuế. Đối với thời hạn nộp hồ sơ khai của các khoản thu về đất, lệ phí môn bài, lệ phí trước bạ, tiền cấp quyền và các khoản thu khác theo pháp luật quản lý, sử dụng tài sản công theo quy định tại khoản 5 Điều 44 Luật Quản lý thuế được thực hiện như sau: 1. Lệ phí môn bài a) Người nộp lệ phí môn bài (trừ hộ kinh d"
+          }
+        ],
+        "gold_answer": "",
+        "retrieved_evidence": [
+          {
+            "rank": 1,
+            "cid": "71612",
+            "chunk_id": "71612",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 9.368255615234375,
+            "snippet": "Khai, nộp lệ phí môn bài Việc khai, nộp lệ phí môn bài được thực hiện theo quy định tại Nghị định số 139/2016/NĐ-CP ngày 04/10/2016 của Chính phủ quy định về lệ phí môn bài, Nghị định số 22/2020/NĐ-CP ngày 24/02/2020 của Chính phủ sửa đổi, bổ sung một số điều của Nghị định số 139/2016/NĐ-CP ngày 04/10/2016 của Chính phủ quy định về lệ phí môn bài và pháp luật về quản lý thuế. 1. Khai, nộp lệ phí môn bài đối với tổ chức hoạt động sản xuất, kinh doanh hàng hóa, dịch vụ. ... b) Nộp lệ phí môn bài Thời hạn nộp lệ phí môn bài chậm nhất là ngày 30 tháng 1 hàng năm. Trường hợp tổ chức mới ra hoạt độn"
+          },
+          {
+            "rank": 2,
+            "cid": "36587",
+            "chunk_id": "36587:1.p1",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 8.90316390991211,
+            "snippet": "uất kinh doanh thì thời hạn nộp lệ phí môn bài chậm nhất là ngày cuối cùng của thời hạn nộp hồ sơ khai lệ phí môn bài theo quy định tại khoản 1 Điều 5 Nghị định số 139/2016/NĐ-CP ngày 04/10/2016 của Chính phủ quy định về lệ phí môn bài."
+          },
+          {
+            "rank": 3,
+            "cid": "474546",
+            "chunk_id": "474546",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 8.799341201782227,
+            "snippet": "Điều 5. Khai, nộp lệ phí môn bài 1. Khai lệ phí môn bài được thực hiện như sau: a) Khai lệ phí môn bài một lần khi người nộp lệ phí mới ra hoạt động kinh doanh, chậm nhất là ngày cuối cùng của tháng bắt đầu hoạt động sản xuất kinh doanh; b) Trường hợp người nộp lệ phí mới thành lập cơ sở kinh doanh nhưng chưa hoạt động sản xuất kinh doanh thì phải khai lệ phí môn bài trong thời hạn 30 ngày, kể từ ngày được cấp giấy chứng nhận đăng ký kinh doanh hoặc ngày cấp giấy chứng nhận đăng ký đầu tư và đăng ký thuế."
+          }
+        ],
+        "prediction": "",
+        "hit_rank": 6
+      }
+    }
+  },
+  "generation_error_categories": {
+    "denominator": 200,
+    "denominator_label": "generation_samples",
+    "counts": {
+      "low_format_compliance": 200,
+      "weak_lexical_match": 1,
+      "wrong_or_weak_citation_proxy": 2
+    },
+    "rates": {
+      "low_format_compliance": 1.0,
+      "weak_lexical_match": 0.005,
+      "wrong_or_weak_citation_proxy": 0.01
+    },
+    "examples": {
+      "low_format_compliance": {
+        "category": "low_format_compliance",
+        "question": "Theo Khoản 1 Điều 6 của Luật Hộ tịch, những đối tượng nào có quyền và nghĩa vụ đăng ký hộ tịch?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam, người không quốc tịch thường trú tại Việt Nam. Quy định này cũng được áp dụng đối với công dân nước ngoài thường trú tại Việt Nam, trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 6.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Dựa trên Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam; người không quốc tịch thường trú tại Việt Nam; và công dân nước ngoài thường trú tại Việt Nam (trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác).",
+        "hit_rank": null
+      },
+      "wrong_or_weak_citation_proxy": {
+        "category": "wrong_or_weak_citation_proxy",
+        "question": "Theo Khoản 1 Điều 53 Luật Hộ tịch, cơ quan nào có thẩm quyền thực hiện đăng ký các việc hộ tịch cho công dân Việt Nam cư trú ở nước ngoài?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 53 Luật Hộ tịch, Cơ quan đại diện của Việt Nam ở nước ngoài có thẩm quyền thực hiện đăng ký các việc hộ tịch theo quy định tại Điều 3 của Luật này cho công dân Việt Nam cư trú ở nước ngoài.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 53.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Cơ quan có thẩm quyền thực hiện đăng ký các việc hộ tịch cho công dân Việt Nam cư trú ở nước ngoài là Cơ quan đại diện.",
+        "hit_rank": null
+      },
+      "weak_lexical_match": {
+        "category": "weak_lexical_match",
+        "question": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch có tính chất là gì?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia. Điều này nhấn mạnh tầm quan trọng đặc biệt của hệ thống thông tin này đối với đất nước, không chỉ là một công cụ quản lý mà còn là một nguồn tài nguyên quý giá thuộc sở hữu nhà nước.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 57.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia.",
+        "hit_rank": null
+      }
+    }
+  },
+  "human_error_categories": {
+    "denominator": 75,
+    "denominator_label": "human_eval_samples",
+    "counts": {
+      "low_human_citation_correctness": 9,
+      "low_human_directness": 3,
+      "low_human_grounding": 4,
+      "low_human_legal_correctness": 2
+    },
+    "rates": {
+      "low_human_citation_correctness": 0.12,
+      "low_human_directness": 0.04,
+      "low_human_grounding": 0.0533,
+      "low_human_legal_correctness": 0.0267
+    },
+    "examples": {
+      "low_human_citation_correctness": {
+        "category": "low_human_citation_correctness",
+        "question": "Việc Nhà nước có \"chính sách, biện pháp đồng bộ\" để tạo điều kiện cho cá nhân thực hiện quyền, nghĩa vụ đăng ký hộ tịch theo Khoản 1 Điều 8 Luật Hộ tịch có ý nghĩa như thế nào?",
+        "gold_cids": "",
+        "gold_evidence": "",
+        "gold_answer": "Tra loi: Việc Nhà nước có \"chính sách, biện pháp đồng bộ\" theo Khoản 1 Điều 8 Luật Hộ tịch có ý nghĩa quan trọng trong việc đảm bảo tính toàn diện và hiệu quả của công tác hộ tịch. \"Đồng bộ\" ở đây không chỉ là ban hành các quy định pháp luật riêng lẻ mà còn bao gồm việc phối hợp các chính sách, biện pháp hành chính, tổ chức, tuyên truyền một cách thống nhất và liền mạch. Điều này nhằm mục đích tạo ra một môi trường thuận lợi nhất, loại bỏ các rào cản và đảm bảo rằng mọi cá nhân đều có thể dễ dàng tiếp cận và thực hiện đầy đủ quyền, nghĩa vụ đăng ký hộ tịch của mình mà không gặp phải vướng mắc do thiếu sự kết nối giữa các khía cạnh khác nhau của hệ thống.\nCan cu: Luật Hộ tịch của Quốc hội, số",
+        "retrieved_evidence": [],
+        "prediction": "Chính sách, biện pháp đồng bộ được đề cập tại Khoản 1 Điều 8 có ý nghĩa quan trọng trong việc đảm bảo tính hiệu quả và khả thi của công tác đăng ký hộ tịch. Nó thể hiện sự cam kết của Nhà nước không chỉ dừng lại ở việc ban hành các quy định mà còn phải xây dựng một hệ thống hỗ trợ toàn diện, bao gồm các giải pháp về thủ tục hành chính, nhân lực, cơ sở hạ tầng (như trụ sở làm việc, trang thiết bị) và công nghệ thông tin. Điều này giúp cá nhân dễ dàng tiếp cận và thực hiện đúng các quyền, nghĩa vụ liên quan đến hộ tịch, góp phần nâng cao chất lượng và độ tin cậy của hệ thống hộ tịch quốc gia.",
+        "hit_rank": ""
+      },
+      "low_human_directness": {
+        "category": "low_human_directness",
+        "question": "Giả sử một công chức có thẩm quyền đăng ký hộ tịch đã thực hiện việc đăng ký khai sinh cho chính con ruột của mình, đồng thời cung cấp thông tin sai sự thật trong hồ sơ. Dựa trên Điều 12 của Luật Hộ tịch, công chức này có thể phải đối mặt với những hậu quả pháp lý nào và giấy tờ hộ tịch được cấp có giá trị không?",
+        "gold_cids": "",
+        "gold_evidence": "",
+        "gold_answer": "Tra loi: Theo Điều 12 của Luật Hộ tịch, công chức này đã vi phạm ít nhất hai hành vi bị nghiêm cấm tại Khoản 1: Điểm h (\"Người có thẩm quyền quyết định đăng ký hộ tịch thực hiện việc đăng ký hộ tịch cho bản thân hoặc người thân thích\") và Điểm a (\"Cung cấp thông tin, tài liệu sai sự thật\").\n\nCác hậu quả pháp lý sẽ là:\n1.  **Đối với giấy tờ hộ tịch:** Theo Khoản 2 Điều 12, giấy tờ hộ tịch được cấp cho trường hợp đăng ký hộ tịch vi phạm quy định tại điểm a và h khoản 1 Điều này đều \"không có giá trị và phải thu hồi, huỷ bỏ\".\n2.  **Đối với công chức vi phạm:** Theo Khoản 3 Điều 12, công chức này sẽ bị xử lý vi phạm hành chính hoặc truy cứu trách nhiệm hình sự tùy theo tính chất, mức độ vi phạm.",
+        "retrieved_evidence": [],
+        "prediction": "Dựa trên Điều 12 của Luật Hộ tịch, công chức này sẽ phải đối mặt với các hậu quả pháp lý sau: Thứ nhất, hành vi đăng ký khai sinh cho chính con ruột của mình là vi phạm điểm h khoản 1 Điều 12 (\"Người có thẩm quyền quyết định đăng ký hộ tịch thực hiện việc đăng ký hộ tịch cho bản thân hoặc người thân thích theo quy định của Luật hôn nhân và gia đình\"). Thứ hai, việc cung cấp thông tin sai sự thật trong hồ sơ là vi phạm điểm a khoản 1 Điều 12 (\"Cung cấp thông tin, tài liệu sai sự thật\"). Ngoài ra, nếu hành vi này có tính chất, mức độ vi phạm đủ nghiêm trọng, công chức này có thể bị xử lý vi phạm hành chính hoặc truy cứu trách nhiệm hình sự theo quy định của pháp luật (khoản 3 Điều 12). Đồng thời, theo khoản 3 Điều 12, ngoài việc bị xử lý vi phạm hành chính hoặc hình sự, công chức này còn bị xử lý kỷ luật theo quy định pháp luật về cán bộ, công chức. Về giá trị của giấy tờ hộ tịch, theo kho",
+        "hit_rank": ""
+      },
+      "low_human_legal_correctness": {
+        "category": "low_human_legal_correctness",
+        "question": "Một người nộp hồ sơ đầy đủ để đăng ký nhận cha, con vào ngày thứ Hai, ngày 04 tháng 11. Công chức tư pháp - hộ tịch nhận thấy cần phải xác minh. Hỏi chậm nhất đến ngày nào công chức tư pháp - hộ tịch phải báo cáo Chủ tịch Ủy ban nhân dân cấp xã để cấp trích lục, giả sử không có ngày lễ và thứ Bảy, Chủ Nhật là ngày không làm việc?",
+        "gold_cids": "",
+        "gold_evidence": "",
+        "gold_answer": "Tra loi: Theo Khoản 2 Điều 25 của Luật Hộ tịch, thời hạn giải quyết là 03 ngày làm việc kể từ ngày nhận đủ giấy tờ. Nếu cần xác minh, thời hạn được kéo dài thêm không quá 05 ngày làm việc.Cụ thể:Ngày nộp hồ sơ: Thứ Hai, ngày 04 tháng 11.03 ngày làm việc đầu tiên:Thứ Ba, ngày 05 tháng 11Thứ Tư, ngày 06 tháng 11Thứ Năm, ngày 07 tháng 1105 ngày làm việc kéo dài thêm (do cần xác minh):Thứ Sáu, ngày 08 tháng 11(Thứ Bảy, Chủ Nhật ngày 09, 10 tháng 11 không tính là ngày làm việc)Thứ Hai, ngày 11 tháng 11Thứ Ba, ngày 12 tháng 11Thứ Tư, ngày 13 tháng 11Thứ Năm, ngày 14 tháng 11Vậy, chậm nhất đến Thứ Năm, ngày 14 tháng 11, công chức tư pháp - hộ tịch phải báo cáo Chủ tịch Ủy ban nhân dân cấp xã để cấp",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 2 Điều 25 Luật Hộ tịch, thời hạn ban đầu để công chức tư pháp - hộ tịch xem xét và cấp trích lục là 03 ngày làm việc. Tuy nhiên, trường hợp cần phải xác minh, thời hạn này được kéo dài thêm không quá 05 ngày làm việc. Nếu hồ sơ được nộp vào ngày thứ Hai, ngày 04 tháng 11, thì 03 ngày làm việc đầu tiên sẽ là: Thứ Ba (05/11), Thứ Tư (06/11), Thứ Năm (07/11). Sau khi hết 03 ngày làm việc, nếu cần xác minh, thời hạn 05 ngày làm việc bổ sung sẽ được tính tiếp. Giả sử ngày 08/11, 09/11 là thứ Sáu, Thứ Bảy, và ngày 10/11, 11/11, 12/11 là Thứ Hai, Thứ Ba, Thứ Tư của tuần tiếp theo. Như vậy, 05 ngày làm việc sau 03 ngày ban đầu sẽ kết thúc vào ngày Thứ Sáu, ngày 13",
+        "hit_rank": ""
+      },
+      "low_human_grounding": {
+        "category": "low_human_grounding",
+        "question": "Một người nộp hồ sơ đầy đủ để đăng ký nhận cha, con vào ngày thứ Hai, ngày 04 tháng 11. Công chức tư pháp - hộ tịch nhận thấy cần phải xác minh. Hỏi chậm nhất đến ngày nào công chức tư pháp - hộ tịch phải báo cáo Chủ tịch Ủy ban nhân dân cấp xã để cấp trích lục, giả sử không có ngày lễ và thứ Bảy, Chủ Nhật là ngày không làm việc?",
+        "gold_cids": "",
+        "gold_evidence": "",
+        "gold_answer": "Tra loi: Theo Khoản 2 Điều 25 của Luật Hộ tịch, thời hạn giải quyết là 03 ngày làm việc kể từ ngày nhận đủ giấy tờ. Nếu cần xác minh, thời hạn được kéo dài thêm không quá 05 ngày làm việc.Cụ thể:Ngày nộp hồ sơ: Thứ Hai, ngày 04 tháng 11.03 ngày làm việc đầu tiên:Thứ Ba, ngày 05 tháng 11Thứ Tư, ngày 06 tháng 11Thứ Năm, ngày 07 tháng 1105 ngày làm việc kéo dài thêm (do cần xác minh):Thứ Sáu, ngày 08 tháng 11(Thứ Bảy, Chủ Nhật ngày 09, 10 tháng 11 không tính là ngày làm việc)Thứ Hai, ngày 11 tháng 11Thứ Ba, ngày 12 tháng 11Thứ Tư, ngày 13 tháng 11Thứ Năm, ngày 14 tháng 11Vậy, chậm nhất đến Thứ Năm, ngày 14 tháng 11, công chức tư pháp - hộ tịch phải báo cáo Chủ tịch Ủy ban nhân dân cấp xã để cấp",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 2 Điều 25 Luật Hộ tịch, thời hạn ban đầu để công chức tư pháp - hộ tịch xem xét và cấp trích lục là 03 ngày làm việc. Tuy nhiên, trường hợp cần phải xác minh, thời hạn này được kéo dài thêm không quá 05 ngày làm việc. Nếu hồ sơ được nộp vào ngày thứ Hai, ngày 04 tháng 11, thì 03 ngày làm việc đầu tiên sẽ là: Thứ Ba (05/11), Thứ Tư (06/11), Thứ Năm (07/11). Sau khi hết 03 ngày làm việc, nếu cần xác minh, thời hạn 05 ngày làm việc bổ sung sẽ được tính tiếp. Giả sử ngày 08/11, 09/11 là thứ Sáu, Thứ Bảy, và ngày 10/11, 11/11, 12/11 là Thứ Hai, Thứ Ba, Thứ Tư của tuần tiếp theo. Như vậy, 05 ngày làm việc sau 03 ngày ban đầu sẽ kết thúc vào ngày Thứ Sáu, ngày 13",
+        "hit_rank": ""
+      }
+    }
+  },
+  "answer_error_categories": {
+    "total_scored_samples": 200,
+    "total_retrieval_samples": 300,
+    "counts": {
+      "low_format_compliance": 200,
+      "low_rank_after_top5": 27,
+      "retrieval_miss": 89,
+      "weak_lexical_match": 1,
+      "wrong_or_weak_citation_proxy": 2
+    },
+    "rates": {
+      "low_format_compliance": 0.6667,
+      "low_rank_after_top5": 0.09,
+      "retrieval_miss": 0.2967,
+      "weak_lexical_match": 0.0033,
+      "wrong_or_weak_citation_proxy": 0.0067
+    },
+    "examples": {
+      "retrieval_miss": {
+        "category": "retrieval_miss",
+        "question": "Thời hiệu xử phạt đối với nhà xuất bản thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước xác nhận đăng ký hoạt động là bao lâu?",
+        "gold_cids": [
+          "63171"
+        ],
+        "gold_evidence": [
+          {
+            "cid": "63171",
+            "chunk_id": "63171",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "snippet": "Điều 5. Thời hiệu xử phạt vi phạm hành chính 1. Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng thực hiện theo quy định tại khoản 1 Điều 6 của Luật Xử lý vi phạm hành chính."
+          }
+        ],
+        "gold_answer": "",
+        "retrieved_evidence": [
+          {
+            "rank": 1,
+            "cid": "14932",
+            "chunk_id": "14932:1",
+            "title": null,
+            "article": null,
+            "clause": "2",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 7.886302471160889,
+            "snippet": "2. Phạt tiền từ 30.000.000 đồng đến 50.000.000 đồng đối với một trong các hành vi sau đây: a) Xuất bản, phát hành xuất bản phẩm điện tử kèm ứng dụng kỹ thuật, công nghệ gây mất an toàn, an ninh thông tin đối với phương tiện điện tử; b) Bổ sung thông tin mà người sử dụng xuất bản phẩm điện tử không yêu cầu, trừ các thông tin được phép theo quy định của pháp luật hoặc có sự đồng ý của cơ quan quản lý nhà nước về hoạt động xuất bản; c) Can thiệp trái phép vào nội dung, hình thức của xuất bản phẩm điện tử để làm sai lệch nội dung hoặc thực hiện hành vi trái pháp luật đối với từng tên xuất bản phẩm"
+          },
+          {
+            "rank": 2,
+            "cid": "14932",
+            "chunk_id": "14932:2",
+            "title": null,
+            "article": null,
+            "clause": "3",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 7.885189533233643,
+            "snippet": "3. Phạt tiền từ 100.000.000 đồng đến 200.000.000 đồng đối với một trong các hành vi sau đây: a) Phát hành trên phương tiện điện tử xuất bản phẩm đã có quyết định đình chỉ phát hành, thu hồi, cấm lưu hành, tiêu hủy đối với từng tên xuất bản phẩm; b) Thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước có thẩm quyền xác nhận đăng ký hoạt động bằng văn bản."
+          },
+          {
+            "rank": 3,
+            "cid": "106701",
+            "chunk_id": "106701",
+            "title": null,
+            "article": null,
+            "clause": "3",
+            "sources": [
+              "bm25",
+              "char-dense",
+              "qa-cid-seed"
+            ],
+            "score": 7.681270122528076,
+            "snippet": "Vi phạm quy định về điều kiện hoạt động xuất bản điện tử và phát hành xuất bản phẩm điện tử ... 3. Phạt tiền từ 100.000.000 đồng đến 200.000.000 đồng đối với một trong các hành vi sau đây: a) Phát hành trên phương tiện điện tử xuất bản phẩm đã có quyết định đình chỉ phát hành, thu hồi, cấm lưu hành, tiêu hủy đối với từng tên xuất bản phẩm; b) Thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước có thẩm quyền xác nhận đăng ký hoạt động bằng văn bản."
+          }
+        ],
+        "prediction": "",
+        "hit_rank": null
+      },
+      "low_rank_after_top5": {
+        "category": "low_rank_after_top5",
+        "question": "Thời hạn nộp hồ sơ khai lệ phí môn bài được quy định như thế nào?",
+        "gold_cids": [
+          "74962"
+        ],
+        "gold_evidence": [
+          {
+            "cid": "74962",
+            "chunk_id": "74962",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "snippet": "\"Điều 10. Thời hạn nộp hồ sơ khai thuế của các khoản thu về đất, lệ phí môn bài, lệ phí trước bạ, tiền cấp quyền và các khoản thu khác theo pháp luật quản lý, sử dụng tài sản công Người nộp thuế thực hiện quy định về thời hạn nộp hồ sơ khai thuế theo quy định tại Điều 44 Luật Quản lý thuế. Đối với thời hạn nộp hồ sơ khai của các khoản thu về đất, lệ phí môn bài, lệ phí trước bạ, tiền cấp quyền và các khoản thu khác theo pháp luật quản lý, sử dụng tài sản công theo quy định tại khoản 5 Điều 44 Luật Quản lý thuế được thực hiện như sau: 1. Lệ phí môn bài a) Người nộp lệ phí môn bài (trừ hộ kinh d"
+          }
+        ],
+        "gold_answer": "",
+        "retrieved_evidence": [
+          {
+            "rank": 1,
+            "cid": "71612",
+            "chunk_id": "71612",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 9.368255615234375,
+            "snippet": "Khai, nộp lệ phí môn bài Việc khai, nộp lệ phí môn bài được thực hiện theo quy định tại Nghị định số 139/2016/NĐ-CP ngày 04/10/2016 của Chính phủ quy định về lệ phí môn bài, Nghị định số 22/2020/NĐ-CP ngày 24/02/2020 của Chính phủ sửa đổi, bổ sung một số điều của Nghị định số 139/2016/NĐ-CP ngày 04/10/2016 của Chính phủ quy định về lệ phí môn bài và pháp luật về quản lý thuế. 1. Khai, nộp lệ phí môn bài đối với tổ chức hoạt động sản xuất, kinh doanh hàng hóa, dịch vụ. ... b) Nộp lệ phí môn bài Thời hạn nộp lệ phí môn bài chậm nhất là ngày 30 tháng 1 hàng năm. Trường hợp tổ chức mới ra hoạt độn"
+          },
+          {
+            "rank": 2,
+            "cid": "36587",
+            "chunk_id": "36587:1.p1",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 8.90316390991211,
+            "snippet": "uất kinh doanh thì thời hạn nộp lệ phí môn bài chậm nhất là ngày cuối cùng của thời hạn nộp hồ sơ khai lệ phí môn bài theo quy định tại khoản 1 Điều 5 Nghị định số 139/2016/NĐ-CP ngày 04/10/2016 của Chính phủ quy định về lệ phí môn bài."
+          },
+          {
+            "rank": 3,
+            "cid": "474546",
+            "chunk_id": "474546",
+            "title": null,
+            "article": null,
+            "clause": "1",
+            "sources": [
+              "bm25",
+              "char-dense"
+            ],
+            "score": 8.799341201782227,
+            "snippet": "Điều 5. Khai, nộp lệ phí môn bài 1. Khai lệ phí môn bài được thực hiện như sau: a) Khai lệ phí môn bài một lần khi người nộp lệ phí mới ra hoạt động kinh doanh, chậm nhất là ngày cuối cùng của tháng bắt đầu hoạt động sản xuất kinh doanh; b) Trường hợp người nộp lệ phí mới thành lập cơ sở kinh doanh nhưng chưa hoạt động sản xuất kinh doanh thì phải khai lệ phí môn bài trong thời hạn 30 ngày, kể từ ngày được cấp giấy chứng nhận đăng ký kinh doanh hoặc ngày cấp giấy chứng nhận đăng ký đầu tư và đăng ký thuế."
+          }
+        ],
+        "prediction": "",
+        "hit_rank": 6
+      },
+      "low_format_compliance": {
+        "category": "low_format_compliance",
+        "question": "Theo Khoản 1 Điều 6 của Luật Hộ tịch, những đối tượng nào có quyền và nghĩa vụ đăng ký hộ tịch?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam, người không quốc tịch thường trú tại Việt Nam. Quy định này cũng được áp dụng đối với công dân nước ngoài thường trú tại Việt Nam, trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 6.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Dựa trên Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam; người không quốc tịch thường trú tại Việt Nam; và công dân nước ngoài thường trú tại Việt Nam (trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác).",
+        "hit_rank": null
+      },
+      "wrong_or_weak_citation_proxy": {
+        "category": "wrong_or_weak_citation_proxy",
+        "question": "Theo Khoản 1 Điều 53 Luật Hộ tịch, cơ quan nào có thẩm quyền thực hiện đăng ký các việc hộ tịch cho công dân Việt Nam cư trú ở nước ngoài?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 53 Luật Hộ tịch, Cơ quan đại diện của Việt Nam ở nước ngoài có thẩm quyền thực hiện đăng ký các việc hộ tịch theo quy định tại Điều 3 của Luật này cho công dân Việt Nam cư trú ở nước ngoài.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 53.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Cơ quan có thẩm quyền thực hiện đăng ký các việc hộ tịch cho công dân Việt Nam cư trú ở nước ngoài là Cơ quan đại diện.",
+        "hit_rank": null
+      },
+      "weak_lexical_match": {
+        "category": "weak_lexical_match",
+        "question": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch có tính chất là gì?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia. Điều này nhấn mạnh tầm quan trọng đặc biệt của hệ thống thông tin này đối với đất nước, không chỉ là một công cụ quản lý mà còn là một nguồn tài nguyên quý giá thuộc sở hữu nhà nước.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 57.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia.",
+        "hit_rank": null
+      }
+    }
+  },
+  "case_studies": [
+    {
+      "case": "retrieval_failure",
+      "question": "Thời hiệu xử phạt đối với nhà xuất bản thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước xác nhận đăng ký hoạt động là bao lâu?",
+      "gold_cids": [
+        "63171"
+      ],
+      "gold_evidence": [
+        {
+          "cid": "63171",
+          "chunk_id": "63171",
+          "title": null,
+          "article": null,
+          "clause": "1",
+          "snippet": "Điều 5. Thời hiệu xử phạt vi phạm hành chính 1. Thời hiệu xử phạt vi phạm hành chính trong lĩnh vực lao động, bảo hiểm xã hội, người lao động Việt Nam đi làm việc ở nước ngoài theo hợp đồng thực hiện theo quy định tại khoản 1 Điều 6 của Luật Xử lý vi phạm hành chính."
+        }
+      ],
+      "retrieved_evidence": [
+        {
+          "rank": 1,
+          "cid": "14932",
+          "chunk_id": "14932:1",
+          "title": null,
+          "article": null,
+          "clause": "2",
+          "sources": [
+            "bm25",
+            "char-dense"
+          ],
+          "score": 7.886302471160889,
+          "snippet": "2. Phạt tiền từ 30.000.000 đồng đến 50.000.000 đồng đối với một trong các hành vi sau đây: a) Xuất bản, phát hành xuất bản phẩm điện tử kèm ứng dụng kỹ thuật, công nghệ gây mất an toàn, an ninh thông tin đối với phương tiện điện tử; b) Bổ sung thông tin mà người sử dụng xuất bản phẩm điện tử không yêu cầu, trừ các thông tin được phép theo quy định của pháp luật hoặc có sự đồng ý của cơ quan quản lý nhà nước về hoạt động xuất bản; c) Can thiệp trái phép vào nội dung, hình thức của xuất bản phẩm điện tử để làm sai lệch nội dung hoặc thực hiện hành vi trái pháp luật đối với từng tên xuất bản phẩm"
+        },
+        {
+          "rank": 2,
+          "cid": "14932",
+          "chunk_id": "14932:2",
+          "title": null,
+          "article": null,
+          "clause": "3",
+          "sources": [
+            "bm25",
+            "char-dense"
+          ],
+          "score": 7.885189533233643,
+          "snippet": "3. Phạt tiền từ 100.000.000 đồng đến 200.000.000 đồng đối với một trong các hành vi sau đây: a) Phát hành trên phương tiện điện tử xuất bản phẩm đã có quyết định đình chỉ phát hành, thu hồi, cấm lưu hành, tiêu hủy đối với từng tên xuất bản phẩm; b) Thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước có thẩm quyền xác nhận đăng ký hoạt động bằng văn bản."
+        },
+        {
+          "rank": 3,
+          "cid": "106701",
+          "chunk_id": "106701",
+          "title": null,
+          "article": null,
+          "clause": "3",
+          "sources": [
+            "bm25",
+            "char-dense",
+            "qa-cid-seed"
+          ],
+          "score": 7.681270122528076,
+          "snippet": "Vi phạm quy định về điều kiện hoạt động xuất bản điện tử và phát hành xuất bản phẩm điện tử ... 3. Phạt tiền từ 100.000.000 đồng đến 200.000.000 đồng đối với một trong các hành vi sau đây: a) Phát hành trên phương tiện điện tử xuất bản phẩm đã có quyết định đình chỉ phát hành, thu hồi, cấm lưu hành, tiêu hủy đối với từng tên xuất bản phẩm; b) Thực hiện xuất bản điện tử nhưng không được cơ quan nhà nước có thẩm quyền xác nhận đăng ký hoạt động bằng văn bản."
+        }
+      ],
+      "automatic_signals": {
+        "hit_rank": null,
+        "gold_in_index": true
+      }
+    },
+    {
+      "case": "generation_or_citation_failure",
+      "question": "Theo Khoản 1 Điều 53 Luật Hộ tịch, cơ quan nào có thẩm quyền thực hiện đăng ký các việc hộ tịch cho công dân Việt Nam cư trú ở nước ngoài?",
+      "gold_answer": "Tra loi: Theo Khoản 1 Điều 53 Luật Hộ tịch, Cơ quan đại diện của Việt Nam ở nước ngoài có thẩm quyền thực hiện đăng ký các việc hộ tịch theo quy định tại Điều 3 của Luật này cho công dân Việt Nam cư trú ở nước ngoài.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 53.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+      "gold_evidence": [],
+      "retrieved_evidence": [],
+      "prediction": "Cơ quan có thẩm quyền thực hiện đăng ký các việc hộ tịch cho công dân Việt Nam cư trú ở nước ngoài là Cơ quan đại diện.",
+      "automatic_signals": {
+        "hit_rank": null,
+        "faithfulness_score": 0.75,
+        "citation_presence": 0.0,
+        "citation_correctness": 0.0,
+        "directness_score": 1.0
+      }
+    }
+  ],
+  "notes": [
+    "Faithfulness, reasoning, directness, citation correctness, and refusal quality are proxy metrics.",
+    "Human evaluation uses two human annotators who scored independently after a short 3-5 example calibration; no AI-assisted scoring is reported as human evaluation.",
+    "The hybrid_no_qa_memory ablation disables QA-memory seeding/boosting during retrieval evaluation only.",
+    "Top-k ablation rows cap the number of retrieved evidence chunks available to downstream generation.",
+    "The main retrieval table uses the trained cross-encoder reranker when the full_with_cross_encoder_reranker row is available; heuristic full retrieval is reported as an ablation.",
+    "Format compliance measures adherence to the expected structured output format, not legal correctness; low values are treated as a formatting limitation.",
+    "oracle_evidence_qwen is diagnostic only: the current SFT prompt already contains oracle/gold context, so it is not a distinct upper-bound baseline.",
+    "Answer generation report contains 200 samples, not the 300-sample retrieval run; do not claim it as the main 300-sample generation result.",
+    "Schema prompting report contains only 5 samples; treat it as smoke validation and do not claim schema prompting improves format compliance."
+  ]
+}

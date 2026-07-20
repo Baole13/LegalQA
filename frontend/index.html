@@ -3,123 +3,62 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>LegalQA Workspace</title>
+    <title>Trợ lý pháp lý LegalQA</title>
     <link rel="stylesheet" href="/static/style.css" />
   </head>
   <body>
-    <main class="app-container">
-      <section class="workspace-shell">
-        <section class="chat-panel" aria-label="LegalQA chat">
-          <header class="chat-topbar">
-            <div class="product-mark">
-              <span class="mark-dot">LQ</span>
-              <div>
-                <p class="eyebrow">Vietnamese LegalQA</p>
-                <h1>Hỏi đáp pháp lý có căn cứ</h1>
-              </div>
+    <main class="app-shell">
+      <section class="chat" aria-label="Trợ lý hỏi đáp pháp lý">
+        <header class="topbar">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true">LQ</span>
+            <div>
+              <h1>Trợ lý pháp lý</h1>
+              <p>Hỏi đáp dựa trên căn cứ pháp luật</p>
             </div>
-            <div class="topbar-actions">
-              <span class="status-pill" id="request-state">Sẵn sàng</span>
+          </div>
+          <span class="connection-status" id="health-status" role="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="health-label">Đang kết nối</span>
+          </span>
+        </header>
+
+        <section class="thread" id="thread" aria-live="polite">
+          <article class="message assistant">
+            <div class="avatar" aria-hidden="true">LQ</div>
+            <div class="message-body">
+              <p class="message-author">Trợ lý pháp lý</p>
+              <p>Bạn hãy nhập câu hỏi. Tôi sẽ trả lời ngắn gọn và đính kèm căn cứ pháp lý khi tìm thấy thông tin phù hợp.</p>
             </div>
-          </header>
-
-          <section class="quick-prompts" aria-label="Câu hỏi mẫu">
-            <button class="prompt-chip" data-question="Người lao động được nghỉ bao nhiêu ngày phép năm?" type="button">Nghỉ phép năm</button>
-            <button class="prompt-chip" data-question="Ai có thẩm quyền quyết định thành lập Hội đồng tư vấn cấp Chứng chỉ hành nghề dược Sở Y tế?" type="button">Thẩm quyền</button>
-            <button class="prompt-chip" data-question="Việc ký kết, thực hiện thỏa thuận quốc tế nhân danh đơn vị trực thuộc có phải báo cáo định kỳ hàng năm không?" type="button">Báo cáo định kỳ</button>
-          </section>
-
-          <section class="thread" id="thread" aria-live="polite">
-            <article class="message assistant">
-              <div class="avatar">LQ</div>
-              <div class="bubble assistant-bubble">
-                <div class="message-meta">
-                  <p class="message-title">Trợ lý pháp lý</p>
-                  <span>grounded RAG</span>
-                </div>
-                <div class="message-content">
-                  Đặt câu hỏi để kiểm tra LegalQA. Hệ thống sẽ trả lời ngắn gọn, kèm căn cứ pháp lý, lập luận ngắn và thông tin còn thiếu nếu evidence chưa đủ.
-                </div>
-              </div>
-            </article>
-          </section>
-
-          <footer class="composer">
-            <label class="sr-only" for="question">Câu hỏi pháp lý</label>
-            <textarea id="question" placeholder="Nhập câu hỏi pháp lý..."></textarea>
-            <div class="composer-actions">
-              <span class="hint">Ctrl/Cmd + Enter để gửi</span>
-              <button id="ask-btn" class="primary-btn" type="button">Gửi</button>
-            </div>
-          </footer>
+          </article>
         </section>
 
-        <div class="splitter" aria-hidden="true"><span></span></div>
-
-        <aside class="insight-panel" aria-label="Evidence workspace">
-          <header class="insight-header">
-            <div>
-              <p class="eyebrow">Evidence workspace</p>
-              <h2>Can cứ & đánh giá</h2>
-            </div>
-            <span class="status-pill" id="health-status">Đang tải</span>
-          </header>
-
-          <section class="metric-grid" aria-label="Trạng thái hệ thống">
-            <div class="metric-card">
-              <span>Confidence</span>
-              <strong id="confidence-badge">-</strong>
-            </div>
-            <div class="metric-card">
-              <span>Generator</span>
-              <strong id="generator-badge">-</strong>
-            </div>
-            <div class="metric-card">
-              <span>Retriever</span>
-              <strong id="health-retriever">-</strong>
-            </div>
-            <div class="metric-card">
-              <span>Reranker</span>
-              <strong id="health-reranker">-</strong>
-            </div>
-          </section>
-
-          <section class="system-strip">
-            <p id="health-mode">Đang kết nối hệ thống.</p>
-            <span><strong id="health-chunks">-</strong> chunks</span>
-          </section>
-
-          <section class="debug-panel">
-            <div class="debug-toolbar">
-              <div>
-                <p class="eyebrow">Retrieval debug</p>
-                <h3>Top evidence</h3>
-              </div>
-              <button id="debug-btn" class="ghost-btn" type="button">Xem retrieval</button>
-            </div>
-            <div id="debug" class="drawer-content">
-              <div class="empty-state">
-                <div class="skeleton-line short"></div>
-                <div class="skeleton-block"></div>
-                <div class="skeleton-line"></div>
-                <div class="skeleton-line mid"></div>
-              </div>
-            </div>
-          </section>
-        </aside>
+        <footer class="composer">
+          <label class="sr-only" for="question">Nhập câu hỏi pháp lý</label>
+          <div class="input-wrap">
+            <textarea id="question" rows="2" placeholder="Nhập câu hỏi pháp lý..."></textarea>
+            <button id="ask-btn" class="send-button" type="button" aria-label="Gửi câu hỏi" title="Gửi câu hỏi">
+              <span>Gửi</span><span class="send-icon" aria-hidden="true">↑</span>
+            </button>
+          </div>
+          <div class="composer-meta">
+            <span id="request-state" role="status">Sẵn sàng</span>
+            <span>Nhấn Ctrl/Cmd + Enter để gửi</span>
+          </div>
+        </footer>
       </section>
     </main>
 
     <div class="detail-modal hidden" id="detail-modal" aria-hidden="true">
       <div class="detail-backdrop" id="detail-backdrop"></div>
-      <section class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detail-title">
-        <div class="detail-header">
+      <section class="detail-dialog" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+        <header class="detail-header">
           <div>
-            <p class="eyebrow">Chi tiết căn cứ</p>
-            <h3 id="detail-title">Căn cứ pháp lý</h3>
+            <p class="detail-label">Chi tiết căn cứ</p>
+            <h2 id="detail-title">Căn cứ pháp lý</h2>
           </div>
-          <button id="detail-close" class="ghost-btn" type="button">Đóng</button>
-        </div>
+          <button id="detail-close" class="close-button" type="button" aria-label="Đóng chi tiết" title="Đóng">×</button>
+        </header>
         <p class="detail-meta" id="detail-meta">Không có dữ liệu.</p>
         <pre class="detail-body" id="detail-body"></pre>
       </section>

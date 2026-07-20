@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import json
 from pathlib import Path
+import re
 from typing import Iterable
 
 from src.training.data import load_training_records
@@ -25,6 +27,7 @@ class AnswerEvalSample:
     gold_answer: str
     prompt: str
     metadata: dict
+    messages: tuple[dict, ...] = ()
 
 
 def load_answer_eval_samples(path: str | Path, limit: int = 0) -> list[AnswerEvalSample]:
@@ -61,6 +64,7 @@ def _record_to_sample(record: dict) -> AnswerEvalSample | None:
         gold_answer=gold_answer,
         prompt=prompt,
         metadata=record.get("metadata") or {},
+        messages=tuple(messages),
     )
 
 
@@ -81,14 +85,41 @@ def _extract_block(text: str, start: str, end: str) -> str:
     return text[start_index:end_index].strip()
 
 
+def render_eval_prompt(sample: AnswerEvalSample, tokenizer=None) -> str:
+    messages = [dict(item) for item in sample.messages if item.get("role") != "assistant"]
+    if not messages:
+        return sample.prompt
+    if tokenizer is not None and hasattr(tokenizer, "apply_chat_template"):
+        return tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    return "\n\n".join(f"{msg.get('role', '').capitalize()}: {msg.get('content', '')}" for msg in messages) + "\n\nAssistant:"
+
+
+def clean_generation_output(raw: object, prompt: str = "") -> object:
+    if isinstance(raw, dict):
+        cleaned = dict(raw)
+        for key in ("answer", "reasoning", "reason", "missing_info"):
+            value = cleaned.get(key)
+            if isinstance(value, str):
+                cleaned[key] = _clean_text_prediction(value, prompt=prompt)
+            elif isinstance(value, list):
+                cleaned[key] = [_clean_text_prediction(str(item), prompt=prompt) for item in value]
+        return cleaned
+    text = _clean_text_prediction(str(raw or ""), prompt=prompt)
+    parsed = _parse_json_payload(text)
+    if parsed is not None:
+        return clean_generation_output(parsed, prompt=prompt)
+    return text
+
+
 def evaluate_answer_generation(
     samples: Iterable[AnswerEvalSample],
     generate_fn,
 ) -> dict:
     sample_results: list[dict] = []
     for sample in samples:
-        predicted = generate_fn(sample)
-        sample_results.append(_score_sample(sample, predicted))
+        raw_predicted = generate_fn(sample)
+        predicted = clean_generation_output(raw_predicted, prompt=sample.prompt)
+        sample_results.append(_score_sample(sample, predicted, raw_predicted))
 
     if not sample_results:
         return {
@@ -97,7 +128,7 @@ def evaluate_answer_generation(
             "token_f1": 0.0,
             "rouge_l": 0.0,
             "citation_presence": 0.0,
-            "structure_score": 0.0,
+            "format_compliance": 0.0,
             "faithfulness_score": 0.0,
             "reasoning_score": 0.0,
             "directness_score": 0.0,
@@ -115,7 +146,7 @@ def evaluate_answer_generation(
         "token_f1": round(sum(item["token_f1"] for item in sample_results) / total, 4),
         "rouge_l": round(sum(item["rouge_l"] for item in sample_results) / total, 4),
         "citation_presence": round(sum(item["citation_presence"] for item in sample_results) / total, 4),
-        "structure_score": round(sum(item["structure_score"] for item in sample_results) / total, 4),
+        "format_compliance": round(sum(item["format_compliance"] for item in sample_results) / total, 4),
         "faithfulness_score": round(sum(item["faithfulness_score"] for item in sample_results) / total, 4),
         "reasoning_score": round(sum(item["reasoning_score"] for item in sample_results) / total, 4),
         "directness_score": round(sum(item["directness_score"] for item in sample_results) / total, 4),
@@ -128,7 +159,7 @@ def evaluate_answer_generation(
     return metrics
 
 
-def _score_sample(sample: AnswerEvalSample, predicted: object) -> dict:
+def _score_sample(sample: AnswerEvalSample, predicted: object, raw_predicted: object | None = None) -> dict:
     prediction_payload = _coerce_prediction(predicted)
     predicted_text = prediction_payload["text"]
     gold = sample.gold_answer
@@ -138,13 +169,14 @@ def _score_sample(sample: AnswerEvalSample, predicted: object) -> dict:
     return {
         "question": sample.question,
         "prediction": predicted,
+        "raw_prediction": raw_predicted if raw_predicted is not None else predicted,
         "prediction_text": predicted_text,
         "gold_answer": gold,
         "exact_match": 1.0 if normalized_pred == normalized_gold else 0.0,
         "token_f1": round(_token_f1(gold, predicted_text), 4),
         "rouge_l": round(_rouge_l_f1(gold, predicted_text), 4),
         "citation_presence": 1.0 if _has_citation_marker(predicted_text) or prediction_payload["citations"] else 0.0,
-        "structure_score": round(_structure_score(predicted), 4),
+        "format_compliance": round(_format_compliance(predicted), 4),
         "faithfulness_score": round(_faithfulness_score(predicted_text, context), 4),
         "reasoning_score": round(_reasoning_score(predicted), 4),
         "directness_score": round(_directness_score(sample.question, prediction_payload["answer"]), 4),
@@ -161,7 +193,7 @@ def _coerce_prediction(predicted: object) -> dict:
         legal_basis = predicted.get("legal_basis") or []
         reasoning = str(predicted.get("reasoning", "")).strip()
         missing_info = predicted.get("missing_info") or []
-        citations = predicted.get("citations") or []
+        citations = _normalize_citations(predicted.get("citations") or predicted.get("citation_chunk_ids") or [])
         text = "\n".join(
             part
             for part in [
@@ -181,7 +213,10 @@ def _coerce_prediction(predicted: object) -> dict:
             "confidence": predicted.get("confidence"),
             "text": text,
         }
-    text = str(predicted).strip()
+    text = _clean_text_prediction(str(predicted).strip())
+    parsed = _parse_json_payload(text)
+    if parsed is not None:
+        return _coerce_prediction(parsed)
     return {
         "answer": _extract_legacy_answer(text),
         "legal_basis": [],
@@ -192,6 +227,58 @@ def _coerce_prediction(predicted: object) -> dict:
         "text": text,
     }
 
+
+
+
+def _normalize_citations(citations: object) -> list[dict]:
+    if not citations:
+        return []
+    if isinstance(citations, dict):
+        return [citations]
+    if isinstance(citations, (str, int, float)):
+        return [{"chunk_id": str(citations)}]
+    normalized = []
+    for item in citations:
+        if isinstance(item, dict):
+            normalized.append(item)
+        else:
+            normalized.append({"chunk_id": str(item)})
+    return normalized
+
+def _parse_json_payload(text: str) -> dict | None:
+    if not text:
+        return None
+    candidates = [text.strip()]
+    fenced = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", text, flags=re.DOTALL | re.IGNORECASE)
+    if fenced:
+        candidates.insert(0, fenced.group(1))
+    raw = re.search(r"(\{.*\})", text, flags=re.DOTALL)
+    if raw:
+        candidates.append(raw.group(1))
+    for candidate in candidates:
+        try:
+            payload = json.loads(candidate)
+        except Exception:
+            continue
+        if isinstance(payload, dict):
+            return payload
+    return None
+
+
+def _clean_text_prediction(text: str, prompt: str = "") -> str:
+    cleaned = str(text or "").replace("\r\n", "\n").strip()
+    if prompt and cleaned.startswith(prompt):
+        cleaned = cleaned[len(prompt) :].strip()
+    cleaned = re.sub(r"^```(?:json)?\s*", "", cleaned, flags=re.IGNORECASE).strip()
+    cleaned = re.sub(r"\s*```$", "", cleaned).strip()
+
+    # Drop echoed turns before the final assistant answer.
+    assistant_matches = list(re.finditer(r"(?:^|\n)\s*Assistant\s*:\s*", cleaned, flags=re.IGNORECASE))
+    if assistant_matches:
+        cleaned = cleaned[assistant_matches[-1].end() :].strip()
+    cleaned = re.sub(r"(?:^|\n)\s*(Human|User)\s*:\s*.*?(?=(?:\n\s*Assistant\s*:)|$)", "", cleaned, flags=re.IGNORECASE | re.DOTALL).strip()
+    cleaned = re.sub(r"^\s*Assistant\s*:\s*", "", cleaned, flags=re.IGNORECASE).strip()
+    return cleaned
 
 def _normalize(text: str) -> str:
     return strip_accents(normalize_text(text)).lower()
@@ -250,7 +337,7 @@ def _has_citation_marker(text: str) -> bool:
     return any(marker in normalized for marker in ("dieu ", "khoan ", "[", "can cu phap ly"))
 
 
-def _structure_score(predicted: object) -> float:
+def _format_compliance(predicted: object) -> float:
     if isinstance(predicted, dict):
         hits = 0
         for field in REQUIRED_FIELDS:
@@ -282,7 +369,7 @@ def _reasoning_score(predicted: object) -> float:
     payload = _coerce_prediction(predicted)
     normalized = _normalize(payload["text"])
     logic_markers = ("do do", "vi vay", "theo do", "tu do", "suy ra", "neu", "neu khong", "boi vi")
-    section_score = _structure_score(predicted)
+    section_score = _format_compliance(predicted)
     logic_score = sum(1 for marker in logic_markers if marker in normalized) / len(logic_markers)
     missing_info_score = 1.0 if payload["missing_info"] or ("thong tin con thieu" in normalized and ("khong co" in normalized or "can bo sung" in normalized)) else 0.0
     citation_score = 1.0 if payload["citations"] or _has_citation_marker(payload["text"]) else 0.0
