@@ -66,6 +66,15 @@ Môi trường GPU/RunPod:
 pip install -r requirements-runpod.txt
 ```
 
+Tạo dense index sau khi có artifact `models/retriever-best` và sparse corpus artifacts:
+
+```bash
+PYTHONPATH=. python scripts/build_dense_index.py
+```
+
+Retrieval benchmark yêu cầu dense index này và sẽ dừng với hướng dẫn rõ ràng nếu index thiếu hoặc không tương thích.
+
+
 ## Chạy demo
 
 ```bash

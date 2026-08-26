@@ -48,6 +48,7 @@ def main() -> None:
     dataset_stats = _dataset_stats()
     max_eval_k = max(args.top_k, max(args.top_k_ablation), 20)
     metric_ks = (1, 5, 10, 20)
+    pipeline.artifacts.retriever.neural_dense.ensure_available()
     retrieval_cache_dir = report_dir / ".paper_experiment_cache"
     retrieval, retrieval_details = _evaluate_retrieval_variant(
         pipeline=pipeline,
@@ -247,11 +248,13 @@ def _run_retrieval_ablations(
     full_details: list[dict] | None = None,
     cache_dir: Path | None = None,
 ) -> list[dict]:
+    pipeline.artifacts.retriever.neural_dense.ensure_available()
     rows: list[dict] = []
     metric_ks = (1, 5, 10, 20)
     if full_metrics is None or full_details is None:
         full_metrics, full_details = _evaluate_retrieval_variant(pipeline, "full", qa_path, limit, max(metric_ks), metric_ks, cache_dir=cache_dir)
     bm25_only, _ = _evaluate_retrieval_variant(pipeline, "bm25_only", qa_path, limit, max(metric_ks), metric_ks, cache_dir=cache_dir)
+    dense_only, _ = _evaluate_retrieval_variant(pipeline, "dense_only", qa_path, limit, max(metric_ks), metric_ks, cache_dir=cache_dir)
     with _qa_memory_disabled(pipeline):
         hybrid_no_qa, _ = _evaluate_retrieval_variant(
             pipeline,
@@ -262,6 +265,16 @@ def _run_retrieval_ablations(
             metric_ks,
             cache_dir=cache_dir,
         )
+    hybrid_with_qa, _ = _evaluate_retrieval_variant(
+        pipeline,
+        "hybrid_with_qa_memory",
+        qa_path,
+        limit,
+        max(metric_ks),
+        metric_ks,
+        cache_dir=cache_dir,
+    )
+
     without_model = {**full_metrics, "variant": "full_without_model_reranker", "reranker_mode": "heuristic"}
     with_model, _ = _evaluate_retrieval_variant(
         pipeline,
@@ -274,7 +287,7 @@ def _run_retrieval_ablations(
     )
     with_model["reranker_mode"] = "cross-encoder" if pipeline.model_reranker.available() else "heuristic_fallback"
     with_model["reranker_model_path"] = pipeline.serving_config.reranker_model_path
-    rows.extend([bm25_only, hybrid_no_qa, without_model, with_model, full_metrics])
+    rows.extend([bm25_only, dense_only, hybrid_no_qa, hybrid_with_qa, without_model, with_model, full_metrics])
     for top_k in top_ks:
         rows.append(_metrics_from_details(full_details, f"full_top_k_{top_k}", qa_path, full_metrics, top_k, metric_ks))
     return rows
@@ -411,7 +424,7 @@ def _variant_cache_path(cache_dir: Path | None, variant: str, limit: int, top_k:
     if cache_dir is None:
         return None
     cache_dir.mkdir(parents=True, exist_ok=True)
-    return cache_dir / f"{variant}_limit{limit}_top{top_k}.jsonl"
+    return cache_dir / f"retrieval_v2_{variant}_limit{limit}_top{top_k}.jsonl"
 
 
 def _load_cached_variant_details(cache_dir: Path | None, variant: str, limit: int, top_k: int) -> list[dict] | None:
@@ -567,13 +580,31 @@ def _metrics_from_details(
 def _search_variant(pipeline: LegalQAPipeline, variant: str, question: str, top_k: int) -> list[dict]:
     if variant == "bm25_only":
         return _bm25_only_search(pipeline, question, top_k=top_k)
+    if variant == "dense_only":
+        return _dense_only_search(pipeline, question, top_k=top_k)
     if variant == "hybrid_no_qa_memory":
         return pipeline._heuristic_retrieval(question, [], top_k=top_k)
+    # hybrid_with_qa_memory and full both use hybrid retrieval plus QA-memory.
     similar_questions = pipeline.artifacts.retriever.similar_questions(question, top_k=5)
     if variant == "full_with_cross_encoder_reranker":
         heuristic = pipeline._heuristic_retrieval(question, similar_questions, top_k=max(top_k * 2, 50))
         return pipeline.model_reranker.rerank(question, heuristic, top_k=top_k)
     return pipeline._heuristic_retrieval(question, similar_questions, top_k=top_k)
+
+
+def _dense_only_search(pipeline: LegalQAPipeline, question: str, top_k: int) -> list[dict]:
+    dense = pipeline.artifacts.retriever.neural_dense
+    candidates = dense.search(question, top_k=max(top_k * 24, 120))
+    hydrated = [
+        {
+            **item,
+            "qa_boost": 0.0,
+            "hybrid_score": float(item.get("neural_dense_score", 0.0)),
+            "sources": ["neural-dense"],
+        }
+        for item in candidates
+    ]
+    return pipeline.heuristic_reranker.rerank(question, hydrated, top_k=top_k)
 
 
 def _bm25_only_search(pipeline: LegalQAPipeline, question: str, top_k: int) -> list[dict]:
@@ -1265,6 +1296,8 @@ def _render_markdown(payload: dict) -> str:
         "",
         _metric_table(payload["retrieval_ablations"], include_variant=True),
         "",
+        _retrieval_variant_notes(),
+        "",
         "## Generation Results",
         "",
         _kv_table(payload["answer_generation"]),
@@ -1436,6 +1469,17 @@ def _metric_table(rows: list[dict], include_variant: bool) -> str:
         lines.append("| " + " | ".join(str(row.get(column, "")) for column in columns) + " |")
     return "\n".join(lines)
 
+
+def _retrieval_variant_notes() -> str:
+    return "\n".join(
+        [
+            "- **BM25:** lexical retrieval based on matching words and phrases.",
+            "- **Dense:** semantic retrieval using neural embeddings and a normalized FAISS cosine index.",
+            "- **Hybrid:** combines lexical, dense, and ranking signals to balance exact matches with semantic recall.",
+            "- **Hybrid + QA-memory:** uses similar questions to seed and boost related legal-document candidates.",
+            "- **Cross-encoder reranker:** directly scores each question-passage pair from Hybrid + QA-memory candidates to improve final ranking.",
+        ]
+    )
 
 def _error_table(payload: dict) -> str:
     counts = payload.get("counts", {})

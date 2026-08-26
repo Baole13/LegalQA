@@ -15,6 +15,7 @@ from src.retrieval.elasticsearch_retriever import OptionalElasticsearchRetriever
 from src.retrieval.embedding_ensemble import OptionalEmbeddingEnsembler
 from src.retrieval.bm25_retriever import BM25Retriever, top_sparse_scores
 from src.retrieval.dense_retriever import DenseRetriever
+from src.retrieval.faiss_dense_retriever import OptionalFaissDenseRetriever
 from src.retrieval.model_retriever import OptionalEmbeddingRetriever
 from src.utils.io import load_json
 from src.utils.text import (
@@ -57,6 +58,11 @@ class HybridRetriever:
         self.qa_config = self.config.get("qa_memory") or {}
         self.bm25 = BM25Retriever(store)
         self.dense = DenseRetriever(store)
+        self.neural_dense = OptionalFaissDenseRetriever(
+            store,
+            model_path=retriever_model_path,
+            config=self.config.get("dense_index") or {},
+        )
         self.embedding_retriever = OptionalEmbeddingRetriever(model_path=retriever_model_path)
         self.embedding_ensemble = OptionalEmbeddingEnsembler(self.config.get("embedding_models") or [])
         self.elasticsearch = OptionalElasticsearchRetriever(self.config.get("elasticsearch") or {})
@@ -80,6 +86,7 @@ class HybridRetriever:
         per_source_k = int(per_source_k or self.config.get("per_source_k", 120))
         bm25_hits = self.bm25.search(expanded_query, top_k=per_source_k)
         dense_hits = self.dense.search(expanded_query, top_k=per_source_k)
+        neural_dense_hits = self.neural_dense.search(query, top_k=per_source_k) if self.neural_dense.available() else []
         es_top_k = min(per_source_k, int((self.config.get("elasticsearch") or {}).get("top_k", 60)))
         es_hits = self.elasticsearch.search(expanded_query, top_k=es_top_k)
         qa_hits = self._search_similar_questions(expanded_query, top_k=int(self.qa_config.get("top_k", 12)))
@@ -102,6 +109,16 @@ class HybridRetriever:
             current = merged.get(key, {})
             merged[key] = {**current, **item, "sources": sorted(set((current.get("sources") or []) + ["char-dense"]))}
             rank_bonus[key] += 1.0 / rank
+        for rank, item in enumerate(neural_dense_hits, start=1):
+            key = item["chunk_id"]
+            current = merged.get(key, {})
+            merged[key] = {
+                **current,
+                **item,
+                "sources": sorted(set((current.get("sources") or []) + ["neural-dense"])),
+            }
+            rank_bonus[key] += 1.0 / rank
+
 
         for rank, item in enumerate(es_hits, start=1):
             key = item["chunk_id"]
@@ -129,6 +146,7 @@ class HybridRetriever:
         for key, item in merged.items():
             bm25_score = float(item.get("bm25_score", 0.0))
             dense_score = float(item.get("dense_score", 0.0))
+            neural_dense_score = float(item.get("neural_dense_score", 0.0))
             es_score = float(item.get("es_score", 0.0))
             coverage = keyword_coverage_score(query, item.get("text", ""))
             phrase_coverage = phrase_coverage_score(query, item.get("text", ""))
@@ -139,6 +157,7 @@ class HybridRetriever:
             fused = (
                 (float(self.weights.get("bm25", 0.5)) * bm25_score)
                 + (float(self.weights.get("dense", 0.3)) * dense_score)
+                + (float(self.weights.get("neural_dense", 0.9)) * neural_dense_score)
                 + (float(self.weights.get("elasticsearch", 0.15)) * es_score)
                 + (float(self.weights.get("rank_bonus", 0.35)) * rank_bonus[key])
                 + (float(self.weights.get("keyword_coverage", 0.2)) * coverage)
@@ -170,7 +189,8 @@ class HybridRetriever:
         texts = self.store.fetch_chunk_texts([int(item["row_id"]) for item in top_results])
         for item in top_results:
             item["text"] = texts.get(int(item["row_id"]), "")
-        top_results = self.embedding_retriever.score_candidates(query, top_results)
+        if not self.neural_dense.available():
+            top_results = self.embedding_retriever.score_candidates(query, top_results)
         top_results = self.embedding_ensemble.score_candidates(query, top_results)
         top_results = self._limit_chunks_per_cid(
             top_results,

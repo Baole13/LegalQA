@@ -6,6 +6,7 @@
   "merge_weights": {
     "bm25": 0.5,
     "dense": 0.3,
+    "neural_dense": 0.9,
     "elasticsearch": 0.15,
     "rank_bonus": 0.35,
     "keyword_coverage": 0.2,
@@ -18,6 +19,11 @@
     "seed_score_threshold": 0.6,
     "seed_cids_per_hit": 2,
     "seed_chunks_per_cid": 2
+  },
+  "dense_index": {
+    "index_path": "data/indexes/corpus_dense_v1.faiss",
+    "row_ids_path": "data/indexes/corpus_dense_row_ids_v1.npy",
+    "metadata_path": "data/indexes/corpus_dense_v1.json"
   },
   "embedding_models": [
     {
