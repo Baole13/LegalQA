@@ -13,7 +13,9 @@ from typing import Iterable
 import scripts._bootstrap as _bootstrap
 
 from src.data.load_qa import load_qa_records, parse_cids
+from src.evaluation.retrieval_eval import ndcg_at_k
 from src.qa.pipeline import LegalQAPipeline
+from src.retrieval.bm25_okapi_retriever import BM25OkapiRetriever
 from src.utils.io import load_json, save_json, save_jsonl
 
 HUMAN_METRICS = ("legal_correctness", "grounding", "citation_correctness", "directness", "refusal")
@@ -254,6 +256,7 @@ def _run_retrieval_ablations(
     if full_metrics is None or full_details is None:
         full_metrics, full_details = _evaluate_retrieval_variant(pipeline, "full", qa_path, limit, max(metric_ks), metric_ks, cache_dir=cache_dir)
     bm25_only, _ = _evaluate_retrieval_variant(pipeline, "bm25_only", qa_path, limit, max(metric_ks), metric_ks, cache_dir=cache_dir)
+    bm25_okapi_only, _ = _evaluate_retrieval_variant(pipeline, "bm25_okapi_only", qa_path, limit, max(metric_ks), metric_ks, cache_dir=cache_dir)
     dense_only, _ = _evaluate_retrieval_variant(pipeline, "dense_only", qa_path, limit, max(metric_ks), metric_ks, cache_dir=cache_dir)
     with _qa_memory_disabled(pipeline):
         hybrid_no_qa, _ = _evaluate_retrieval_variant(
@@ -287,7 +290,28 @@ def _run_retrieval_ablations(
     )
     with_model["reranker_mode"] = "cross-encoder" if pipeline.model_reranker.available() else "heuristic_fallback"
     with_model["reranker_model_path"] = pipeline.serving_config.reranker_model_path
-    rows.extend([bm25_only, dense_only, hybrid_no_qa, hybrid_with_qa, without_model, with_model, full_metrics])
+    with_model_k100, _ = _evaluate_retrieval_variant(
+        pipeline,
+        "full_with_cross_encoder_reranker_k100",
+        qa_path,
+        limit,
+        max(metric_ks),
+        metric_ks,
+        cache_dir=cache_dir,
+    )
+    rows.extend(
+        [
+            bm25_only,
+            bm25_okapi_only,
+            dense_only,
+            hybrid_no_qa,
+            hybrid_with_qa,
+            without_model,
+            with_model,
+            with_model_k100,
+            full_metrics,
+        ]
+    )
     for top_k in top_ks:
         rows.append(_metrics_from_details(full_details, f"full_top_k_{top_k}", qa_path, full_metrics, top_k, metric_ks))
     return rows
@@ -344,6 +368,7 @@ def _evaluate_retrieval_variant(
     covered_reciprocal_rank_sum = 0.0
     covered_questions = 0
     questions_without_gold_in_index = 0
+    ndcg_sum = 0.0
     details: list[dict] = []
     indexed_cids = {str(item["cid"]) for item in pipeline.artifacts.store.corpus_meta}
 
@@ -362,6 +387,7 @@ def _evaluate_retrieval_variant(
 
         results = _search_variant(pipeline, variant, record["question"], top_k=top_k)
         ranked_cids = [str(item["cid"]) for item in results]
+        ndcg_sum += ndcg_at_k(ranked_cids, gold_cids, 10)
         for k in ks:
             hit = any(cid in gold_cids for cid in ranked_cids[:k])
             hit_counts[k] += int(hit)
@@ -542,11 +568,13 @@ def _metrics_from_details(
     covered_hit_counts = {k: 0 for k in ks}
     reciprocal_rank_sum = 0.0
     covered_reciprocal_rank_sum = 0.0
+    ndcg_sum = 0.0
 
     for item in details:
         gold_cids = set(str(cid) for cid in item.get("gold_cids", []))
         capped = (item.get("retrieved") or [])[:top_k]
         ranked_cids = [str(hit.get("cid", "")) for hit in capped]
+        ndcg_sum += ndcg_at_k(ranked_cids, gold_cids, 10)
         for k in ks:
             hit = any(cid in gold_cids for cid in ranked_cids[:k])
             hit_counts[k] += int(hit)
@@ -570,6 +598,7 @@ def _metrics_from_details(
         "questions_without_gold_in_index": len(details) - covered_questions,
         "mrr": round(reciprocal_rank_sum / total, 4),
         "conditional_mrr": round(covered_reciprocal_rank_sum / covered_total, 4),
+        "ndcg@10": round(ndcg_sum / total, 4),
     }
     for k in ks:
         metrics[f"recall@{k}"] = round(hit_counts[k] / total, 4)
@@ -580,16 +609,49 @@ def _metrics_from_details(
 def _search_variant(pipeline: LegalQAPipeline, variant: str, question: str, top_k: int) -> list[dict]:
     if variant == "bm25_only":
         return _bm25_only_search(pipeline, question, top_k=top_k)
+    if variant == "bm25_okapi_only":
+        return _bm25_okapi_only_search(pipeline, question, top_k=top_k)
     if variant == "dense_only":
         return _dense_only_search(pipeline, question, top_k=top_k)
     if variant == "hybrid_no_qa_memory":
         return pipeline._heuristic_retrieval(question, [], top_k=top_k)
     # hybrid_with_qa_memory and full both use hybrid retrieval plus QA-memory.
     similar_questions = pipeline.artifacts.retriever.similar_questions(question, top_k=5)
-    if variant == "full_with_cross_encoder_reranker":
-        heuristic = pipeline._heuristic_retrieval(question, similar_questions, top_k=max(top_k * 2, 50))
+    if variant in _CROSS_ENCODER_DEPTHS:
+        depth = _CROSS_ENCODER_DEPTHS[variant]
+        heuristic = pipeline._heuristic_retrieval(question, similar_questions, top_k=max(top_k * 2, depth))
         return pipeline.model_reranker.rerank(question, heuristic, top_k=top_k)
     return pipeline._heuristic_retrieval(question, similar_questions, top_k=top_k)
+
+
+_CROSS_ENCODER_DEPTHS = {
+    "full_with_cross_encoder_reranker": 50,
+    "full_with_cross_encoder_reranker_k100": 100,
+    "full_with_cross_encoder_reranker_k200": 200,
+}
+
+
+def _bm25_okapi_only_search(pipeline: LegalQAPipeline, question: str, top_k: int) -> list[dict]:
+    candidates = _okapi_retriever(pipeline).search(question, top_k=max(top_k * 24, 120))
+    hydrated = [
+        {
+            **item,
+            "dense_score": 0.0,
+            "qa_boost": 0.0,
+            "hybrid_score": float(item.get("bm25_score", 0.0)),
+            "sources": ["bm25-okapi"],
+        }
+        for item in candidates
+    ]
+    return pipeline.heuristic_reranker.rerank(question, hydrated, top_k=top_k)
+
+
+def _okapi_retriever(pipeline: LegalQAPipeline) -> "BM25OkapiRetriever":
+    cached = getattr(pipeline, "_okapi_retriever", None)
+    if cached is None:
+        cached = BM25OkapiRetriever(pipeline.artifacts.store)
+        pipeline._okapi_retriever = cached
+    return cached
 
 
 def _dense_only_search(pipeline: LegalQAPipeline, question: str, top_k: int) -> list[dict]:
@@ -1460,6 +1522,7 @@ def _metric_table(rows: list[dict], include_variant: bool) -> str:
         "recall@10",
         "recall@20",
         "mrr",
+        "ndcg@10",
         "conditional_mrr",
     ]
     if not include_variant:
@@ -1473,11 +1536,13 @@ def _metric_table(rows: list[dict], include_variant: bool) -> str:
 def _retrieval_variant_notes() -> str:
     return "\n".join(
         [
-            "- **BM25:** lexical retrieval based on matching words and phrases.",
+            "- **BM25 (hashing):** lexical retrieval with a hashed word 1-2 gram vector space and cosine scoring; this is the lexical channel used inside the hybrid fuser, not textbook BM25.",
+            "- **BM25 (Okapi):** true Okapi BM25 (Lucene variant, k1=1.5, b=0.75) over the same chunk corpus, reported as the standard lexical baseline.",
             "- **Dense:** semantic retrieval using neural embeddings and a normalized FAISS cosine index.",
             "- **Hybrid:** combines lexical, dense, and ranking signals to balance exact matches with semantic recall.",
             "- **Hybrid + QA-memory:** uses similar questions to seed and boost related legal-document candidates.",
-            "- **Cross-encoder reranker:** directly scores each question-passage pair from Hybrid + QA-memory candidates to improve final ranking.",
+            "- **Cross-encoder reranker:** directly scores each question-passage pair from Hybrid + QA-memory candidates to improve final ranking; `_k100` widens the candidate pool from 50 to 100.",
+            "- **nDCG@10:** binary-relevance nDCG over cid-deduplicated rankings, so repeated chunks of one citation are credited once.",
         ]
     )
 

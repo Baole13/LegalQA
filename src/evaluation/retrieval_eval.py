@@ -1,9 +1,37 @@
 from __future__ import annotations
 
+import math
 from pathlib import Path
 
 from src.data.load_qa import load_qa_records, parse_cids
 from src.qa.pipeline import LegalQAPipeline
+
+
+def ndcg_at_k(ranked_cids: list[str], gold_cids: set[str], k: int) -> float:
+    """
+    Binary-relevance nDCG@k over deduplicated citation IDs.
+
+    Chunks are deduplicated by cid first: the corpus stores several chunks per
+    citation, so an un-deduplicated ranking would credit the same gold citation
+    at multiple positions.
+    """
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for cid in ranked_cids:
+        if cid not in seen:
+            seen.add(cid)
+            deduped.append(cid)
+
+    dcg = sum(
+        1.0 / math.log2(rank + 1)
+        for rank, cid in enumerate(deduped[:k], start=1)
+        if cid in gold_cids
+    )
+    ideal_hits = min(len(gold_cids), k)
+    if ideal_hits == 0:
+        return 0.0
+    idcg = sum(1.0 / math.log2(rank + 1) for rank in range(1, ideal_hits + 1))
+    return dcg / idcg
 
 
 def evaluate_retrieval(
