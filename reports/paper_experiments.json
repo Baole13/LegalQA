@@ -26,6 +26,7 @@
     "questions_without_gold_in_index": 0,
     "mrr": 0.4828,
     "conditional_mrr": 0.4828,
+    "ndcg@10": 0.5302,
     "recall@1": 0.36,
     "conditional_recall@1": 0.36,
     "recall@5": 0.6467,
@@ -51,6 +52,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.337,
       "conditional_mrr": 0.337,
+      "ndcg@10": 0.3816,
       "recall@1": 0.2467,
       "conditional_recall@1": 0.2467,
       "recall@5": 0.4267,
@@ -59,6 +61,28 @@
       "conditional_recall@10": 0.5467,
       "recall@20": 0.62,
       "conditional_recall@20": 0.62
+    },
+    {
+      "variant": "bm25_okapi_only",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3955,
+      "conditional_mrr": 0.3955,
+      "ndcg@10": 0.4368,
+      "recall@1": 0.2833,
+      "conditional_recall@1": 0.2833,
+      "recall@5": 0.51,
+      "conditional_recall@5": 0.51,
+      "recall@10": 0.61,
+      "conditional_recall@10": 0.61,
+      "recall@20": 0.6667,
+      "conditional_recall@20": 0.6667
     },
     {
       "variant": "dense_only",
@@ -72,6 +96,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.3912,
       "conditional_mrr": 0.3912,
+      "ndcg@10": 0.4377,
       "recall@1": 0.29,
       "conditional_recall@1": 0.29,
       "recall@5": 0.5267,
@@ -93,6 +118,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.3821,
       "conditional_mrr": 0.3821,
+      "ndcg@10": 0.4167,
       "recall@1": 0.2933,
       "conditional_recall@1": 0.2933,
       "recall@5": 0.4933,
@@ -114,6 +140,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.4046,
       "conditional_mrr": 0.4046,
+      "ndcg@10": 0.4463,
       "recall@1": 0.31,
       "conditional_recall@1": 0.31,
       "recall@5": 0.5267,
@@ -135,6 +162,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.4046,
       "conditional_mrr": 0.4046,
+      "ndcg@10": 0.4463,
       "recall@1": 0.31,
       "conditional_recall@1": 0.31,
       "recall@5": 0.5267,
@@ -157,6 +185,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.4828,
       "conditional_mrr": 0.4828,
+      "ndcg@10": 0.5302,
       "recall@1": 0.36,
       "conditional_recall@1": 0.36,
       "recall@5": 0.6467,
@@ -166,6 +195,52 @@
       "recall@20": 0.7367,
       "conditional_recall@20": 0.7367,
       "reranker_mode": "cross-encoder",
+      "reranker_model_path": "models/reranker-best"
+    },
+    {
+      "variant": "full_with_cross_encoder_reranker_k100",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.4828,
+      "conditional_mrr": 0.4828,
+      "ndcg@10": 0.5313,
+      "recall@1": 0.36,
+      "conditional_recall@1": 0.36,
+      "recall@5": 0.65,
+      "conditional_recall@5": 0.65,
+      "recall@10": 0.71,
+      "conditional_recall@10": 0.71,
+      "recall@20": 0.7667,
+      "conditional_recall@20": 0.7667
+    },
+    {
+      "variant": "full_with_cross_encoder_reranker_hardneg",
+      "qa_path": "data/raw/yuitc/test.parquet",
+      "samples": 300,
+      "top_k": 20,
+      "indexed_chunks": 643469,
+      "indexed_unique_cids": 261440,
+      "gold_coverage_in_index": 1.0,
+      "questions_with_gold_in_index": 300,
+      "questions_without_gold_in_index": 0,
+      "mrr": 0.3426,
+      "conditional_mrr": 0.3426,
+      "ndcg@10": 0.3873,
+      "recall@1": 0.23,
+      "conditional_recall@1": 0.23,
+      "recall@5": 0.4733,
+      "conditional_recall@5": 0.4733,
+      "recall@10": 0.5767,
+      "conditional_recall@10": 0.5767,
+      "recall@20": 0.6767,
+      "conditional_recall@20": 0.6767,
+      "reranker_mode": "cross-encoder-hardneg",
       "reranker_model_path": "models/reranker-best"
     },
     {
@@ -180,6 +255,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.4046,
       "conditional_mrr": 0.4046,
+      "ndcg@10": 0.4463,
       "recall@1": 0.31,
       "conditional_recall@1": 0.31,
       "recall@5": 0.5267,
@@ -201,6 +277,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.3689,
       "conditional_mrr": 0.3689,
+      "ndcg@10": 0.381,
       "recall@1": 0.31,
       "conditional_recall@1": 0.31,
       "recall@5": 0.45,
@@ -222,6 +299,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.3867,
       "conditional_mrr": 0.3867,
+      "ndcg@10": 0.4132,
       "recall@1": 0.31,
       "conditional_recall@1": 0.31,
       "recall@5": 0.5267,
@@ -243,6 +321,7 @@
       "questions_without_gold_in_index": 0,
       "mrr": 0.3959,
       "conditional_mrr": 0.3959,
+      "ndcg@10": 0.4343,
       "recall@1": 0.31,
       "conditional_recall@1": 0.31,
       "recall@5": 0.5267,
@@ -254,48 +333,426 @@
     }
   ],
   "answer_generation": {
-    "samples": 0
+    "samples": 200,
+    "exact_match": 0.0,
+    "token_f1": 0.5901,
+    "rouge_l": 0.4801,
+    "citation_presence": 0.995,
+    "format_compliance": 0.001,
+    "faithfulness_score": 0.8447,
+    "reasoning_score": 0.2102,
+    "directness_score": 0.735,
+    "citation_correctness": 0.995,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 479.12,
+    "avg_gold_length": 886.0,
+    "variant": "qwen_qlora",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": "models/qwen2.5-7b-legalqa-qlora",
+    "evidence_mode": "sft_prompt_context",
+    "baseline_note": "Base Qwen plus LegalQA QLoRA adapter.",
+    "prompt_style": "default",
+    "input_fingerprint": "f6714feadeef14e8c7d5d039641482a655279bf89fdc2a5d0ebbf6795465b8b7"
   },
   "retrieved_answer_generation": {
-    "samples": 0
+    "samples": 200,
+    "exact_match": 0.0,
+    "token_f1": 0.5506,
+    "rouge_l": 0.4142,
+    "citation_presence": 1.0,
+    "format_compliance": 0.001,
+    "faithfulness_score": 0.9374,
+    "reasoning_score": 0.2123,
+    "directness_score": 0.79,
+    "citation_correctness": 1.0,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 529.55,
+    "avg_gold_length": 886.0,
+    "variant": "qwen_qlora",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": "models/qwen2.5-7b-legalqa-qlora",
+    "evidence_mode": "retrieved_context_llm",
+    "baseline_note": "LLM generation over retrieved cross-encoder reranked context.",
+    "prompt_style": "default",
+    "retrieval_variant": "full_with_cross_encoder_reranker",
+    "retrieval_top_k": 5,
+    "input_fingerprint": "fa1b186f05642bf1d07a2fb62e72dd4c0419917f4e07fb4e6a1958fa642b83b8"
   },
   "retrieved_prompt_only_generation": {
-    "samples": 0
+    "samples": 200,
+    "exact_match": 0.0,
+    "token_f1": 0.4909,
+    "rouge_l": 0.3614,
+    "citation_presence": 0.995,
+    "format_compliance": 0.002,
+    "faithfulness_score": 0.9403,
+    "reasoning_score": 0.2092,
+    "directness_score": 0.9875,
+    "citation_correctness": 0.995,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 476.61,
+    "avg_gold_length": 886.0,
+    "variant": "qwen_prompt_only",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": null,
+    "evidence_mode": "retrieved_context_llm",
+    "baseline_note": "LLM generation over retrieved cross-encoder reranked context.",
+    "prompt_style": "default",
+    "retrieval_variant": "full_with_cross_encoder_reranker",
+    "retrieval_top_k": 5,
+    "input_fingerprint": "fa1b186f05642bf1d07a2fb62e72dd4c0419917f4e07fb4e6a1958fa642b83b8"
   },
   "retrieved_schema_generation": {
-    "samples": 0
+    "samples": 200,
+    "exact_match": 0.0,
+    "token_f1": 0.4587,
+    "rouge_l": 0.3385,
+    "citation_presence": 0.89,
+    "format_compliance": 0.001,
+    "faithfulness_score": 0.8038,
+    "reasoning_score": 0.1889,
+    "directness_score": 0.75,
+    "citation_correctness": 0.89,
+    "refusal_quality": 1.0,
+    "avg_prediction_length": 601.77,
+    "avg_gold_length": 886.0,
+    "variant": "qwen_qlora",
+    "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "base_model": "Qwen/Qwen2.5-7B-Instruct",
+    "adapter": "models/qwen2.5-7b-legalqa-qlora",
+    "evidence_mode": "retrieved_context_llm",
+    "baseline_note": "LLM generation over retrieved cross-encoder reranked context.",
+    "prompt_style": "schema",
+    "retrieval_variant": "full_with_cross_encoder_reranker",
+    "retrieval_top_k": 5,
+    "input_fingerprint": "aa6f01cf36bdf9b8ad9f5f721eacbfc19eff88e586cb6d1f42af8aac70271ede"
   },
   "generation_baselines": {
-    "status": "missing",
-    "baselines": []
+    "status": "available",
+    "samples": 200,
+    "limit": 200,
+    "evidence_mode": "oracle_context",
+    "baselines": [
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.5478,
+        "rouge_l": 0.4135,
+        "citation_presence": 0.93,
+        "format_compliance": 0.986,
+        "faithfulness_score": 0.7313,
+        "reasoning_score": 0.7666,
+        "directness_score": 0.915,
+        "citation_correctness": 0.93,
+        "refusal_quality": 0.965,
+        "avg_prediction_length": 481.76,
+        "avg_gold_length": 886.0,
+        "variant": "extractive_only",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": null,
+        "adapter": null,
+        "evidence_mode": "oracle_sft_context_extractive",
+        "baseline_note": "Extractive generator over oracle/SFT context; no LLM inference.",
+        "prompt_style": "default"
+      },
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.502,
+        "rouge_l": 0.3881,
+        "citation_presence": 0.985,
+        "format_compliance": 0.003,
+        "faithfulness_score": 0.8652,
+        "reasoning_score": 0.2045,
+        "directness_score": 0.9925,
+        "citation_correctness": 0.985,
+        "refusal_quality": 1.0,
+        "avg_prediction_length": 373.44,
+        "avg_gold_length": 886.0,
+        "variant": "qwen_prompt_only",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": "Qwen/Qwen2.5-7B-Instruct",
+        "adapter": null,
+        "evidence_mode": "sft_prompt_context",
+        "baseline_note": "Base Qwen with the same evaluation prompt/context as the main QLoRA run, without adapter.",
+        "prompt_style": "default",
+        "input_fingerprint": "f6714feadeef14e8c7d5d039641482a655279bf89fdc2a5d0ebbf6795465b8b7"
+      },
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.5901,
+        "rouge_l": 0.4801,
+        "citation_presence": 0.995,
+        "format_compliance": 0.001,
+        "faithfulness_score": 0.8447,
+        "reasoning_score": 0.2102,
+        "directness_score": 0.735,
+        "citation_correctness": 0.995,
+        "refusal_quality": 1.0,
+        "avg_prediction_length": 479.12,
+        "avg_gold_length": 886.0,
+        "variant": "qwen_qlora",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": "Qwen/Qwen2.5-7B-Instruct",
+        "adapter": "models/qwen2.5-7b-legalqa-qlora",
+        "evidence_mode": "sft_prompt_context",
+        "baseline_note": "Base Qwen plus LegalQA QLoRA adapter.",
+        "prompt_style": "default",
+        "input_fingerprint": "f6714feadeef14e8c7d5d039641482a655279bf89fdc2a5d0ebbf6795465b8b7"
+      },
+      {
+        "samples": 200,
+        "exact_match": 0.0,
+        "token_f1": 0.502,
+        "rouge_l": 0.3881,
+        "citation_presence": 0.985,
+        "format_compliance": 0.003,
+        "faithfulness_score": 0.8652,
+        "reasoning_score": 0.2045,
+        "directness_score": 0.9925,
+        "citation_correctness": 0.985,
+        "refusal_quality": 1.0,
+        "avg_prediction_length": 373.44,
+        "avg_gold_length": 886.0,
+        "variant": "oracle_evidence_qwen",
+        "dataset": "data/processed/thangvip_legalqa/test.jsonl",
+        "base_model": "Qwen/Qwen2.5-7B-Instruct",
+        "adapter": null,
+        "evidence_mode": "oracle_sft_context_llm",
+        "baseline_note": "The current SFT evaluation prompt already contains oracle/gold context; interpret this as oracle-context generation, not retrieved-context generation.",
+        "prompt_style": "default",
+        "input_fingerprint": "f6714feadeef14e8c7d5d039641482a655279bf89fdc2a5d0ebbf6795465b8b7",
+        "status": "not_distinct",
+        "exclude_from_main_table": true,
+        "diagnostic_note": "Current SFT evaluation prompt already contains oracle/gold context, so this row is not a distinct upper-bound baseline relative to qwen_prompt_only."
+      }
+    ]
   },
-  "qa_memory_leakage": {},
+  "qa_memory_leakage": {
+    "eval_questions": 1458,
+    "qa_memory_questions": 89261,
+    "near_threshold": 0.9,
+    "exact_duplicates": 0,
+    "normalized_duplicates": 0,
+    "near_duplicates": 2,
+    "max_similarity": 0.9388,
+    "examples": {
+      "exact_duplicates": [],
+      "normalized_duplicates": [],
+      "near_duplicates": [
+        {
+          "question": "Theo Điều 125 Luật Thi hành án dân sự, Thủ trưởng cơ quan thi hành án dân sự phải ra quyết định thành lập Hội đồng tiêu hủy vật chứng, tài sản trong thời hạn bao lâu?",
+          "qa_memory_question": "Thủ trưởng cơ quan thi hành án dân sự phải ra quyết định thành lập Hội đồng tiêu huỷ vật chứng, tài sản trong thời hạn bao lâu?",
+          "similarity": 0.9388
+        },
+        {
+          "question": "Trong trường hợp có nhiều người được thi hành án cùng thuộc một hàng ưu tiên thanh toán, việc thanh toán tiền thi hành án sẽ được thực hiện như thế nào?",
+          "qa_memory_question": "Trường hợp có nhiều người được thi hành án thì việc thanh toán tiền thi hành án được thực hiện như thế nào?",
+          "similarity": 0.9109
+        }
+      ]
+    },
+    "eval_dataset": "data/processed/thangvip_legalqa/test.jsonl",
+    "qa_memory": "data/processed/qa_memory_v3.jsonl"
+  },
   "human_evaluation": {
-    "status": "pending_annotations",
+    "status": "scored",
     "evaluation_label": "Human Evaluation",
+    "source": "reports/human_eval_sample_75.csv",
     "samples": 75,
-    "annotators": 2,
-    "independent": true,
-    "ai_assisted": false,
-    "calibration": "3-5 pilot examples",
+    "annotators": 1,
+    "independent": false,
+    "ai_assisted": true,
+    "calibration": "LLM-as-annotator single pass",
     "rubric_scale": "1-5",
-    "metrics": [
+    "metric_names": [
       "legal_correctness",
       "grounding",
       "citation_correctness",
       "directness",
       "refusal"
     ],
-    "notes": "Fill reports/human_eval_sample_75.csv or pass --human-eval with completed annotations."
+    "metrics": {
+      "legal_correctness": {
+        "n": 75,
+        "mean": 4.0133,
+        "std": 1.0262
+      },
+      "grounding": {
+        "n": 75,
+        "mean": 4.5067,
+        "std": 0.9712
+      },
+      "citation_correctness": {
+        "n": 75,
+        "mean": 3.88,
+        "std": 1.2325
+      },
+      "directness": {
+        "n": 75,
+        "mean": 4.1067,
+        "std": 1.2814
+      },
+      "refusal": {
+        "n": 75,
+        "mean": 3.6667,
+        "std": 1.33
+      }
+    },
+    "per_annotator": {
+      "a1": {
+        "legal_correctness": {
+          "n": 75,
+          "mean": 4.0133,
+          "std": 1.0262
+        },
+        "grounding": {
+          "n": 75,
+          "mean": 4.5067,
+          "std": 0.9712
+        },
+        "citation_correctness": {
+          "n": 75,
+          "mean": 3.88,
+          "std": 1.2325
+        },
+        "directness": {
+          "n": 75,
+          "mean": 4.1067,
+          "std": 1.2814
+        },
+        "refusal": {
+          "n": 75,
+          "mean": 3.6667,
+          "std": 1.33
+        }
+      },
+      "a2": {
+        "legal_correctness": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "grounding": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "citation_correctness": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "directness": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "refusal": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        }
+      }
+    },
+    "agreement": {
+      "legal_correctness": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "grounding": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "citation_correctness": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "directness": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "refusal": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      }
+    },
+    "score_distribution": {
+      "legal_correctness": {
+        "n": 75,
+        "score_1": 3,
+        "score_2": 1,
+        "score_3": 18,
+        "score_4": 23,
+        "score_5": 30,
+        "pass_rate_ge4": 0.7067,
+        "weak_fail_rate_le3": 0.2933
+      },
+      "grounding": {
+        "n": 75,
+        "score_1": 3,
+        "score_2": 2,
+        "score_3": 2,
+        "score_4": 15,
+        "score_5": 53,
+        "pass_rate_ge4": 0.9067,
+        "weak_fail_rate_le3": 0.0933
+      },
+      "citation_correctness": {
+        "n": 75,
+        "score_1": 5,
+        "score_2": 7,
+        "score_3": 11,
+        "score_4": 21,
+        "score_5": 31,
+        "pass_rate_ge4": 0.6933,
+        "weak_fail_rate_le3": 0.3067
+      },
+      "directness": {
+        "n": 75,
+        "score_1": 3,
+        "score_2": 10,
+        "score_3": 10,
+        "score_4": 5,
+        "score_5": 47,
+        "pass_rate_ge4": 0.6933,
+        "weak_fail_rate_le3": 0.3067
+      },
+      "refusal": {
+        "n": 75,
+        "score_1": 8,
+        "score_2": 2,
+        "score_3": 29,
+        "score_4": 4,
+        "score_5": 32,
+        "pass_rate_ge4": 0.48,
+        "weak_fail_rate_le3": 0.52
+      }
+    }
   },
   "end_to_end_human_evaluation": {
-    "status": "pending_annotations",
+    "status": "scored",
     "evaluation_label": "End-to-End Human Evaluation",
-    "samples": 0,
-    "annotators": 2,
-    "independent": true,
-    "ai_assisted": false,
-    "calibration": "3-5 pilot examples",
+    "source": "reports/end_to_end_human_eval_sample_50.tsv",
+    "samples": 50,
+    "annotators": 1,
+    "independent": false,
+    "ai_assisted": true,
+    "calibration": "LLM-as-annotator single pass",
     "rubric_scale": "1-5",
     "metric_names": [
       "legal_correctness",
@@ -305,7 +762,204 @@
       "refusal",
       "citation_support_score"
     ],
-    "notes": "Fill reports/end_to_end_human_eval_sample_0.tsv or pass --end-to-end-human-eval with completed annotations."
+    "metrics": {
+      "legal_correctness": {
+        "n": 50,
+        "mean": 4.04,
+        "std": 0.6621
+      },
+      "grounding": {
+        "n": 50,
+        "mean": 4.92,
+        "std": 0.2713
+      },
+      "citation_correctness": {
+        "n": 50,
+        "mean": 3.88,
+        "std": 0.84
+      },
+      "directness": {
+        "n": 50,
+        "mean": 3.94,
+        "std": 0.9468
+      },
+      "refusal": {
+        "n": 50,
+        "mean": 3.78,
+        "std": 1.4871
+      },
+      "citation_support_score": {
+        "n": 0,
+        "mean": null,
+        "std": null
+      }
+    },
+    "per_annotator": {
+      "a1": {
+        "legal_correctness": {
+          "n": 50,
+          "mean": 4.04,
+          "std": 0.6621
+        },
+        "grounding": {
+          "n": 50,
+          "mean": 4.92,
+          "std": 0.2713
+        },
+        "citation_correctness": {
+          "n": 50,
+          "mean": 3.88,
+          "std": 0.84
+        },
+        "directness": {
+          "n": 50,
+          "mean": 3.94,
+          "std": 0.9468
+        },
+        "refusal": {
+          "n": 50,
+          "mean": 3.78,
+          "std": 1.4871
+        },
+        "citation_support_score": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        }
+      },
+      "a2": {
+        "legal_correctness": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "grounding": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "citation_correctness": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "directness": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "refusal": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        },
+        "citation_support_score": {
+          "n": 0,
+          "mean": null,
+          "std": null
+        }
+      }
+    },
+    "agreement": {
+      "legal_correctness": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "grounding": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "citation_correctness": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "directness": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "refusal": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      },
+      "citation_support_score": {
+        "n": 0,
+        "mean_abs_diff": null,
+        "exact_agreement": null,
+        "within_1_agreement": null
+      }
+    },
+    "score_distribution": {
+      "legal_correctness": {
+        "n": 50,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 10,
+        "score_4": 28,
+        "score_5": 12,
+        "pass_rate_ge4": 0.8,
+        "weak_fail_rate_le3": 0.2
+      },
+      "grounding": {
+        "n": 50,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 0,
+        "score_4": 4,
+        "score_5": 46,
+        "pass_rate_ge4": 1.0,
+        "weak_fail_rate_le3": 0.0
+      },
+      "citation_correctness": {
+        "n": 50,
+        "score_1": 0,
+        "score_2": 3,
+        "score_3": 12,
+        "score_4": 23,
+        "score_5": 12,
+        "pass_rate_ge4": 0.7,
+        "weak_fail_rate_le3": 0.3
+      },
+      "directness": {
+        "n": 50,
+        "score_1": 1,
+        "score_2": 2,
+        "score_3": 12,
+        "score_4": 19,
+        "score_5": 16,
+        "pass_rate_ge4": 0.7,
+        "weak_fail_rate_le3": 0.3
+      },
+      "refusal": {
+        "n": 50,
+        "score_1": 6,
+        "score_2": 5,
+        "score_3": 11,
+        "score_4": 0,
+        "score_5": 28,
+        "pass_rate_ge4": 0.56,
+        "weak_fail_rate_le3": 0.44
+      },
+      "citation_support_score": {
+        "n": 0,
+        "score_1": 0,
+        "score_2": 0,
+        "score_3": 0,
+        "score_4": 0,
+        "score_5": 0,
+        "pass_rate_ge4": 0.0,
+        "weak_fail_rate_le3": 0.0
+      }
+    }
   },
   "retrieval_error_categories": {
     "denominator": 300,
@@ -448,29 +1102,137 @@
     }
   },
   "generation_error_categories": {
-    "denominator": 0,
+    "denominator": 200,
     "denominator_label": "generation_samples",
-    "counts": {},
-    "rates": {},
-    "examples": {}
-  },
-  "human_error_categories": {
-    "denominator": 0,
-    "denominator_label": "human_eval_samples",
-    "counts": {},
-    "rates": {},
-    "examples": {}
-  },
-  "answer_error_categories": {
-    "total_scored_samples": 0,
-    "total_retrieval_samples": 300,
     "counts": {
-      "low_rank_after_top5": 27,
-      "retrieval_miss": 79
+      "low_format_compliance": 200,
+      "weak_lexical_match": 1,
+      "wrong_or_weak_citation_proxy": 1
     },
     "rates": {
+      "low_format_compliance": 1.0,
+      "weak_lexical_match": 0.005,
+      "wrong_or_weak_citation_proxy": 0.005
+    },
+    "examples": {
+      "low_format_compliance": {
+        "category": "low_format_compliance",
+        "question": "Theo Khoản 1 Điều 6 của Luật Hộ tịch, những đối tượng nào có quyền và nghĩa vụ đăng ký hộ tịch?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam, người không quốc tịch thường trú tại Việt Nam. Quy định này cũng được áp dụng đối với công dân nước ngoài thường trú tại Việt Nam, trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 6.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam, người không quốc tịch thường trú tại Việt Nam. Ngoài ra, quy định này cũng được áp dụng đối với công dân nước ngoài thường trú tại Việt Nam, trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác.",
+        "hit_rank": null
+      },
+      "weak_lexical_match": {
+        "category": "weak_lexical_match",
+        "question": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch có tính chất là gì?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia. Điều này nhấn mạnh tầm quan trọng đặc biệt của hệ thống thông tin này đối với đất nước, không chỉ là một công cụ quản lý mà còn là một nguồn tài nguyên quý giá thuộc sở hữu nhà nước.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 57.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia.",
+        "hit_rank": null
+      },
+      "wrong_or_weak_citation_proxy": {
+        "category": "wrong_or_weak_citation_proxy",
+        "question": "Theo Khoản 1 Điều 60, những thông tin nào của cá nhân phải được cập nhật vào Cơ sở dữ liệu hộ tịch điện tử?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 60 của Luật Hộ tịch, các sự kiện hộ tịch của cá nhân ngay sau khi đăng ký vào Sổ hộ tịch đều phải được cập nhật kịp thời, đầy đủ, chính xác vào Cơ sở dữ liệu hộ tịch điện tử.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 60.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Các sự kiện hộ tịch của cá nhân ngay sau khi được đăng ký vào Sổ hộ tịch đều phải được cập nhật kịp thời, đầy đủ và chính xác vào Cơ sở dữ liệu hộ tịch điện tử.",
+        "hit_rank": null
+      }
+    }
+  },
+  "human_error_categories": {
+    "denominator": 75,
+    "denominator_label": "human_eval_samples",
+    "counts": {
+      "low_human_citation_correctness": 23,
+      "low_human_directness": 13,
+      "low_human_grounding": 5,
+      "low_human_legal_correctness": 4,
+      "low_human_refusal": 10
+    },
+    "rates": {
+      "low_human_citation_correctness": 0.3067,
+      "low_human_directness": 0.1733,
+      "low_human_grounding": 0.0667,
+      "low_human_legal_correctness": 0.0533,
+      "low_human_refusal": 0.1333
+    },
+    "examples": {
+      "low_human_citation_correctness": {
+        "category": "low_human_citation_correctness",
+        "question": "Ai có thẩm quyền quyết định thành lập Hội đồng tư vấn cấp Chứng chỉ hành nghề dược Sở Y tế?",
+        "gold_cids": "62339",
+        "gold_evidence": "cid=62339 Thành lập Hội đồng 1. Bộ trưởng Bộ Y tế ra quyết định thành lập Hội đồng tư vấn cấp Chứng chỉ hành nghề dược theo hình thức thi (sau đây gọi tắt là Hội đồng tư vấn cấp Chứng chỉ hành nghề dược Bộ Y tế).",
+        "gold_answer": "",
+        "retrieved_evidence": [],
+        "prediction": "",
+        "hit_rank": "1"
+      },
+      "low_human_directness": {
+        "category": "low_human_directness",
+        "question": "Trình tự, thủ tục nhượng bán tài sản của Ngân hàng Chính sách xã hội như thế nào?",
+        "gold_cids": "64246",
+        "gold_evidence": "cid=64246 Thanh lý, nhượng bán tài sản cố định ... 4. Trình tự, thủ tục thanh lý, nhượng bán tài sản: a) Chủ tịch Hội đồng thành viên hoặc Chủ tịch công ty quyết định thành lập Hội đồng thanh lý, nhượng bán tài sản cố định tại doanh nghiệp do Nhà nước nắm giữ 100% vốn điều lệ. Thành phần Hội đồng gồm: Tổng Giám đốc hoặc Giám đốc, Kế toán trưởng, các trưởng phòng có liên quan; đại diện Ban Chấp hành công đoàn cơ sở tại doanh nghiệp và một số chuyên gia am hiểu về tính năng kỹ thuật của tài sản cố định (nếu cần). Nhiệm vụ của Hội đồng thanh lý, nhượng bán tài sản cố định của doanh nghiệp gồm: - Xác định t",
+        "gold_answer": "",
+        "retrieved_evidence": [],
+        "prediction": "",
+        "hit_rank": ""
+      },
+      "low_human_refusal": {
+        "category": "low_human_refusal",
+        "question": "Người chứng kiến có phải giữ bí mật hoạt động điều tra mà mình chứng kiến không?",
+        "gold_cids": "61582",
+        "gold_evidence": "cid=61582 “4. Người chứng kiến có nghĩa vụ: [… ] d) Giữ bí mật về hoạt động điều tra mà mình chứng kiến; […]”",
+        "gold_answer": "",
+        "retrieved_evidence": [],
+        "prediction": "",
+        "hit_rank": "1"
+      },
+      "low_human_grounding": {
+        "category": "low_human_grounding",
+        "question": "Giáo viên nhận tiền để sửa điểm thi có thể bị truy cứu trách nhiệm tội nhận hối lộ hay không?",
+        "gold_cids": "62232",
+        "gold_evidence": "cid=62232 Điều 353. Tội tham ô tài sản 1. Người nào lợi dụng chức vụ, quyền hạn chiếm đoạt tài sản mà mình có trách nhiệm quản lý trị giá từ 2.000.000 đồng đến dưới 100.000.000 đồng hoặc dưới 2.000.000 đồng nhưng thuộc một trong các trường hợp sau đây, thì bị phạt tù từ 02 năm đến 07 năm: a) Đã bị xử lý kỷ luật về hành vi này mà còn vi phạm; b) Đã bị kết án về một trong các tội quy định tại Mục 1 Chương này, chưa được xóa án tích mà còn vi phạm.",
+        "gold_answer": "",
+        "retrieved_evidence": [],
+        "prediction": "",
+        "hit_rank": ""
+      },
+      "low_human_legal_correctness": {
+        "category": "low_human_legal_correctness",
+        "question": "Bệnh giảm áp nghề nghiệp được chẩn đoán lâm sàng sẽ có những triệu chứng nào?",
+        "gold_cids": "153320",
+        "gold_evidence": "cid=153320 Chẩn đoán 7.1. Lâm sàng 7.1.1. Bệnh giảm áp a) Cấp tính - Mức độ nhẹ: Là hình thành bóng khí dưới da (tràn khí dưới da), tràn khí màng phổi, trung thất hoặc xương, khớp (thường gặp nhất là khớp gối, khớp háng, khớp vai, xương); - Mức độ nặng: Bóng khí chèn ép tủy sống, não gây liệt nửa người hoặc liệt nửa người dưới (từ chỗ bóng khí chèn ép trở xuống), tắc mạch do bóng khí gây ra các triệu chứng như trong trường hợp tắc mạch do không khí giống như trong vỡ phổi. + Chấn thương tai giữa: nên vòi Eustache bị viêm tắc, có thể gây ra rách màng nhĩ làm chảy máu tai trong. Bệnh nhân cảm thấy đau chói",
+        "gold_answer": "",
+        "retrieved_evidence": [],
+        "prediction": "",
+        "hit_rank": "1"
+      }
+    }
+  },
+  "answer_error_categories": {
+    "total_scored_samples": 200,
+    "total_retrieval_samples": 300,
+    "counts": {
+      "low_format_compliance": 200,
+      "low_rank_after_top5": 27,
+      "retrieval_miss": 79,
+      "weak_lexical_match": 1,
+      "wrong_or_weak_citation_proxy": 1
+    },
+    "rates": {
+      "low_format_compliance": 0.6667,
       "low_rank_after_top5": 0.09,
-      "retrieval_miss": 0.2633
+      "retrieval_miss": 0.2633,
+      "weak_lexical_match": 0.0033,
+      "wrong_or_weak_citation_proxy": 0.0033
     },
     "examples": {
       "retrieval_miss": {
@@ -598,6 +1360,36 @@
         ],
         "prediction": "",
         "hit_rank": 10
+      },
+      "low_format_compliance": {
+        "category": "low_format_compliance",
+        "question": "Theo Khoản 1 Điều 6 của Luật Hộ tịch, những đối tượng nào có quyền và nghĩa vụ đăng ký hộ tịch?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam, người không quốc tịch thường trú tại Việt Nam. Quy định này cũng được áp dụng đối với công dân nước ngoài thường trú tại Việt Nam, trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 6.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 1 Điều 6 của Luật Hộ tịch, các đối tượng có quyền và nghĩa vụ đăng ký hộ tịch bao gồm: Công dân Việt Nam, người không quốc tịch thường trú tại Việt Nam. Ngoài ra, quy định này cũng được áp dụng đối với công dân nước ngoài thường trú tại Việt Nam, trừ trường hợp điều ước quốc tế mà Việt Nam là thành viên có quy định khác.",
+        "hit_rank": null
+      },
+      "weak_lexical_match": {
+        "category": "weak_lexical_match",
+        "question": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch có tính chất là gì?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia. Điều này nhấn mạnh tầm quan trọng đặc biệt của hệ thống thông tin này đối với đất nước, không chỉ là một công cụ quản lý mà còn là một nguồn tài nguyên quý giá thuộc sở hữu nhà nước.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 57.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Theo Khoản 1 Điều 57 Luật Hộ tịch, Cơ sở dữ liệu hộ tịch được xác định là tài sản quốc gia.",
+        "hit_rank": null
+      },
+      "wrong_or_weak_citation_proxy": {
+        "category": "wrong_or_weak_citation_proxy",
+        "question": "Theo Khoản 1 Điều 60, những thông tin nào của cá nhân phải được cập nhật vào Cơ sở dữ liệu hộ tịch điện tử?",
+        "gold_cids": [],
+        "gold_evidence": [],
+        "gold_answer": "Tra loi: Theo Khoản 1 Điều 60 của Luật Hộ tịch, các sự kiện hộ tịch của cá nhân ngay sau khi đăng ký vào Sổ hộ tịch đều phải được cập nhật kịp thời, đầy đủ, chính xác vào Cơ sở dữ liệu hộ tịch điện tử.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 60.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+        "retrieved_evidence": [],
+        "prediction": "Các sự kiện hộ tịch của cá nhân ngay sau khi được đăng ký vào Sổ hộ tịch đều phải được cập nhật kịp thời, đầy đủ và chính xác vào Cơ sở dữ liệu hộ tịch điện tử.",
+        "hit_rank": null
       }
     }
   },
@@ -661,15 +1453,31 @@
         "hit_rank": null,
         "gold_in_index": true
       }
+    },
+    {
+      "case": "generation_or_citation_failure",
+      "question": "Theo Khoản 1 Điều 60, những thông tin nào của cá nhân phải được cập nhật vào Cơ sở dữ liệu hộ tịch điện tử?",
+      "gold_answer": "Tra loi: Theo Khoản 1 Điều 60 của Luật Hộ tịch, các sự kiện hộ tịch của cá nhân ngay sau khi đăng ký vào Sổ hộ tịch đều phải được cập nhật kịp thời, đầy đủ, chính xác vào Cơ sở dữ liệu hộ tịch điện tử.\nCan cu: Luật Hộ tịch của Quốc hội, số 60/2014/QH13 - Dieu 60.\nLap luan: Evidence duoc cung cap khop voi noi dung cau hoi; do do cau tra loi chi rut ra tu dieu/khoan nay va khong suy doan ngoai van ban.\nThong tin con thieu: Khong co them thong tin can bo sung neu chi dua tren evidence hien co.",
+      "gold_evidence": [],
+      "retrieved_evidence": [],
+      "prediction": "Các sự kiện hộ tịch của cá nhân ngay sau khi được đăng ký vào Sổ hộ tịch đều phải được cập nhật kịp thời, đầy đủ và chính xác vào Cơ sở dữ liệu hộ tịch điện tử.",
+      "automatic_signals": {
+        "hit_rank": null,
+        "faithfulness_score": 0.7308,
+        "citation_presence": 0.0,
+        "citation_correctness": 0.0,
+        "directness_score": 1.0
+      }
     }
   ],
   "notes": [
     "Faithfulness, reasoning, directness, citation correctness, and refusal quality are proxy metrics.",
-    "Human evaluation uses two human annotators who scored independently after a short 3-5 example calibration; no AI-assisted scoring is reported as human evaluation.",
+    "Human evaluation uses a single LLM-as-annotator pass (AI-assisted scoring), so there is no inter-annotator agreement and no Cohen's kappa; it is a preliminary assessment, not expert legal validation.",
     "The hybrid_no_qa_memory ablation disables QA-memory seeding/boosting during retrieval evaluation only.",
     "Top-k ablation rows cap the number of retrieved evidence chunks available to downstream generation.",
     "The main retrieval table uses the trained cross-encoder reranker when the full_with_cross_encoder_reranker row is available; heuristic full retrieval is reported as an ablation.",
     "Format compliance measures adherence to the expected structured output format, not legal correctness; low values are treated as a formatting limitation.",
-    "Schema prompting report contains only 0 samples; treat it as smoke validation and do not claim schema prompting improves format compliance."
+    "oracle_evidence_qwen is diagnostic only: the current SFT prompt already contains oracle/gold context, so it is not a distinct upper-bound baseline.",
+    "Answer generation report contains 200 samples, not the 300-sample retrieval run; do not claim it as the main 300-sample generation result."
   ]
 }

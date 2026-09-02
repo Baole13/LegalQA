@@ -13,6 +13,8 @@ DEFAULT_PAIRS = [
     ("hybrid_no_qa_memory", "hybrid_with_qa_memory"),
     ("full", "full_with_cross_encoder_reranker"),
     ("full_with_cross_encoder_reranker", "full_with_cross_encoder_reranker_k100"),
+    ("full_with_cross_encoder_reranker", "full_with_cross_encoder_reranker_hardneg"),
+    ("full_with_cross_encoder_reranker", "full_with_cross_encoder_reranker_hardneg_v2"),
 ]
 
 

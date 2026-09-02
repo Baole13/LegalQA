@@ -47,6 +47,74 @@ def bootstrap_ci(values: list[float], iterations: int, rng: random.Random) -> di
     }
 
 
+def generation_per_query_scores(report_path: str | Path, metrics: list[str]) -> dict[str, dict[str, float]]:
+    """Extract per-sample generation metric scores, keyed by question text.
+
+    Keyed by question rather than list position because two generation reports
+    can drop different malformed records, which would misalign index-based pairing.
+    """
+    path = Path(report_path)
+    with path.open("r", encoding="utf-8") as handle:
+        report = json.load(handle)
+    details = report.get("details", [])
+    result: dict[str, dict[str, float]] = {m: {} for m in metrics}
+    for item in details:
+        key = str(item.get("question", "")).strip()
+        if not key:
+            continue
+        for m in metrics:
+            value = item.get(m)
+            if value is None:
+                continue
+            try:
+                result[m][key] = float(value)
+            except (TypeError, ValueError):
+                continue
+    return result
+
+
+def compare_generation(
+    baseline_path: str | Path,
+    treatment_path: str | Path,
+    metrics: list[str],
+    iterations: int,
+    seed: int,
+) -> dict:
+    """Paired bootstrap CI + p-value for generation metrics between two reports."""
+    base_all = generation_per_query_scores(baseline_path, metrics)
+    treat_all = generation_per_query_scores(treatment_path, metrics)
+    comparisons = []
+    for metric in metrics:
+        base_scores = base_all[metric]
+        treat_scores = treat_all[metric]
+        shared = sorted(set(base_scores) & set(treat_scores))
+        if not shared:
+            continue
+        base_values = [base_scores[q] for q in shared]
+        treat_values = [treat_scores[q] for q in shared]
+        comparisons.append(
+            {
+                "metric": metric,
+                "paired_samples": len(shared),
+                "baseline": bootstrap_ci(base_values, iterations, random.Random(seed)),
+                "treatment": bootstrap_ci(treat_values, iterations, random.Random(seed + 1)),
+                "delta": round(
+                    sum(treat_values) / len(shared) - sum(base_values) / len(shared), 4
+                ),
+                "p_value": paired_bootstrap_p(
+                    base_values, treat_values, iterations, random.Random(seed)
+                ),
+            }
+        )
+    return {
+        "baseline_report": str(baseline_path),
+        "treatment_report": str(treatment_path),
+        "bootstrap_iterations": iterations,
+        "seed": seed,
+        "comparisons": comparisons,
+    }
+
+
 def paired_bootstrap_p(
     baseline: list[float],
     treatment: list[float],

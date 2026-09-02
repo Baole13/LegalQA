@@ -113,9 +113,15 @@ def main() -> None:
     )
     case_studies = _select_case_studies(answer_report.get("details", []), retrieval_details)
 
+    human_eval_note = (
+        "Human evaluation uses a single LLM-as-annotator pass (AI-assisted scoring), so there is no "
+        "inter-annotator agreement and no Cohen's kappa; it is a preliminary assessment, not expert legal validation."
+        if args.human_eval
+        else "Human evaluation annotations are not yet collected; no human-evaluation results are reported."
+    )
     notes = [
         "Faithfulness, reasoning, directness, citation correctness, and refusal quality are proxy metrics.",
-        "Human evaluation uses two human annotators who scored independently after a short 3-5 example calibration; no AI-assisted scoring is reported as human evaluation.",
+        human_eval_note,
         "The hybrid_no_qa_memory ablation disables QA-memory seeding/boosting during retrieval evaluation only.",
         "Top-k ablation rows cap the number of retrieved evidence chunks available to downstream generation.",
         "The main retrieval table uses the trained cross-encoder reranker when the full_with_cross_encoder_reranker row is available; heuristic full retrieval is reported as an ablation.",
@@ -299,6 +305,17 @@ def _run_retrieval_ablations(
         metric_ks,
         cache_dir=cache_dir,
     )
+    with_model_hardneg, _ = _evaluate_retrieval_variant(
+        pipeline,
+        "full_with_cross_encoder_reranker_hardneg",
+        qa_path,
+        limit,
+        max(metric_ks),
+        metric_ks,
+        cache_dir=cache_dir,
+    )
+    with_model_hardneg["reranker_mode"] = "cross-encoder-hardneg"
+    with_model_hardneg["reranker_model_path"] = pipeline.serving_config.reranker_model_path
     rows.extend(
         [
             bm25_only,
@@ -309,6 +326,7 @@ def _run_retrieval_ablations(
             without_model,
             with_model,
             with_model_k100,
+            with_model_hardneg,
             full_metrics,
         ]
     )
@@ -628,6 +646,8 @@ _CROSS_ENCODER_DEPTHS = {
     "full_with_cross_encoder_reranker": 50,
     "full_with_cross_encoder_reranker_k100": 100,
     "full_with_cross_encoder_reranker_k200": 200,
+    "full_with_cross_encoder_reranker_hardneg": 50,
+    "full_with_cross_encoder_reranker_hardneg_v2": 50,
 }
 
 
@@ -1124,14 +1144,10 @@ def _row_has_annotation(row: dict, metrics: tuple[str, ...] = HUMAN_METRICS) -> 
 def _read_delimited_rows(path: Path) -> list[dict]:
     text = path.read_text(encoding="utf-8-sig")
     first_line = text.splitlines()[0] if text.splitlines() else ""
-    if "\t" in first_line:
+    if path.suffix.lower() == ".tsv" or "\t" in first_line:
         dialect = csv.excel_tab
     else:
-        sample = text[:4096]
-        try:
-            dialect = csv.Sniffer().sniff(sample, delimiters=",;")
-        except csv.Error:
-            dialect = csv.excel
+        dialect = csv.excel
     return list(csv.DictReader(io.StringIO(text), dialect=dialect))
 
 def _load_or_initialize_human_eval(path: str | None, sample_rows: list[dict]) -> dict:
@@ -1177,15 +1193,19 @@ def _load_or_initialize_end_to_end_human_eval(path: str | None, sample_rows: lis
 
 
 def _aggregate_human_eval(rows: list[dict], source: str, metric_names: tuple[str, ...] = HUMAN_METRICS, label: str = "Human Evaluation") -> dict:
+    has_a1 = any(_coerce_score(row.get("a1_legal_correctness")) is not None for row in rows)
+    has_a2 = any(_coerce_score(row.get("a2_legal_correctness")) is not None for row in rows)
+    annotator_count = int(has_a1) + int(has_a2)
+    ai_assisted_flag = has_a1 and not has_a2
     summary: dict[str, object] = {
         "status": "scored",
         "evaluation_label": label,
         "source": source,
         "samples": len(rows),
-        "annotators": 2,
-        "independent": True,
-        "ai_assisted": False,
-        "calibration": "3-5 pilot examples",
+        "annotators": max(annotator_count, 1),
+        "independent": annotator_count == 2,
+        "ai_assisted": ai_assisted_flag,
+        "calibration": "3-5 pilot examples" if not ai_assisted_flag else "LLM-as-annotator single pass",
         "rubric_scale": "1-5",
         "metric_names": list(metric_names),
     }
@@ -1583,9 +1603,17 @@ def _gold_summary(example: dict) -> str:
     return ""
 
 
-def _retrieved_summary(items: list[dict]) -> str:
+def _retrieved_summary(items: object) -> str:
+    if isinstance(items, str):
+        return items.replace("\n", " ").strip()
     parts = []
-    for item in items[:3]:
+    for item in (items or [])[:3]:
+        if isinstance(item, str):
+            parts.append(item.replace("\n", " ").strip())
+            continue
+        if not isinstance(item, dict):
+            parts.append(str(item))
+            continue
         snippet = str(item.get("snippet", "")).replace("\n", " ").strip()
         parts.append(f"rank {item.get('rank')} cid={item.get('cid')}: {snippet}")
     return " || ".join(parts)
@@ -1634,14 +1662,16 @@ def _render_human_eval_markdown(summary: dict) -> str:
         return _kv_table(summary)
     label = summary.get("evaluation_label", "Human Evaluation")
     independent = "independently" if summary.get("independent") is not False else "not independently"
-    ai_clause = "no AI-assisted scoring" if summary.get("ai_assisted") is False else "AI-assisted scoring disclosed"
+    ai_flag = summary.get("ai_assisted", False)
+    ai_clause = "no AI-assisted scoring" if ai_flag is False else "AI-assisted scoring disclosed"
     calibration = summary.get("calibration", "3-5 pilot examples")
+    n_annotators = summary.get("annotators", 2)
     lines = [
         f"Source: `{summary.get('source')}`",
         "",
-        f"Disclosure: {summary.get('annotators', 2)} human annotators scored {independent} after short calibration ({calibration}); {ai_clause} is reported as {label}.",
+        f"Disclosure: {n_annotators} annotator(s) scored {independent} after short calibration ({calibration}); {ai_clause} is reported as {label}.",
         "",
-        f"We evaluate {summary.get('samples', 0)} examples, each scored by two human annotators, resulting in {int(summary.get('samples', 0) or 0) * 2} annotation scores per metric.",
+        f"We evaluate {summary.get('samples', 0)} examples, each scored by {n_annotators} annotator(s), resulting in {int(summary.get('samples', 0) or 0) * max(n_annotators, 1)} annotation scores per metric.",
         "",
         "The annotators are not legal experts, so the evaluation should be interpreted as preliminary human assessment, not expert legal validation.",
         "",
