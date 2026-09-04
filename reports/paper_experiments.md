@@ -36,9 +36,9 @@ All grounding-oriented answer metrics in this report are proxy metrics, not lega
 | hybrid_no_qa_memory | 300 | 20 | 1.0 | 0.2933 | 0.4933 | 0.58 | 0.6633 | 0.3821 | 0.4167 | 0.3821 |
 | hybrid_with_qa_memory | 300 | 20 | 1.0 | 0.31 | 0.5267 | 0.62 | 0.7 | 0.4046 | 0.4463 | 0.4046 |
 | full_without_model_reranker | 300 | 20 | 1.0 | 0.31 | 0.5267 | 0.62 | 0.7 | 0.4046 | 0.4463 | 0.4046 |
-| full_with_cross_encoder_reranker | 300 | 20 | 1.0 | 0.36 | 0.6467 | 0.7033 | 0.7367 | 0.4828 | 0.5302 | 0.4828 |
-| full_with_cross_encoder_reranker_k100 | 300 | 20 | 1.0 | 0.36 | 0.65 | 0.71 | 0.7667 | 0.4828 | 0.5313 | 0.4828 |
-| full_with_cross_encoder_reranker_hardneg | 300 | 20 | 1.0 | 0.23 | 0.4733 | 0.5767 | 0.6767 | 0.3426 | 0.3873 | 0.3426 |
+| full_with_cross_encoder_reranker | 300 | 20 | 1.0 | 0.36 | 0.6467 | 0.7033 | 0.7367 | 0.4828 |  | 0.4828 |
+| full_with_cross_encoder_reranker_k100 | 300 | 20 | 1.0 | 0.36 | 0.65 | 0.71 | 0.7667 | 0.4828 |  | 0.4828 |
+| full_with_cross_encoder_reranker_hardneg | 300 | 20 | 1.0 | 0.36 | 0.6467 | 0.7033 | 0.7367 | 0.4828 |  | 0.4828 |
 | full | 300 | 20 | 1.0 | 0.31 | 0.5267 | 0.62 | 0.7 | 0.4046 | 0.4463 | 0.4046 |
 | full_top_k_3 | 300 | 3 | 1.0 | 0.31 | 0.45 | 0.45 | 0.45 | 0.3689 | 0.381 | 0.3689 |
 | full_top_k_5 | 300 | 5 | 1.0 | 0.31 | 0.5267 | 0.5267 | 0.5267 | 0.3867 | 0.4132 | 0.3867 |

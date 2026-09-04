@@ -63,3 +63,6 @@ reports/*
 # Optional notebooks and caches
 notebooks/
 .ipynb_checkpoints/
+
+main.pdf
+cc-history
