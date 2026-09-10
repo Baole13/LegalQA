@@ -1,0 +1,123 @@
+{
+  "paired_samples": 50,
+  "correlations": [
+    {
+      "metric": "Citation Correctness",
+      "auto_mean": 1.0,
+      "human_mean": 3.88,
+      "pearson_r": 0.0,
+      "spearman_rho": 0.3385
+    },
+    {
+      "metric": "Grounding vs Faithfulness Proxy",
+      "auto_mean": 0.9522,
+      "human_mean": 4.92,
+      "pearson_r": -0.1899,
+      "spearman_rho": -0.1097
+    }
+  ],
+  "false_positives_count": 15,
+  "false_positives_rate": 0.3,
+  "false_positives_samples": [
+    {
+      "question": "Theo Khoản 1 Điều 6 của Luật Hộ tịch, những đối tượng nào có quyền và nghĩa vụ đăng ký hộ tịch?",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 1.0,
+      "human_grounding": 5.0,
+      "human_legal": 3.0,
+      "human_directness": 5.0,
+      "human_refusal": 1.0
+    },
+    {
+      "question": "Một công dân Việt Nam thường trú tại khu vực biên giới của Việt Nam muốn kết hôn với một công dân của nước láng giềng cũng thường trú tại khu vực biên giới với Việt Nam. Trong trường hợp này, cơ quan nào có thẩm quyền đăng ký kết hôn? Nếu một công dân Việt Nam đang cư trú tại nước ngoài muốn đăng ký khai sinh cho con của mình, cơ quan nào sẽ có thẩm quyền giải quyết?",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 0.9763,
+      "human_grounding": 5.0,
+      "human_legal": 4.0,
+      "human_directness": 3.0,
+      "human_refusal": 1.0
+    },
+    {
+      "question": "Theo Điều 10 Luật Hộ tịch, giấy tờ do cơ quan có thẩm quyền của nước ngoài cấp để sử dụng cho việc đăng ký hộ tịch tại Việt Nam có yêu cầu chung gì?",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 0.9632,
+      "human_grounding": 5.0,
+      "human_legal": 4.0,
+      "human_directness": 4.0,
+      "human_refusal": 2.0
+    },
+    {
+      "question": "Một công dân Việt Nam đang sinh sống tại Hoa Kỳ muốn đăng ký kết hôn tại Việt Nam bằng giấy chứng nhận kết hôn do cơ quan có thẩm quyền của Hoa Kỳ cấp. Theo Điều 10 Luật Hộ tịch, giấy tờ này cần trải qua thủ tục pháp lý nào trước khi có thể sử dụng để đăng ký hộ tịch tại Việt Nam, và có trường hợp ngoại lệ nào có thể áp dụng không?",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 0.9343,
+      "human_grounding": 5.0,
+      "human_legal": 3.0,
+      "human_directness": 4.0,
+      "human_refusal": 3.0
+    },
+    {
+      "question": "Các quy định tại Khoản 1 và Khoản 2 Điều 8 Luật Hộ tịch có mối quan hệ như thế nào và cùng đóng góp ra sao vào việc bảo đảm quyền, nghĩa vụ đăng ký hộ tịch của cá nhân?",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 0.8653,
+      "human_grounding": 5.0,
+      "human_legal": 3.0,
+      "human_directness": 4.0,
+      "human_refusal": 3.0
+    },
+    {
+      "question": "Dựa trên Điều 11, hãy phân tích sự khác biệt giữa các trường hợp được miễn lệ phí đăng ký hộ tịch và các trường hợp phải nộp lệ phí?",
+      "auto_citation": 1.0,
+      "human_citation": 2.0,
+      "auto_faithfulness": 0.9731,
+      "human_grounding": 4.0,
+      "human_legal": 3.0,
+      "human_directness": 3.0,
+      "human_refusal": 1.0
+    },
+    {
+      "question": "Một công dân Việt Nam đang cư trú tại Việt Nam muốn đăng ký kết hôn. Sau một thời gian, người này có nhu cầu xin cấp bản sao trích lục giấy khai sinh của mình. Dựa vào Điều 11 của Luật Hộ tịch, hãy cho biết trong trường hợp nào người này được miễn lệ phí và trong trường hợp nào phải nộp lệ phí? Giải thích lý do.",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 0.97,
+      "human_grounding": 4.0,
+      "human_legal": 4.0,
+      "human_directness": 3.0,
+      "human_refusal": 2.0
+    },
+    {
+      "question": "Một trường hợp trẻ em được sinh ra nhưng cả cha và mẹ đều đã qua đời. Theo Điều 15 Luật Hộ tịch, ai sẽ là người có trách nhiệm đăng ký khai sinh cho trẻ em này?",
+      "auto_citation": 1.0,
+      "human_citation": 2.0,
+      "auto_faithfulness": 0.9448,
+      "human_grounding": 5.0,
+      "human_legal": 3.0,
+      "human_directness": 3.0,
+      "human_refusal": 1.0
+    },
+    {
+      "question": "Điều 16 Luật Hộ tịch quy định những trường hợp đặc biệt nào về giấy tờ cần nộp khi đăng ký khai sinh, và vai trò của Chính phủ trong việc quy định chi tiết các trường hợp này là gì?",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 0.9636,
+      "human_grounding": 5.0,
+      "human_legal": 3.0,
+      "human_directness": 2.0,
+      "human_refusal": 1.0
+    },
+    {
+      "question": "Giả sử một cá nhân có thông tin về ngày, tháng, năm sinh trên Giấy khai sinh khác với thông tin trên Căn cước công dân. Dựa trên tinh thần của Điều 14 Luật Hộ tịch, vấn đề này cần được xử lý như thế nào và nguyên tắc pháp lý nào được áp dụng để giải quyết sự không thống nhất đó?",
+      "auto_citation": 1.0,
+      "human_citation": 3.0,
+      "auto_faithfulness": 0.9741,
+      "human_grounding": 5.0,
+      "human_legal": 3.0,
+      "human_directness": 4.0,
+      "human_refusal": 3.0
+    }
+  ]
+}

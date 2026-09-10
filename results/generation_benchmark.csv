@@ -1,0 +1,6 @@
+configuration,id,variant,evidence_mode,samples,token_f1,rouge_l,exact_match,citation_presence,faithfulness_score,directness_score,citation_correctness,timestamp
+Extractive (Oracle),extractive_only,extractive_only,oracle_context,200,0.5478,0.4135,0.0,0.93,0.7313,0.915,0.93,2026-09-08T14:35:42.397372+00:00
+Base Qwen (Oracle),qwen_prompt_only_oracle,qwen_prompt_only,oracle_context,200,0.502,0.3881,0.0,0.985,0.8652,0.9925,0.985,2026-09-08T14:35:42.397372+00:00
+Qwen QLoRA (Oracle),qwen_qlora_oracle,qwen_qlora,oracle_context,200,0.5901,0.4801,0.0,0.995,0.8447,0.735,0.995,2026-09-08T14:35:42.397372+00:00
+Base Qwen + RAG,qwen_prompt_only_rag,qwen_prompt_only,retrieved_context,200,0.4909,0.3614,0.0,0.995,0.9403,0.9875,0.995,2026-09-08T14:35:42.397372+00:00
+Qwen QLoRA + RAG (Full),qwen_qlora_rag,qwen_qlora,retrieved_context,200,0.5506,0.4142,0.0,1.0,0.9374,0.79,1.0,2026-09-08T14:35:42.397372+00:00

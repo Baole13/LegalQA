@@ -1,0 +1,17 @@
+{
+  "retrieval_summary": {
+    "retrieval_miss": 79,
+    "low_rank_after_top5": 27,
+    "wrong_document": 192,
+    "semantic_mismatch": 0
+  },
+  "generation_summary": {
+    "hallucination": 0,
+    "wrong_citation": 0,
+    "incomplete_reasoning": 0,
+    "over_refusal": 0,
+    "format_non_compliance": 0
+  },
+  "retrieval_samples": 300,
+  "generation_samples": 200
+}

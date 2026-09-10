@@ -1,0 +1,7 @@
+context_mode,top_k,retrieval_recall,token_f1,rouge_l,faithfulness,note
+Retrieved (k=1),1,0.36,-,-,-,Retrieved top-1 chunks fed to QLoRA
+Retrieved (k=3),3,0.58,-,-,-,Retrieved top-3 chunks fed to QLoRA
+Retrieved (k=5),5,0.6467,0.5506,0.4142,0.9374,Retrieved top-5 chunks fed to QLoRA
+Retrieved (k=10),10,0.7033,-,-,-,Retrieved top-10 chunks fed to QLoRA
+Retrieved (k=20),20,0.7367,-,-,-,Retrieved top-20 chunks fed to QLoRA
+Oracle Context (Gold),∞ (Gold),1.0,0.5901,0.4801,0.8447,Gold legal provisions provided directly (Upper bound)
