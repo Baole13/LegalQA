@@ -1,0 +1,4802 @@
+[
+  {
+    "sample_id": "17a17d1434a40333",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "c9e2690619268510",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "1641b82ce3209811",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "c6da8aa1e81950b0",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "b8cdd1c9c6639e59",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "06c0171863385e3d",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "51123a62d4a83731",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "fbd6692270eb5043",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "0006c68e2e62b902",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "4111adba87f60349",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "546382cc2c3c1d46",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "239e6f746c509542",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "80a15125dd582e4c",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "149112fe0a8e129f",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "3754892647bff490",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "c22ed059baaf123b",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "2927869001bdbbcf",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "0aa5402aa734a835",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "73d6622a7e03b1ea",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "b9520553c0ab7d5c",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "0b72b2b2478b7630",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "0dc83790e096ffe9",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "a530c862d84bd123",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "e01266641e2e7132",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "3dd41aeae6571fbb",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "3a3903c583a25a0d",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "b299669ed1286d09",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "63a0cf8407e1ba12",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "b28ccf25c1b8f62c",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "ec880fc03ca2585d",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "6db0b21fc2dadb77",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "f3626e6721b8a6d5",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "10c5d824b5311dc1",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "2dcce626f16b8a7e",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "dba22a636203a894",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "95607d2d7837a6bb",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "7e66d133475b65f9",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "111b4aca1b075c01",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "f3dc29eaf8d1c860",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "1cc4439ef87d5cda",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "203d7fcb65360de0",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "ad83f2a406a56f82",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "62c0e943e2fc958d",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "fdf1f8e9a49b6f8b",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "3c8d8fd3080b04ff",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "55b039f95d3a041b",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "fca8be4b4b64282f",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "f1bd7673a8f8f8fb",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "5372301676c782e5",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "e89a0e1916293d1c",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "d117f1c9358c7a9d",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "0376b4a4e36fbe27",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "b486267591335ab9",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "11f433eb3008fcba",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "64007d1bda253c55",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "7bb9bff269cfcddf",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "b806ffa28fa4f714",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "c8b3e240f7612874",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "6cfaa753527f9f6c",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "3318398e90d86aa5",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "b4288793976ce123",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "e20b10408a2bf38e",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "2efd0caf6a12a0c1",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "a83ce3617a479bf4",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "2de8096607343dd6",
+    "task_id": "article_clause_prediction",
+    "question_hash": "78b529815e07"
+  },
+  {
+    "sample_id": "c9eb60a7fbd262e0",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "98a24816cb84b7a4",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "660800411b1a1242",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "42c0b8164d4af2ff",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "f37be3cd52ef6c91",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "698a7403b980e3bf",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "1ca68690e654a5fb",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "2ac9574e9c27be32",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "41c9a0a0303b3285",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "90bce5b206485489",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "ea8e09a4258e8d6f",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "4f486031b3370e12",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "4eda6272e1450cc4",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "707912df864f54cc",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "8e08d0b8c35db32e",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "0b484285e7400c40",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "7dc9749036955141",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "d79643d14437337f",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "47a9235e987b0693",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "cfb94f0b9823fbee",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "dc6b39499707abec",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "d582a0f40fc16a68",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "cad0ce402893c496",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "5ecbdaa5d91f6b79",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "ec087d4b42e29b67",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "4c522055bfdd6fed",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "119c9d3bcca644ce",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "7a2b824214263289",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d3370ea1a48e"
+  },
+  {
+    "sample_id": "269a11eea09ae16e",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "a1785ec775c0ed0e",
+    "task_id": "article_clause_prediction",
+    "question_hash": "38a65d1ab388"
+  },
+  {
+    "sample_id": "e44badec0aa512a2",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "adfdf0f41a5a6c0d",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "18f0bdfbe4ff1318",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "5d5556ce8dc52c94",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "085de0c053933f58",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "f9ec168a2164d836",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "8d292f614ad54d4a",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "90d8eb0efa81f4e0",
+    "task_id": "article_clause_prediction",
+    "question_hash": "d05f90291e1e"
+  },
+  {
+    "sample_id": "b16fe8f6a4bfbe99",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "88215170335444e6",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "1becf4c64c6a0c2a",
+    "task_id": "article_clause_prediction",
+    "question_hash": "67bf588e7199"
+  },
+  {
+    "sample_id": "1f58e6ac1228f49a",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "5312b62098d04560",
+    "task_id": "article_clause_prediction",
+    "question_hash": "be0ac362e06f"
+  },
+  {
+    "sample_id": "d9bd825eef3a0460",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "8a759354e6218d98",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "d589e68264e73ddb",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "934ee74e1d3a7581",
+    "task_id": "article_clause_prediction",
+    "question_hash": "c68a8eaf4605"
+  },
+  {
+    "sample_id": "553f2bfee8c3fb1a",
+    "task_id": "article_clause_prediction",
+    "question_hash": "5a434bdf4ec3"
+  },
+  {
+    "sample_id": "07b37f65a8f1ba35",
+    "task_id": "article_clause_prediction",
+    "question_hash": "00216d84a02e"
+  },
+  {
+    "sample_id": "3550f6923772f238",
+    "task_id": "article_clause_prediction",
+    "question_hash": "40e4db4fad78"
+  },
+  {
+    "sample_id": "da1765c3bcd1eab2",
+    "task_id": "article_clause_prediction",
+    "question_hash": "1628e93b75a5"
+  },
+  {
+    "sample_id": "66075bf6ea37d283",
+    "task_id": "article_clause_prediction",
+    "question_hash": "18ecf999fc10"
+  },
+  {
+    "sample_id": "96f4bfb95cc25000",
+    "task_id": "article_clause_prediction",
+    "question_hash": "7b6db0dc97b1"
+  },
+  {
+    "sample_id": "87d5dc8fb3b6c07c",
+    "task_id": "article_clause_prediction",
+    "question_hash": "291411ce6c13"
+  },
+  {
+    "sample_id": "e16a2ec176cf9090",
+    "task_id": "article_clause_prediction",
+    "question_hash": "245a34f567a8"
+  },
+  {
+    "sample_id": "2dd0f92330864c1b",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "552383344511590a",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "365b533765c84c21",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "1236316dcde0940a",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "5d2ac7fdf868b4f9",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "2ea7ddb6b82a04ae",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "236a8d0ff8b6b9bd",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "d81cb58ed2f056cb",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "7b5d1335deae152e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6e2f6dac1960"
+  },
+  {
+    "sample_id": "b4897801410f1570",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "387c91b862ee7941",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "de29b2f859bef9f0",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "d1711d39f35c50af",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "c6a328b13a17f8c8",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "8f641679e5f8de0f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "6bd6efb8fc6f90f7",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "4797ca73773ab563",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1f62acdca3ca"
+  },
+  {
+    "sample_id": "cbe0822a7ac39999",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "cdcf2fd03432275e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "7ccd00f8b74a5e5a",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ed0207c9b04a"
+  },
+  {
+    "sample_id": "547d789432f2abe5",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "53b8ffec4654f4ce",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "8853d3fea9bb1a0e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "0783f1a805b184ba",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "d6548c127f3b8490",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "1d9b100d520db7ba",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1a76be7e49ef"
+  },
+  {
+    "sample_id": "e6f146fe1ac77a52",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "fbdd6ff49749e37c",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "09805668e5ea8166",
+    "task_id": "court_decision_prediction",
+    "question_hash": "be226912fe6a"
+  },
+  {
+    "sample_id": "0184a3b1f8c9c83b",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "7aece63c2a4ec4f2",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "2f285391dd120b90",
+    "task_id": "court_decision_prediction",
+    "question_hash": "fff959046b83"
+  },
+  {
+    "sample_id": "baaafd9350573d23",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "0c6032ccbb7e0ede",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "42894231636b7c52",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "cedbf40566a7de9f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "c49ba3c44c3c"
+  },
+  {
+    "sample_id": "7c32ae9fdf61077e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "da7b4ad186886b81",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "a345c4e8f330bd15",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "dde869d43fe87ed8",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "8af7f2c2b4be84f1",
+    "task_id": "court_decision_prediction",
+    "question_hash": "97e0646caa69"
+  },
+  {
+    "sample_id": "ae780b29413bd337",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "6921ff96273aeb25",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "ee73f169a37a6c45",
+    "task_id": "court_decision_prediction",
+    "question_hash": "140d9c782718"
+  },
+  {
+    "sample_id": "84fa6b1bfa412e47",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "78d5e133b9b04d7a",
+    "task_id": "court_decision_prediction",
+    "question_hash": "614bb3647c29"
+  },
+  {
+    "sample_id": "bbc2e186e4fba726",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "1a5aaca87e692666",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "e57e7754676efca7",
+    "task_id": "court_decision_prediction",
+    "question_hash": "b553839ff596"
+  },
+  {
+    "sample_id": "91b96dd74912b706",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "43a29589d641ad52",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "c5c5e16ff69934a6",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "4a5dd43b09a9fe80",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "2a373fee91c9f84f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "2c2738504b96f21e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "ee764c61b275aaa4",
+    "task_id": "court_decision_prediction",
+    "question_hash": "93dbd6bb3c0d"
+  },
+  {
+    "sample_id": "53bed4f27e1df8c0",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "57adb9f705ae7fd4",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "38373d4dc3f523cd",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "32d1e977df211e1c",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "761ffbab47a1b2af",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "594203eab9ca819e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "18b1c71b6aed"
+  },
+  {
+    "sample_id": "7aaee1dc134f1750",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "44bd87ae73758435",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1f62acdca3ca"
+  },
+  {
+    "sample_id": "977464ff8e12f3f3",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "15088936c240240d",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "03b872fff8d90845",
+    "task_id": "court_decision_prediction",
+    "question_hash": "67074ed8c703"
+  },
+  {
+    "sample_id": "ad6aa4984ee7071f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "d0057da716a53ea1",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "ff9ab0527afe37bb",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "016d235177c57e04",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "2b22222576e35733",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "379bae09057d36c1",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "e226cf4adf54c545",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6d97f308eec9"
+  },
+  {
+    "sample_id": "37b6a9dbd4b8dc81",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "a797bfe6973d8650",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "f1346321c30354c3",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "1c280fc3eb59844e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "b9b36c3e481dc0f8",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "f7bdc5efaa3ae82e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "f4ad4862c936ebe5",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "efa844d71459af5c",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1f62acdca3ca"
+  },
+  {
+    "sample_id": "a40e8fe798b634c6",
+    "task_id": "court_decision_prediction",
+    "question_hash": "a233aebc58cb"
+  },
+  {
+    "sample_id": "d51428c77ef16a91",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1f62acdca3ca"
+  },
+  {
+    "sample_id": "91bb3e771707fbeb",
+    "task_id": "court_decision_prediction",
+    "question_hash": "b913c53740fd"
+  },
+  {
+    "sample_id": "8b40e3bbabbdeebd",
+    "task_id": "court_decision_prediction",
+    "question_hash": "c8ef5de4a3f3"
+  },
+  {
+    "sample_id": "fb9148459aea05a1",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "ec194031b8c06e14",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "f561a312fb844f1c",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1f62acdca3ca"
+  },
+  {
+    "sample_id": "4eb7abb36966b69c",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "b7a726780146df2f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1553600fca72"
+  },
+  {
+    "sample_id": "a415cf45630c929f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "fff3f09c7b99665e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ba050bf008a5"
+  },
+  {
+    "sample_id": "04af5034524e3f7f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "7ea6730a712d2def",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "909f0927389476e1",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "ab35afa363c79a32",
+    "task_id": "court_decision_prediction",
+    "question_hash": "a99ca028f92d"
+  },
+  {
+    "sample_id": "fff34c832317370f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "897b2e1f4f6e0d3c",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ff318f8ed192"
+  },
+  {
+    "sample_id": "8ac9dd30f8daf962",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "b782359543c17657",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "f4050cd75e47a15e",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "4d90fdc9dfee34ca",
+    "task_id": "court_decision_prediction",
+    "question_hash": "d42b5764a81c"
+  },
+  {
+    "sample_id": "1e97add0beaf744d",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "82e332cde12df39a",
+    "task_id": "court_decision_prediction",
+    "question_hash": "0be1b3145d65"
+  },
+  {
+    "sample_id": "064e4cd32ed77430",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3f1c8d28c5d4"
+  },
+  {
+    "sample_id": "7530a3b4f93cc201",
+    "task_id": "court_decision_prediction",
+    "question_hash": "ded91548f86c"
+  },
+  {
+    "sample_id": "ba49956a1e6449ae",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "875e7ed001ce0e8c",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "09eba6b089e07cf3",
+    "task_id": "court_decision_prediction",
+    "question_hash": "9bc6f19b0c5a"
+  },
+  {
+    "sample_id": "db5ddd956e938114",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3696cf1be7c4"
+  },
+  {
+    "sample_id": "d966de8f51bfc2cf",
+    "task_id": "court_decision_prediction",
+    "question_hash": "6851f11a426e"
+  },
+  {
+    "sample_id": "650a4bbf3830038f",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "eb8b9dbd3fd2e7ac",
+    "task_id": "court_decision_prediction",
+    "question_hash": "019e08c3cf07"
+  },
+  {
+    "sample_id": "94e5d9f87dc914be",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3cc433a983b2"
+  },
+  {
+    "sample_id": "3923920c656b635d",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1cd860df85b8"
+  },
+  {
+    "sample_id": "76cde0bf0d0d0893",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "37c422851856df8a",
+    "task_id": "court_decision_prediction",
+    "question_hash": "3c13f4aa77a6"
+  },
+  {
+    "sample_id": "d6ca8484dd2a6421",
+    "task_id": "court_decision_prediction",
+    "question_hash": "1fac0a784ace"
+  },
+  {
+    "sample_id": "538aad889258cb13",
+    "task_id": "court_decision_prediction",
+    "question_hash": "f13d214000e8"
+  },
+  {
+    "sample_id": "d858b9d6896e2df7",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "dc4f74603dcfc6d2",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "530f53760022a002",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "01f80201c1c161ea",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "9ffbcd702502cad7",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "678c6ce0d99eaa86",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "2dfcd5faa8533130",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "8612532ffd6e0cdb",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "8ef9a17dd5d52037",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "779e0696c3d39e44",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "c9286cf1a897237f",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "a4a89b57beb43a46",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "b7468d9c0a869310",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "9722391420670ddc",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "5f19e47a3735507c",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "51ad35db2496469e",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "48dc83e7653407b0",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "b2149a08403bb19e",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "739c87e346bf4f70",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "daa83401929c0987",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "5db318b5013a7ca5",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "3b8ce57a577118b7",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "f01c534c1a6776d1",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "7e6160332a87f3d3",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "0c8b4e5fc4c65020",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "e8448b56abbbe03f",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "c7e085891e794f45",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "745443dc81b9daa1",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "1a11de9266096d84",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "eae6b97bfaaaf3ef",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "2a68b8e0f56c9068",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "a51c056be2329b30",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "696dffa99e54a051",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "4ac61bae8542fe0f",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "bb34de25060e0d11",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "dcd6c1ffc3769939",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "319bd055b9d2a1db",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "61aa68093c25dcb8",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "deecc60a52274ef2",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "fb5f7e7d83808f6b",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "cd41d5b81f90e226",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "91777bb343e23e43",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "d64ec40a91b33a0c",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "f9bc2f8a3da2957a",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "585ac6b6dd9d18d6",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "a1cea24938736656",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "7ee1f3414fdc0633",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "9ffe4a4b033d98d4",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "8aa93e5e9cbe5c06",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "148f073687720c96",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "2f32b61eb64c11f2",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "c01200aa0cec0c9b",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "8753bbba5a27cacb",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "d2f71d46960055b4",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "5e38fd4a8ffb2716",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "9b149a096b2907c7",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "f65557861346bdaf",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "196c16b8e7328300",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "9012902570242575",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "b14b6e24d717c311",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "763a0173b2617977",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "601353e9a1469540",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "29c044c73cd597fc",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "e20cbc1edc3d183e",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "6b963afb91240336",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "29de555bfab38254",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "a7d8998052fc4475",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "a5c512e717096139",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "749a5818d6c75c20",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "c3e780bf2ba8ad54",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "db8169515eb43c36",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "6330cfd6874eb073",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "5f311af74b2a3c9d",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "92d1be16c7e42262",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "126760bafe25b579",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "df6c13988186e77f",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "7d918362d9d3aafd",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "cb40855787fba45a",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "c6b4a239a93f58b1",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "2eef7545da86e415",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "981f208d12784e5c",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "cd4772143e99b8aa",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "d5e8dc80979d291c",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "fe6576d970827c9f",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "9e812bfbe7148043",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "518a785096a953b8",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "1e27fdd35b8685c9",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "a59954aee9307b39",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "3c424daf802933ad",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "cf141c60046d07b7",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "1f746943c21d7b15",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "b9514b6b4818e9a3",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "dde4c954dfda2055",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "2c3129ab736c8aa6",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "10ad16dc4a650a35",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "eafba26f04ab424e",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "435498122bdb71e5",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "e835d2e676d04bd6",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "03e2d0280c1a8bfb",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "c4a454d3888bcba5",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "737d496bacf2"
+  },
+  {
+    "sample_id": "a1f821a01581b360",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "47554fbbb435fcab",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "c2258a0197273964",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "c774a3b3b7eabbd0",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "e4b106935e4bdfb3",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "a6f1c5b25b4fae3a",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "f9c2d28444a8ad07",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "1b385ff77f811795",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "dc1ce979c112"
+  },
+  {
+    "sample_id": "3a66a779a745e684",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "6f5414874bdb"
+  },
+  {
+    "sample_id": "42d77cac885394e9",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "0e4ccf99e905"
+  },
+  {
+    "sample_id": "f41e231dde19741c",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "e82c36373590"
+  },
+  {
+    "sample_id": "6e5f9da6794a8592",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "57d9465de11d21c6",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "22e5aa9d6307"
+  },
+  {
+    "sample_id": "8fc5a58fdc45089a",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "96af086133e16b9e",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "2275f729c1ca"
+  },
+  {
+    "sample_id": "cabdcd4bd5527b81",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "0fbfd31a33b386f4",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "bb03cb6b6a61"
+  },
+  {
+    "sample_id": "dee495ab556bc3ef",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "08455395d6b1ed35",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "44c51f21013d"
+  },
+  {
+    "sample_id": "6d85ee3a25f3043c",
+    "task_id": "multi_hop_reasoning",
+    "question_hash": "5b8bcff81a7d"
+  },
+  {
+    "sample_id": "a5f98418158d472e",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "4377b38c817c"
+  },
+  {
+    "sample_id": "b88a179dbdf1fca7",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "12c62b1325e6"
+  },
+  {
+    "sample_id": "095c32a2efbc870a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5cab0281b36b"
+  },
+  {
+    "sample_id": "36ef9c4aaec07947",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5854a07a301f"
+  },
+  {
+    "sample_id": "f427b7d032278205",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5854a07a301f"
+  },
+  {
+    "sample_id": "46f8709c39b52c2d",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "12c62b1325e6"
+  },
+  {
+    "sample_id": "0274dd956075df09",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "bd7dfacd35fb"
+  },
+  {
+    "sample_id": "d129027b68a54e1e",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "bd7dfacd35fb"
+  },
+  {
+    "sample_id": "05c77237aecc1d82",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "311355746fcb"
+  },
+  {
+    "sample_id": "4ce81eadc621644f",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "7e5b2ce92467"
+  },
+  {
+    "sample_id": "73f52a074e5f19f5",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "12c62b1325e6"
+  },
+  {
+    "sample_id": "608584bbe21c2681",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e5558be54291"
+  },
+  {
+    "sample_id": "b3cb95af2ebe72f4",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "7e5b2ce92467"
+  },
+  {
+    "sample_id": "b63a8ced8329a530",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "52e8634cbb40"
+  },
+  {
+    "sample_id": "645d9eae9305c6b2",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "980450ca9d07"
+  },
+  {
+    "sample_id": "96a8f2dbddc23e22",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "79daeb4e88ac"
+  },
+  {
+    "sample_id": "3297a6c1cd8f704a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5cab0281b36b"
+  },
+  {
+    "sample_id": "ce21e738201ed724",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "79daeb4e88ac"
+  },
+  {
+    "sample_id": "a819cd44ec4d11b8",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "7e5b2ce92467"
+  },
+  {
+    "sample_id": "5a0e4f70fce6223a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e29d7780c4bf"
+  },
+  {
+    "sample_id": "97b1cc1b3ed7d13a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "52e8634cbb40"
+  },
+  {
+    "sample_id": "6363992eb9951894",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a24aed0857e7"
+  },
+  {
+    "sample_id": "d76f289413de2f0c",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "197a8698fccb"
+  },
+  {
+    "sample_id": "48ffa2703b0f8e2f",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e29d7780c4bf"
+  },
+  {
+    "sample_id": "3eefff18a807c732",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a670bbb28ef6"
+  },
+  {
+    "sample_id": "e29a794622e6eb2b",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "4377b38c817c"
+  },
+  {
+    "sample_id": "2b3775bd4b5c8b55",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "52e8634cbb40"
+  },
+  {
+    "sample_id": "078b213d2aed89db",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a24aed0857e7"
+  },
+  {
+    "sample_id": "d17dd232a0f81ee9",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "79daeb4e88ac"
+  },
+  {
+    "sample_id": "b88a924dac41a58b",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "311355746fcb"
+  },
+  {
+    "sample_id": "bb033994932e42dd",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5854a07a301f"
+  },
+  {
+    "sample_id": "f982f652643c97d2",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "f2c4ec21c85d"
+  },
+  {
+    "sample_id": "46342a9b0f25b37f",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "b745efc7a6a8"
+  },
+  {
+    "sample_id": "b1fdd3c97d88750a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "311355746fcb"
+  },
+  {
+    "sample_id": "2e65a6ff73dd5b13",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "4377b38c817c"
+  },
+  {
+    "sample_id": "84cf3c0fe5a85443",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a670bbb28ef6"
+  },
+  {
+    "sample_id": "a0b85d4d61c2dd6a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "ed1e5affbc14"
+  },
+  {
+    "sample_id": "42f41171bec208b0",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5cab0281b36b"
+  },
+  {
+    "sample_id": "fc95034b7160de16",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "7e5b2ce92467"
+  },
+  {
+    "sample_id": "ae240fea71959788",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5854a07a301f"
+  },
+  {
+    "sample_id": "5f4429181d5d0791",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "311355746fcb"
+  },
+  {
+    "sample_id": "deba387d9263ed61",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "f2c4ec21c85d"
+  },
+  {
+    "sample_id": "16247996e4cc19f8",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "ed1e5affbc14"
+  },
+  {
+    "sample_id": "f0b48ba715ba29f2",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "79daeb4e88ac"
+  },
+  {
+    "sample_id": "5da3c2bf0e001c18",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a24aed0857e7"
+  },
+  {
+    "sample_id": "e2f13a538033adab",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e29d7780c4bf"
+  },
+  {
+    "sample_id": "b467bcbf3e388514",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "7e5b2ce92467"
+  },
+  {
+    "sample_id": "aced789fec0c8492",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "bd7dfacd35fb"
+  },
+  {
+    "sample_id": "66860b5d3f40dbb5",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "282246621aa0"
+  },
+  {
+    "sample_id": "a4b01d386aabe838",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "79daeb4e88ac"
+  },
+  {
+    "sample_id": "10ab81083011db25",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "b745efc7a6a8"
+  },
+  {
+    "sample_id": "ed6f75627a0e2246",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "282246621aa0"
+  },
+  {
+    "sample_id": "0a49336a8e661242",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "d3fd303208b4"
+  },
+  {
+    "sample_id": "f56fbc14c1acdeb1",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e29d7780c4bf"
+  },
+  {
+    "sample_id": "e037d19260c2666f",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "7e5b2ce92467"
+  },
+  {
+    "sample_id": "99fcd035d5d43d9c",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "980450ca9d07"
+  },
+  {
+    "sample_id": "2dc7de4535c5998f",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "ed1e5affbc14"
+  },
+  {
+    "sample_id": "61f6306160ed4b79",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "4377b38c817c"
+  },
+  {
+    "sample_id": "db278293719cfbdc",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "f2c4ec21c85d"
+  },
+  {
+    "sample_id": "ba84e2771a288758",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e29d7780c4bf"
+  },
+  {
+    "sample_id": "335ead15d02f0139",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5cab0281b36b"
+  },
+  {
+    "sample_id": "a989525291e32002",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "bd7dfacd35fb"
+  },
+  {
+    "sample_id": "b2fb82e2aaf4e7cd",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "282246621aa0"
+  },
+  {
+    "sample_id": "1e9c20ed12be5f4b",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "b745efc7a6a8"
+  },
+  {
+    "sample_id": "6905ee9e04d53666",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a24aed0857e7"
+  },
+  {
+    "sample_id": "7ce07415633a972a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "980450ca9d07"
+  },
+  {
+    "sample_id": "cf9f54583084f9ee",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "4377b38c817c"
+  },
+  {
+    "sample_id": "b52420177b58bed1",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e5558be54291"
+  },
+  {
+    "sample_id": "c9c090c123ddec2e",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "282246621aa0"
+  },
+  {
+    "sample_id": "81120de3bf39d89b",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "b745efc7a6a8"
+  },
+  {
+    "sample_id": "a9235c9f3954c2b5",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "b745efc7a6a8"
+  },
+  {
+    "sample_id": "1a1c922ee429a06d",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "ed1e5affbc14"
+  },
+  {
+    "sample_id": "69085b7a4b803a30",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e5558be54291"
+  },
+  {
+    "sample_id": "220fb2f82abfb510",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "197a8698fccb"
+  },
+  {
+    "sample_id": "6193c46b8dda565a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "980450ca9d07"
+  },
+  {
+    "sample_id": "15e0213e13a27a6d",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "282246621aa0"
+  },
+  {
+    "sample_id": "a6b3dcf595dba039",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "bd7dfacd35fb"
+  },
+  {
+    "sample_id": "b808c578e2849d63",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5854a07a301f"
+  },
+  {
+    "sample_id": "15def118769b722e",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "311355746fcb"
+  },
+  {
+    "sample_id": "3ffc3a9d54843cd3",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a670bbb28ef6"
+  },
+  {
+    "sample_id": "1e5973bb03ed0ccc",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5cab0281b36b"
+  },
+  {
+    "sample_id": "2e503ba0457d3a74",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "d3fd303208b4"
+  },
+  {
+    "sample_id": "c7d7383738b6b489",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e29d7780c4bf"
+  },
+  {
+    "sample_id": "8799ce7b51f618fa",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "52e8634cbb40"
+  },
+  {
+    "sample_id": "87c69bfe9b0e8369",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "d3fd303208b4"
+  },
+  {
+    "sample_id": "58d58df663d9aec9",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a670bbb28ef6"
+  },
+  {
+    "sample_id": "367da002c5b25ad8",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5cab0281b36b"
+  },
+  {
+    "sample_id": "aef669e11df13c04",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "b745efc7a6a8"
+  },
+  {
+    "sample_id": "b37640047214ce90",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "12c62b1325e6"
+  },
+  {
+    "sample_id": "80364f1d41e2abb3",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "ed1e5affbc14"
+  },
+  {
+    "sample_id": "1d42183b423b5011",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "311355746fcb"
+  },
+  {
+    "sample_id": "3a6c559478056c1c",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a24aed0857e7"
+  },
+  {
+    "sample_id": "37b9b745fd159d82",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "197a8698fccb"
+  },
+  {
+    "sample_id": "427b2bf82939db41",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "197a8698fccb"
+  },
+  {
+    "sample_id": "7068ed59260eba54",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "52e8634cbb40"
+  },
+  {
+    "sample_id": "d50808d23f5477e9",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "12c62b1325e6"
+  },
+  {
+    "sample_id": "31ac067d16dfe56e",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a670bbb28ef6"
+  },
+  {
+    "sample_id": "babb52cb9ccd5e80",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "79daeb4e88ac"
+  },
+  {
+    "sample_id": "3505f8912cce1b5e",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "ed1e5affbc14"
+  },
+  {
+    "sample_id": "2717977d04cd17ca",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a24aed0857e7"
+  },
+  {
+    "sample_id": "c846a13233e4f6b6",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "f2c4ec21c85d"
+  },
+  {
+    "sample_id": "e12c18cff7b697fd",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "5854a07a301f"
+  },
+  {
+    "sample_id": "3ba45b43ca17550e",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "282246621aa0"
+  },
+  {
+    "sample_id": "b9f17aa72561ba9a",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "197a8698fccb"
+  },
+  {
+    "sample_id": "f7c7d4a52b0622a9",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "a670bbb28ef6"
+  },
+  {
+    "sample_id": "ea23f5e061357643",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "d3fd303208b4"
+  },
+  {
+    "sample_id": "674912a53f020fd2",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e5558be54291"
+  },
+  {
+    "sample_id": "4757d8324f8000e1",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "4377b38c817c"
+  },
+  {
+    "sample_id": "6208489fb77a3dff",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "12c62b1325e6"
+  },
+  {
+    "sample_id": "f348a56caf2d8f24",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "197a8698fccb"
+  },
+  {
+    "sample_id": "81671c1b77c6c116",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "bd7dfacd35fb"
+  },
+  {
+    "sample_id": "210bf5ab95ef5690",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "980450ca9d07"
+  },
+  {
+    "sample_id": "9dd22b0bb64e6daf",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "f2c4ec21c85d"
+  },
+  {
+    "sample_id": "e208fe023ef5fd63",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "f2c4ec21c85d"
+  },
+  {
+    "sample_id": "0b215503393f529d",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e5558be54291"
+  },
+  {
+    "sample_id": "d02b6a975caab689",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "d3fd303208b4"
+  },
+  {
+    "sample_id": "01e3a64352e10373",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "52e8634cbb40"
+  },
+  {
+    "sample_id": "4aaefa4daad448a9",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "980450ca9d07"
+  },
+  {
+    "sample_id": "742620b0927b0af3",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "e5558be54291"
+  },
+  {
+    "sample_id": "4889f5805532d0a1",
+    "task_id": "penalty_remedy_estimation",
+    "question_hash": "d3fd303208b4"
+  },
+  {
+    "sample_id": "03277cfa1d13c38c",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "f112cb9616b9"
+  },
+  {
+    "sample_id": "14402e96558c46e6",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "2605fb8f5d8b"
+  },
+  {
+    "sample_id": "1043dc13a4ec4de1",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8d2dd061d3ca"
+  },
+  {
+    "sample_id": "1701261426d1c2c2",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "0b65a86215ba"
+  },
+  {
+    "sample_id": "2d57af9a75cea53f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "85495bde9459"
+  },
+  {
+    "sample_id": "a0f7bac510bdf17b",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "4bc5b0325e08"
+  },
+  {
+    "sample_id": "2324b659eca5cd7c",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed0765eb791b"
+  },
+  {
+    "sample_id": "c19a60495aa484df",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed0765eb791b"
+  },
+  {
+    "sample_id": "351bb7e0656eb022",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "e59a30d1a745"
+  },
+  {
+    "sample_id": "4e232d26d4ac25cf",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "f112cb9616b9"
+  },
+  {
+    "sample_id": "07bc6cca1c6f34a0",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed0765eb791b"
+  },
+  {
+    "sample_id": "02995dbdf9d53682",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8d2dd061d3ca"
+  },
+  {
+    "sample_id": "ae1808dbaad74daf",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "24e751dcfbf4"
+  },
+  {
+    "sample_id": "a7acd5f94774d475",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "e59a30d1a745"
+  },
+  {
+    "sample_id": "6b74a1735a502edf",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "2605fb8f5d8b"
+  },
+  {
+    "sample_id": "e5d990767ef94fab",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "e59a30d1a745"
+  },
+  {
+    "sample_id": "c49c58d976d3aaab",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "0b65a86215ba"
+  },
+  {
+    "sample_id": "5e0a229f0242fc0e",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "87392d117c6c"
+  },
+  {
+    "sample_id": "65ac5c9658bd6f25",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "c636415d89fb"
+  },
+  {
+    "sample_id": "dd0db330a4d263ef",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "00a95fe1a55d"
+  },
+  {
+    "sample_id": "98abac6a62ffac35",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "c636415d89fb"
+  },
+  {
+    "sample_id": "40a44f7aa5f8d493",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "24e751dcfbf4"
+  },
+  {
+    "sample_id": "0da33a469e372b8f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed0765eb791b"
+  },
+  {
+    "sample_id": "a4742ada1c08328f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "07bbb7da5812"
+  },
+  {
+    "sample_id": "a365b83f9429cafa",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "85495bde9459"
+  },
+  {
+    "sample_id": "7563ac3d22e9a337",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed0765eb791b"
+  },
+  {
+    "sample_id": "3abbacc67209d3ee",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed0765eb791b"
+  },
+  {
+    "sample_id": "5626dc9f10176510",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "4bc5b0325e08"
+  },
+  {
+    "sample_id": "437a71cd26c2ff96",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed2e05fc8d19"
+  },
+  {
+    "sample_id": "f5634971a722f288",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "7423a091f643"
+  },
+  {
+    "sample_id": "aa3b622d7bfab155",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "bc617fcb0124"
+  },
+  {
+    "sample_id": "df88912a7314cf09",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "24e751dcfbf4"
+  },
+  {
+    "sample_id": "242e0b6f0505f9ac",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "00a95fe1a55d"
+  },
+  {
+    "sample_id": "470550323b4a193b",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "edd580228083"
+  },
+  {
+    "sample_id": "16a65a2d54bad2ff",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "87392d117c6c"
+  },
+  {
+    "sample_id": "60b9e92210ab9155",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "bc617fcb0124"
+  },
+  {
+    "sample_id": "bc7dbe3e17ed17a4",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "24e751dcfbf4"
+  },
+  {
+    "sample_id": "26a8bd555b586f0a",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "4bc5b0325e08"
+  },
+  {
+    "sample_id": "a68e1af98bf45b8f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "c636415d89fb"
+  },
+  {
+    "sample_id": "8bbeb2d1a87c357c",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "4bc5b0325e08"
+  },
+  {
+    "sample_id": "46fb69057fd2330f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "07bbb7da5812"
+  },
+  {
+    "sample_id": "ca61193051021582",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "e59a30d1a745"
+  },
+  {
+    "sample_id": "fb01754886bcb446",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "2605fb8f5d8b"
+  },
+  {
+    "sample_id": "55f6a79e3fe998ca",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "24e751dcfbf4"
+  },
+  {
+    "sample_id": "ef5fb9d5f3be3b9f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed2e05fc8d19"
+  },
+  {
+    "sample_id": "2799547caa101463",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "edd580228083"
+  },
+  {
+    "sample_id": "9d55700f2349406d",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "bc617fcb0124"
+  },
+  {
+    "sample_id": "ca179ab9242c0f06",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "87392d117c6c"
+  },
+  {
+    "sample_id": "344cce209da20126",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8dd911fbe3bc"
+  },
+  {
+    "sample_id": "f2fc303d4b4c608b",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8dd911fbe3bc"
+  },
+  {
+    "sample_id": "a6ed30c482ac3c9a",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed2e05fc8d19"
+  },
+  {
+    "sample_id": "acc7bec3b25e3162",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "edd580228083"
+  },
+  {
+    "sample_id": "39b2c1f1901686c1",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "bc617fcb0124"
+  },
+  {
+    "sample_id": "d1fa95f7ea346fce",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "4bc5b0325e08"
+  },
+  {
+    "sample_id": "5d1fda2c7e6bbf80",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "edd580228083"
+  },
+  {
+    "sample_id": "d01d95db7155af77",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ea1653acec75"
+  },
+  {
+    "sample_id": "a321af2af14028ba",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "7423a091f643"
+  },
+  {
+    "sample_id": "affb23c4b0449471",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "0b65a86215ba"
+  },
+  {
+    "sample_id": "3555052daa2a8127",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "07bbb7da5812"
+  },
+  {
+    "sample_id": "2b451e4c633f7e3f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8dd911fbe3bc"
+  },
+  {
+    "sample_id": "cbf0cc82b9b6c092",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "2605fb8f5d8b"
+  },
+  {
+    "sample_id": "c4ef9ba6971c89db",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "243162486b8a"
+  },
+  {
+    "sample_id": "db74f770ef39b837",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "0b65a86215ba"
+  },
+  {
+    "sample_id": "391a2385072919ce",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ea1653acec75"
+  },
+  {
+    "sample_id": "5df1d15a4e728414",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed2e05fc8d19"
+  },
+  {
+    "sample_id": "57bc4c4a34203c26",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "2605fb8f5d8b"
+  },
+  {
+    "sample_id": "6d2db174eb19d64e",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "0b65a86215ba"
+  },
+  {
+    "sample_id": "9c24265c5f13cdd0",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8dd911fbe3bc"
+  },
+  {
+    "sample_id": "00b8eff9a05d4f7a",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "85495bde9459"
+  },
+  {
+    "sample_id": "6266c07d802041e1",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "bc617fcb0124"
+  },
+  {
+    "sample_id": "28d7d52f03e0714f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ea1653acec75"
+  },
+  {
+    "sample_id": "eeaecfb8d1e04605",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "07bbb7da5812"
+  },
+  {
+    "sample_id": "f4bc1643a2c552c2",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "c636415d89fb"
+  },
+  {
+    "sample_id": "4226b6bfb158578f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "85495bde9459"
+  },
+  {
+    "sample_id": "bea4d583c68e806f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "2605fb8f5d8b"
+  },
+  {
+    "sample_id": "ea9b4912fc8b70ad",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8dd911fbe3bc"
+  },
+  {
+    "sample_id": "6e73d8dc04d34788",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "00a95fe1a55d"
+  },
+  {
+    "sample_id": "5e87433e1a2d3285",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "243162486b8a"
+  },
+  {
+    "sample_id": "50e9e3f9d4527283",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "243162486b8a"
+  },
+  {
+    "sample_id": "895dc9d85cbbd30d",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "00a95fe1a55d"
+  },
+  {
+    "sample_id": "c72f528414709c97",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed2e05fc8d19"
+  },
+  {
+    "sample_id": "10da896c38268a92",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "87392d117c6c"
+  },
+  {
+    "sample_id": "f9fd1f565e07ed70",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "243162486b8a"
+  },
+  {
+    "sample_id": "6d8209fcdf142e90",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "85495bde9459"
+  },
+  {
+    "sample_id": "97901daf65593d2a",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ea1653acec75"
+  },
+  {
+    "sample_id": "314dd4b5f5074936",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "edd580228083"
+  },
+  {
+    "sample_id": "599c7e40b9aa67d4",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "f112cb9616b9"
+  },
+  {
+    "sample_id": "3f11e4a49c1e8e8f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8d2dd061d3ca"
+  },
+  {
+    "sample_id": "f157cdaccb98594d",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "243162486b8a"
+  },
+  {
+    "sample_id": "1e0283dcfbc393a0",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "f112cb9616b9"
+  },
+  {
+    "sample_id": "e57f4cc34433ca76",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "00a95fe1a55d"
+  },
+  {
+    "sample_id": "ccf4bfce0c6e1c76",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "87392d117c6c"
+  },
+  {
+    "sample_id": "39afa0f87e890357",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "7423a091f643"
+  },
+  {
+    "sample_id": "821083d708ae31ad",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ea1653acec75"
+  },
+  {
+    "sample_id": "ef537a6610e6587b",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "0b65a86215ba"
+  },
+  {
+    "sample_id": "e16043853944ccb1",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "e59a30d1a745"
+  },
+  {
+    "sample_id": "7f5417c564711245",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "4bc5b0325e08"
+  },
+  {
+    "sample_id": "1f12cb22f55e02ae",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "f112cb9616b9"
+  },
+  {
+    "sample_id": "a90400da83da5843",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "c636415d89fb"
+  },
+  {
+    "sample_id": "d77b6d7983ce8bb4",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "85495bde9459"
+  },
+  {
+    "sample_id": "a70436fdda79ff9b",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "243162486b8a"
+  },
+  {
+    "sample_id": "ca5ed5d216430bfc",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "7423a091f643"
+  },
+  {
+    "sample_id": "68f8fde8b8ec4ebb",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "e59a30d1a745"
+  },
+  {
+    "sample_id": "a20afd2eee9d484b",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "7423a091f643"
+  },
+  {
+    "sample_id": "d07fecc09c2d8d7a",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ed2e05fc8d19"
+  },
+  {
+    "sample_id": "4a949dc88ddbb5fb",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "87392d117c6c"
+  },
+  {
+    "sample_id": "92d7913ba7eeb736",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "edd580228083"
+  },
+  {
+    "sample_id": "df092734e50bac48",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "07bbb7da5812"
+  },
+  {
+    "sample_id": "24d93106ebd6164f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "c636415d89fb"
+  },
+  {
+    "sample_id": "6b592c8efece83d0",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "07bbb7da5812"
+  },
+  {
+    "sample_id": "90ebd2b3407bb18f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "bc617fcb0124"
+  },
+  {
+    "sample_id": "94bf0c652f317fcb",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8d2dd061d3ca"
+  },
+  {
+    "sample_id": "785a475a7583713e",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8d2dd061d3ca"
+  },
+  {
+    "sample_id": "8762a17784b642c3",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "7423a091f643"
+  },
+  {
+    "sample_id": "cfe852bd4b55988e",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8d2dd061d3ca"
+  },
+  {
+    "sample_id": "a2bac9911c695d21",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "f112cb9616b9"
+  },
+  {
+    "sample_id": "fbfe640cde63e12d",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "8dd911fbe3bc"
+  },
+  {
+    "sample_id": "ecd1fb6b2851d76f",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "24e751dcfbf4"
+  },
+  {
+    "sample_id": "411e93e8fadd8843",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "00a95fe1a55d"
+  },
+  {
+    "sample_id": "b8882d95b6b0f201",
+    "task_id": "legal_definition_extraction",
+    "question_hash": "ea1653acec75"
+  },
+  {
+    "sample_id": "22dd43cdf7c035e6",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "29753b108271cadf",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "570919f00beab163",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "a561a5bcf6e0c2f5",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "fe25d7075036c27d",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "88dc0a4ea1cde2cb",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "deefd45ed9209bf7",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "91aa117d59ce7dac",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "450cbc6d1ebe4fe9",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "ad76ae43ed389b49",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "e817236836a28bc3",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "4c2a1a56bda9ca26",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "2a8ee611e42a6303",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "2b470adac2ca57c1",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "2471e3b379770cb0",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "001d3af321bdb3d1",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "ba23c0d124743704",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "12d05ffad369f73f",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "0bad9e119eb589b2",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "febf660e9d901a54",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "af0ebad07cb1dd73",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "6594174989d3e2f2",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "b734f9e842dd6065",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "10957f82d8ab0a38",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "4594f7299c4d2136",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "39f9361daf75176a",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "217b17235b36edfb",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "9c4943a1a5089bd7",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "cada5092621aea29",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "9c545e738ed151c5",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "2b1cb39af2f89b49",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "bb7c5c18f5b44bb1",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "d350a0e4efbfddbf",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "c7e9808b74b7d1af",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "40727c7785b18d74",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "a830da625a488a33",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "1405b31a08563310",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "56a3e1e028832ca3",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "d06aff0e7c3a4be2",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "97416e2b6039b6fe",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "7f4bcfb078ddddba",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "aa1e10518b91f395",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "87fc20516d1ff872",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "85ffb8f516d6a69a",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "66f121fca95feecc",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "f44963adce079e48",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "9dfeb7236abb333b",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "10dd7a8eb835ee67",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "60eb57c2f14f4514",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "386e9e992a951e74",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "722222208928c407",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "21ec53573c356c77",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "9aee1ff0227b5f68",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "9ffcb17bce58e5ec",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "517cfe4f80dd2b09",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "09bf7e9f5f9038f4",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "1746f361c5a7922c",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "80c383a304637470",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "3fb8cb1df1147cbd",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "3220c3899e6cef0a",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "7f202ab56b72ead6",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "444b2c27e75aa741",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "f6fed2271a0afc68",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "019f6525abaf478c",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "df27a18bdb5d7823",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "80779bfd2aa67778",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "bce85b4ad0234efd",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "711cb0140ff8ffc5",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "15470030bed00928",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "d2359e39de634607",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "31a0774e4d39f611",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "de8a3d771fc96579",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "1d6876813084c8e2",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "ff0e0e7f57b32e61",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "3d78c437720d2b3d",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "34a96d268023379c",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "c44e4f5e17579809",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "843e106d19c96504",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "7ed64d8620adfe9c",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "d13c304f852add03",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "b72426a88c32031c",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "72c5ec884530f7de",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "2f0118bfe44ca62c",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "75e2a32daee2cc54",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "5f0e636808fbfae3",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "b47724988ada192f",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "979a01194e20441d",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "1eb5d8bc772b60e0",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "743bf023a6978649",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "6a2dc1cb4f07f2df",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "7afed06146cf5473",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "2832b87891c9f78b",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "c0fc8ad0db0265dd",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "26d773fb56386ad8",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "672df6cc61109f14",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "86937c7c27989a13",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "b7614c1680c36e9a",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "0d4ef4f0361e0930",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "ae99ca463ec2cb9e",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "3bcc222fde83ae11",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "040d09693767317b",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "d44be0d8a2420829",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "4c78d989e6873c66",
+    "task_id": "obligation_identification",
+    "question_hash": "b2f3c2d33f5e"
+  },
+  {
+    "sample_id": "7679b406d2173881",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "809e8eaf9b731649",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "948c5c74f3ac7706",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "63d57b1c6a25c32f",
+    "task_id": "obligation_identification",
+    "question_hash": "799ae505a686"
+  },
+  {
+    "sample_id": "e540c87f76baa9d4",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "ddb019153b549106",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "db97e122472a9dc4",
+    "task_id": "obligation_identification",
+    "question_hash": "784a855931c1"
+  },
+  {
+    "sample_id": "2e976d5b17191109",
+    "task_id": "obligation_identification",
+    "question_hash": "5d95ca539a2c"
+  },
+  {
+    "sample_id": "9bac6cc6829084d7",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "4725a2cb2709c2e2",
+    "task_id": "obligation_identification",
+    "question_hash": "ef56251afc23"
+  },
+  {
+    "sample_id": "fc171e3e99eda782",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "741764cdd0790b28",
+    "task_id": "obligation_identification",
+    "question_hash": "a82b70b4abae"
+  },
+  {
+    "sample_id": "50314df75d68872f",
+    "task_id": "obligation_identification",
+    "question_hash": "3a36b804cdf6"
+  },
+  {
+    "sample_id": "416891c51e11fcc7",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "97cb7fa403826b38",
+    "task_id": "obligation_identification",
+    "question_hash": "73c0d45331bf"
+  },
+  {
+    "sample_id": "64221aced18b01fb",
+    "task_id": "obligation_identification",
+    "question_hash": "028e4aa57779"
+  },
+  {
+    "sample_id": "c71363f1df4c679a",
+    "task_id": "obligation_identification",
+    "question_hash": "bc4456b378c1"
+  },
+  {
+    "sample_id": "eefb7bd00ca740cb",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "6e3ec342cf806a08",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "5c72b2bc87d73765",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "91185d646e0fe1f4",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "85fa20dfc1c700b1",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "fa56070c0e8a7504",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "dfe291c9ec277474",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "908fb1fc4627b365",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "663ae2ffee7606e7",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "04ece9edc817bea1",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "e8bb79b8789c8395",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "5107e8a150a7a06f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "366a9d4f4057a62c",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "d96b06343a1d1d96",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "0d19c383abea72fb",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "d35f8317855ab45d",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "d0331c22dad447fd",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "023c1cd2c4166063",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "b40449ed9ef55c11",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "1e5b4f8f7104e8b6",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "d8cd37573711bd8d",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "8e57436acaac140f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "4e8128c279b990c6",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "11c9e09ca3df6ac8",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "dd288d5ba8d40516",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "e28555eef85041bd",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "e0cc81cb0798bc0a",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "5bc13e5160bd2d74",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "0bc44cdff9515354",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "8fd1850a17b531f3",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "fd11e92125b7a845",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "ce4c446018506eaf",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "a81b4cd15b5accd8",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "2e4de786859ed946",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "a95181d653b39848",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "b90bf657ed02a9d2",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "a66ec75970ee3975",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "54c7df5c1669fbf5",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "963328ca540390e8",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "300c2c369f9ec883",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "3e757a77fde446a9",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "71a88ce8593d88a1",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "853dfc42f961ab71",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "a1176eb26d0c061c",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "bfd00b26443b4657",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "10b5c20a10dc31f9",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "d0bed32d5c2eb824",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "08e3f3e8c320f6bb",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "07a61c1c9d507626",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "aede39e114c0a5ba",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "3db93f027408d792",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "22355ab7ed5531ac",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "5e1081046e9679ba",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "6c5dabe8df23a29e",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "6a2f1e9f90ac3497",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "82317cc3e1bcddc2",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "335a80f39ce0508d",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "3ae130439aee99e4",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "d117012633f659ad",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "3810f0b5ce7334fa",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "ccf1b89f17378071",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "39962d17b8416132",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "aa93c0f2d6bd44bc",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "24920e99efe8b103",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "5d94502ada06b94f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "33b094c8a8001962",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "bab10cf075f57f36",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "4a33deb1cbb39122",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "81655293ec37a7e1",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "d462b482613e281f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "a34767d933fe0606",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "8e98890f8c68d1c1",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "431408ca5ee7c87a",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "5121f7502b446bd4",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "33f24f5aeca16524",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "70d8e60c9a401642",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "5d6d4832b299d5c7",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "8ab6c9afeb05ea0f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "3352a150fc495dff",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "2473ed9189b56564",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "22ec42b6973599a2",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "37b2b36cbe790a4f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "790a4409b5c2b7cd",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "1cb21aa0fcc83fe5",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "249bf738bd90a4e5",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "214f2392ee9c710f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "7fd2ef987866e588",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "400e7c0998680a05",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "a855f341e0435d4f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "62ec8555f9a6"
+  },
+  {
+    "sample_id": "8fa4c832c8cf91ea",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "879773c500d8"
+  },
+  {
+    "sample_id": "309d890b357b9a61",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "f6bf996e130f0569",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "42e350d02287ecfb",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "790c7ed5113d0a3c",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "6080937382c93957",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "dc32b47b958a95d3",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "ade717ea4247f665",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "ef7742f03a949b56",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "eaae6f2200cb293d",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "0ad9005ae1e375a6",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "7ec83e5cfdc6bb83",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "760420e955978620",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "79208885283463ed",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "0d450c0eb62a56c9",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "54e5022bb431"
+  },
+  {
+    "sample_id": "644534605eea8f65",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "c0e1731f6148b88f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d75e2d01fde"
+  },
+  {
+    "sample_id": "dfdd4bd9d765d031",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "28371b9523c9bc3f",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "d18572560ef62427",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "af17c96dc30fbf48",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "997f70481d6962b7",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9d44c7fc7958"
+  },
+  {
+    "sample_id": "d00ae2ddf4ca6376",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "bc01d44d84332597",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "c49de7bddfa6903d",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "0de421ebcf7b"
+  },
+  {
+    "sample_id": "516fd2b249fbff49",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "6a6b5b888a9d"
+  },
+  {
+    "sample_id": "e1792ce5849e4898",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "40cb379574d5d4cf",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "cfdcc9214540341c",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "9a1e81c60519"
+  },
+  {
+    "sample_id": "42e2336e6afb009e",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "16885ea7aa0e"
+  },
+  {
+    "sample_id": "6e867145d7dd11d4",
+    "task_id": "legal_reasoning_generation",
+    "question_hash": "5970b744507f"
+  },
+  {
+    "sample_id": "db3e8c755e090660",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "c71f8a3f92c4d793",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "b458eb3b8b88741d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  },
+  {
+    "sample_id": "afaf3137bc9c5ec1",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "b3e79035f96d23fd",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "cbe5e1414f8f0540",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "0613c28b50e14b64",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  },
+  {
+    "sample_id": "d3ea54912178ce32",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "5e3f92bc2a5697d4",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "28622cf401e1ec5d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "5a0e520676b9df0b",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "38d60ea91d9ec422",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "f299cb01f3ab8df0",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "ef6d602424f9aae2",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "8cd9f074c13fd756",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "9e090f1d7c9173db",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "4107ab2f15a2299e",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "cc80ef06ba4def85",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "51bb7c72befdb914",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "3d8e0168d85746ec",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "22a06dfdf877c0cf",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "45f169f8ae567c30",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "5fba1b80f6bc291a",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "74cbf6501ac00b41",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "12076a72d6686d14",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "c286c7024855ad02",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "5d6bd078deab12b0",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "1a0f62757796a666",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "78c5c8ee6e07cc8f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "cedac96fa0f56be5",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "84eed6be16acc203",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "020675bf26cbca62",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "b524d6881a4a688e",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "7fb6b6b1ae97dccf",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "4203804c4deab24f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "37d7744b837bdb1f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "5f34bf41a44a34c7",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "90a3a82a3524b2ae",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "f630761ee57d14e7",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "6a0e1df7dd175e17",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "95807a39d6022dbb",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "959e3cc195b337b3",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "77d22fdb9914f7c9",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "a016f4811badc844",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  },
+  {
+    "sample_id": "f950a02e0bdeee73",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "74811320eee8da56",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "cde30c61ac1a15d6",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "06acfa1779db7c6f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "08b92ca500b37d3b",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "440fb08265aa677b",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "8ffbb7201a9155a7",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "36b5e1c0892cc58d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "23c2e930d5e0ac9f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "2ac323825376f39e",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "ef9790c44ffe3f26",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "cf5fea7999e28489",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "d5728ecfe6e48ae3",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "0643d1c8e3d7d0d7",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "8ac2c0edd540b4db",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "c69fb73c63894251",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "46c3064829b0050f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "9539c663ac188a02",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "0c74f870b41e70ac",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "c0d856ea1043a60b",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "d1f671c711659c9e",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "effe6e1c638551e5",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "4cb007bf66223404",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "9e9e1be97bfa853d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "2ef8a5f5d67c24da",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "1dc396a3302cbb38",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "a5b22fff461d2854",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "67f2cf5afe719d06",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "25e68a5beee24cc8",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ba1589f39f33"
+  },
+  {
+    "sample_id": "21fd0d8858dfb947",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "1a8343cbf72fd45f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "7791c025af5e080f",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "5255375de1e9949d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "efc4dd6b4a73e0a2",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "dd7d045897ba1429",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "8612264ef9014e01",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "bad8e9ff2e1d0c9c",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "a7d92a59beddd5fc",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "372d941e4c463164",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "51f8f84392e79ab8",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "9bb55d9d60a8"
+  },
+  {
+    "sample_id": "47797bd340a23251",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  },
+  {
+    "sample_id": "b45f28df2b8eba21",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "874b2266a5ae243e",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "7c3be832354e6984",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "c0d333cc923d49c4",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "74149a246f48cdfd",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4c9b6fda3a1a"
+  },
+  {
+    "sample_id": "f20ea89fbc9f7d52",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "362b5a3425c62ea0",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "43b7f1532ad9bfaa",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "e53ebcdb33b48b3d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "3d2719fbacfe0f7d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "cc3be103a65d7bcc",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "7894376db1086277",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "d6fd902b72ff"
+  },
+  {
+    "sample_id": "228b8172a34ac7a6",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "4614ae3fece4"
+  },
+  {
+    "sample_id": "7e38cd2234860e7c",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "0a536d3a99ba3f7b",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "be23fc2cda442547",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  },
+  {
+    "sample_id": "b35a5117fef94fa6",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "2fc3a1a91c2760e6",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "72feed95c172d070",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "a6ca8f3cf291fb3d",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "81c0fc08cc302c72",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "9b1eb9478f3c927e",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "e99f975cbbdb162a",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "c9061d577cc7"
+  },
+  {
+    "sample_id": "74b771d85600bb21",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "71c459e3d082"
+  },
+  {
+    "sample_id": "a930c2837a7bc513",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "38ba0bca6d1a"
+  },
+  {
+    "sample_id": "4acbc5ec89481dac",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  },
+  {
+    "sample_id": "97a899b55f5763aa",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ef425c60a8a7"
+  },
+  {
+    "sample_id": "d351fb4641753e0a",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a89233715da0"
+  },
+  {
+    "sample_id": "a15f9466b4d591bb",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "a2062ed3c420b14c",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "36bdad25a4ad"
+  },
+  {
+    "sample_id": "cd9f0ce9668d51a5",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  },
+  {
+    "sample_id": "ad79b872fa58ce90",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "8bdbfc63ba30"
+  },
+  {
+    "sample_id": "9ca6de4a3ab92f34",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "a746a69dbdaa"
+  },
+  {
+    "sample_id": "e5b1d549e272ad3b",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "863bea08067f"
+  },
+  {
+    "sample_id": "2c44834b38f578aa",
+    "task_id": "legal_entity_recognition",
+    "question_hash": "ea3255194fb4"
+  }
+]

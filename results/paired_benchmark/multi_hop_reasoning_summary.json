@@ -1,0 +1,9 @@
+{
+  "task_id": "multi_hop_reasoning",
+  "task_type": "mcq",
+  "metric": "accuracy",
+  "n": 20,
+  "base_score": 0.25,
+  "qlora_score": 0.25,
+  "delta": 0.0
+}

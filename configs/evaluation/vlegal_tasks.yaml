@@ -1,0 +1,184 @@
+# VLegal External Benchmark Task Definitions
+# Paper-grade paired evaluation: Base vs QLoRA on identical samples
+#
+# Task types:
+#   mcq        - Multiple choice (A/B/C/D), accuracy
+#   extraction - Extract answer span, token F1 / ROUGE-L
+#   generation - Open-ended generation, ROUGE-L / token F1
+#   binary     - Yes/No, accuracy
+#
+# capability_map: internal -> VLegal mapping (only valid pairs)
+#   Factual <-> Recognition/Recall
+#   Interpretation <-> Understanding/Interpretation
+#   Analytical/Application <-> Reasoning/Inference
+
+project:
+  name: "VLegal Paired Benchmark"
+  base_model: "Qwen/Qwen2.5-7B-Instruct"
+  adapter: "models/qwen2.5-7b-legalqa-qlora"
+  inference:
+    temperature: 0
+    max_new_tokens: 256
+    do_sample: false
+    seed: 42
+  min_samples_per_task: 100
+  bootstrap_iterations: 1000
+
+tasks:
+  # === CORE REASONING TASKS (priority) ===
+
+  article_clause_prediction:
+    display_name: "Article/Clause Prediction"
+    task_type: mcq
+    description: "Given a legal scenario, predict which article/clause applies"
+    choices: ["A", "B", "C", "D"]
+    metric: accuracy
+    capability: "Reasoning/Inference"
+    priority: 1
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/article_clause_prediction.jsonl"
+    eval_notes: "MCQ format; enforce single-letter output; audit parser on 20 samples"
+
+  court_decision_prediction:
+    display_name: "Legal Court Decision Prediction"
+    task_type: mcq
+    description: "Predict court ruling given case facts and applicable law"
+    choices: ["A", "B", "C", "D"]
+    metric: accuracy
+    capability: "Reasoning/Inference"
+    priority: 2
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/court_decision_prediction.jsonl"
+    eval_notes: "MCQ; verify gold labels; check for ambiguous cases"
+
+  multi_hop_reasoning:
+    display_name: "Multi-hop Graph Reasoning"
+    task_type: mcq
+    description: "Answer questions requiring reasoning across multiple legal provisions"
+    choices: ["A", "B", "C", "D"]
+    metric: accuracy
+    capability: "Reasoning/Inference"
+    priority: 3
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/multi_hop_reasoning.jsonl"
+    eval_notes: "Most complex reasoning task; expect highest delta between models"
+
+  penalty_remedy_estimation:
+    display_name: "Penalty/Remedy Estimation"
+    task_type: extraction
+    description: "Extract penalty amount or remedy from legal text"
+    metric: token_f1
+    capability: "Reasoning/Inference"
+    priority: 4
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/penalty_remedy_estimation.jsonl"
+    eval_notes: "Numeric extraction; verify exact amounts in gold"
+
+  # === UNDERSTANDING/STRUCTURING TASKS ===
+
+  legal_definition_extraction:
+    display_name: "Legal Definition Extraction"
+    task_type: extraction
+    description: "Extract legal definitions from statutory text"
+    metric: rouge_l
+    capability: "Understanding/Interpretation"
+    priority: 5
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/legal_definition_extraction.jsonl"
+    eval_notes: "Span extraction; evaluate with ROUGE-L"
+
+  obligation_identification:
+    display_name: "Obligation Identification"
+    task_type: mcq
+    description: "Identify legal obligations from contract/statute text"
+    choices: ["A", "B", "C", "D"]
+    metric: accuracy
+    capability: "Understanding/Interpretation"
+    priority: 6
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/obligation_identification.jsonl"
+    eval_notes: "Classification task; check class balance"
+
+  # === GENERATION TASK (after evaluator audit) ===
+
+  legal_reasoning_generation:
+    display_name: "Judicial Reasoning Generation"
+    task_type: generation
+    description: "Generate reasoning chain for a legal conclusion"
+    metric: rouge_l
+    capability: "Reasoning/Inference"
+    priority: 7
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/legal_reasoning_generation.jsonl"
+    eval_notes: "Generation; requires manual audit of 20 samples before inclusion"
+
+  # === FACTUAL RECOGNITION (for capability mapping) ===
+
+  legal_entity_recognition:
+    display_name: "Legal Entity Recognition"
+    task_type: extraction
+    description: "Identify legal entities (parties, dates, amounts) in text"
+    metric: token_f1
+    capability: "Recognition/Recall"
+    priority: 8
+    min_samples: 100
+    data_path: "data/evaluation/vlegal/legal_entity_recognition.jsonl"
+    eval_notes: "NER task; evaluate with token F1"
+
+# Capability mapping (internal -> VLegal)
+# Only use pairs with clear semantic alignment
+capability_mapping:
+  factual:
+    vlegal: "Recognition/Recall"
+    tasks: ["legal_entity_recognition"]
+  interpretation:
+    vlegal: "Understanding/Interpretation"
+    tasks: ["legal_definition_extraction", "obligation_identification"]
+  analytical:
+    vlegal: "Reasoning/Inference"
+    tasks: ["article_clause_prediction", "court_decision_prediction", "multi_hop_reasoning", "penalty_remedy_estimation", "legal_reasoning_generation"]
+  # These internal categories have NO VLegal counterpart - mark N/A
+  ethics_bias: null
+  ner: null  # use legal_entity_recognition if mapping needed
+  relation_extraction: null
+
+# Evidence degradation conditions
+degradation:
+  conditions:
+    - id: clean
+      display_name: "Clean (Original)"
+      description: "Original evidence, no modification"
+      expected: "baseline"
+    - id: distractor
+      display_name: "Distractor Noise"
+      description: "Original evidence + irrelevant legal provisions as distractors"
+      expected: "accuracy should decrease"
+    - id: missing_rule
+      display_name: "Missing Rule"
+      description: "Remove the specific legal rule needed to answer"
+      expected: "model should not make confident conclusion"
+    - id: missing_condition
+      display_name: "Missing Condition"
+      description: "Remove a condition/qualification from the applicable rule"
+      expected: "model should note incomplete information"
+    - id: missing_exception
+      display_name: "Missing Exception"
+      description: "Remove exception clauses from the applicable rule"
+      expected: "model may over-apply the rule"
+    - id: wrong_similar
+      display_name: "Wrong-Similar Rule"
+      description: "Replace with a similar but inapplicable legal provision"
+      expected: "model should detect mismatch"
+    - id: empty
+      display_name: "Empty Evidence"
+      description: "Remove all legal evidence entirely"
+      expected: "model should abstain or note missing evidence"
+    - id: shuffled
+      display_name: "Shuffled Evidence"
+      description: "Use evidence from a different sample (cross-contamination)"
+      expected: "model should not confidently answer"
+  noise_robustness_metric: "noise_robustness_drop"
+  insufficiency_metrics:
+    - appropriate_abstention_rate
+    - unsupported_conclusion_rate
+    - prediction_persistence_rate

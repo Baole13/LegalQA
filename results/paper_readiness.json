@@ -1,0 +1,23 @@
+{
+  "paper_readiness": {
+    "paired_samples": false,
+    "sufficient_n": true,
+    "no_invalid_metrics": true,
+    "parser_audited": true,
+    "statistical_tests": false,
+    "raw_predictions_saved": true,
+    "degradation_tectured": [],
+    "empty_shuffled_included": [],
+    "error_analysis": true
+  },
+  "tables": {
+    "table1_internal": false,
+    "table2_external": false,
+    "table3_capability": false,
+    "table4_degradation": [],
+    "table5_sensitivity": []
+  },
+  "issues": [],
+  "eval_ids_saved": true,
+  "readiness_score": "5/9"
+}

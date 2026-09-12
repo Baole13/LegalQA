@@ -1,0 +1,9 @@
+{
+  "task_id": "article_clause_prediction",
+  "task_type": "mcq",
+  "metric": "accuracy",
+  "n": 120,
+  "base_score": 0.4667,
+  "qlora_score": 0.4667,
+  "delta": 0.0
+}

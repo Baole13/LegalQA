@@ -1,0 +1,9 @@
+{
+  "task_id": "penalty_remedy_estimation",
+  "task_type": "extraction",
+  "metric": "token_f1",
+  "n": 20,
+  "base_score": 0.051,
+  "qlora_score": 0.051,
+  "delta": 0.0
+}

@@ -1,0 +1,63 @@
+{
+  "config": "configs/evaluation/vlegal_tasks.yaml",
+  "base_model": "Qwen/Qwen2.5-7B-Instruct",
+  "adapter": "models/qwen2.5-7b-legalqa-qlora",
+  "inference": {
+    "temperature": 0,
+    "max_new_tokens": 256,
+    "do_sample": false,
+    "seed": 42
+  },
+  "total_samples": 62,
+  "tasks": [
+    {
+      "task_id": "article_clause_prediction",
+      "status": "ready",
+      "n": 20,
+      "task_type": "mcq",
+      "metric": "accuracy",
+      "data_path": "data/evaluation/vlegal/article_clause_prediction.jsonl"
+    },
+    {
+      "task_id": "court_decision_prediction",
+      "status": "ready",
+      "n": 25,
+      "task_type": "mcq",
+      "metric": "accuracy",
+      "data_path": "data/evaluation/vlegal/court_decision_prediction.jsonl"
+    },
+    {
+      "task_id": "multi_hop_reasoning",
+      "status": "ready",
+      "n": 17,
+      "task_type": "mcq",
+      "metric": "accuracy",
+      "data_path": "data/evaluation/vlegal/multi_hop_reasoning.jsonl"
+    },
+    {
+      "task_id": "penalty_remedy_estimation",
+      "status": "no_data",
+      "data_path": "data/evaluation/vlegal/penalty_remedy_estimation.jsonl"
+    },
+    {
+      "task_id": "legal_definition_extraction",
+      "status": "no_data",
+      "data_path": "data/evaluation/vlegal/legal_definition_extraction.jsonl"
+    },
+    {
+      "task_id": "obligation_identification",
+      "status": "no_data",
+      "data_path": "data/evaluation/vlegal/obligation_identification.jsonl"
+    },
+    {
+      "task_id": "legal_reasoning_generation",
+      "status": "no_data",
+      "data_path": "data/evaluation/vlegal/legal_reasoning_generation.jsonl"
+    },
+    {
+      "task_id": "legal_entity_recognition",
+      "status": "no_data",
+      "data_path": "data/evaluation/vlegal/legal_entity_recognition.jsonl"
+    }
+  ]
+}

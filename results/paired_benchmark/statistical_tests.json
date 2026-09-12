@@ -1,0 +1,205 @@
+[
+  {
+    "task_id": "article_clause_prediction",
+    "task_type": "mcq",
+    "metric": "accuracy",
+    "n": 20,
+    "base_score": 0.55,
+    "qlora_score": 0.55,
+    "delta": 0.0,
+    "bootstrap": {
+      "baseline": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.8
+      },
+      "qlora": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.8
+      },
+      "delta": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "p_value": 1.0,
+      "iterations": 1000,
+      "n": 20
+    },
+    "mcnemar": {
+      "n_disagree": 0,
+      "n_base_only_correct": 0,
+      "n_qlora_only_correct": 0,
+      "chi2": 0.0,
+      "p_value": 1.0,
+      "significant_005": false,
+      "significant_001": false
+    },
+    "accuracy_ci": {
+      "baseline": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.8
+      },
+      "qlora": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.8
+      },
+      "delta": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "p_value": 1.0,
+      "iterations": 1000,
+      "n": 20
+    }
+  },
+  {
+    "task_id": "court_decision_prediction",
+    "task_type": "mcq",
+    "metric": "accuracy",
+    "n": 20,
+    "base_score": 0.55,
+    "qlora_score": 0.55,
+    "delta": 0.0,
+    "bootstrap": {
+      "baseline": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.75
+      },
+      "qlora": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.75
+      },
+      "delta": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "p_value": 1.0,
+      "iterations": 1000,
+      "n": 20
+    },
+    "mcnemar": {
+      "n_disagree": 0,
+      "n_base_only_correct": 0,
+      "n_qlora_only_correct": 0,
+      "chi2": 0.0,
+      "p_value": 1.0,
+      "significant_005": false,
+      "significant_001": false
+    },
+    "accuracy_ci": {
+      "baseline": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.75
+      },
+      "qlora": {
+        "mean": 0.55,
+        "ci_low": 0.35,
+        "ci_high": 0.75
+      },
+      "delta": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "p_value": 1.0,
+      "iterations": 1000,
+      "n": 20
+    }
+  },
+  {
+    "task_id": "multi_hop_reasoning",
+    "task_type": "mcq",
+    "metric": "accuracy",
+    "n": 20,
+    "base_score": 0.25,
+    "qlora_score": 0.25,
+    "delta": 0.0,
+    "bootstrap": {
+      "baseline": {
+        "mean": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45
+      },
+      "qlora": {
+        "mean": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45
+      },
+      "delta": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "p_value": 1.0,
+      "iterations": 1000,
+      "n": 20
+    },
+    "mcnemar": {
+      "n_disagree": 0,
+      "n_base_only_correct": 0,
+      "n_qlora_only_correct": 0,
+      "chi2": 0.0,
+      "p_value": 1.0,
+      "significant_005": false,
+      "significant_001": false
+    },
+    "accuracy_ci": {
+      "baseline": {
+        "mean": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45
+      },
+      "qlora": {
+        "mean": 0.25,
+        "ci_low": 0.05,
+        "ci_high": 0.45
+      },
+      "delta": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "p_value": 1.0,
+      "iterations": 1000,
+      "n": 20
+    }
+  },
+  {
+    "task_id": "penalty_remedy_estimation",
+    "task_type": "extraction",
+    "metric": "token_f1",
+    "n": 20,
+    "base_score": 0.051,
+    "qlora_score": 0.051,
+    "delta": 0.0,
+    "bootstrap": {
+      "baseline": {
+        "mean": 0.051,
+        "ci_low": 0.0376,
+        "ci_high": 0.0624
+      },
+      "qlora": {
+        "mean": 0.051,
+        "ci_low": 0.0376,
+        "ci_high": 0.0624
+      },
+      "delta": {
+        "mean": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0
+      },
+      "p_value": 1.0,
+      "iterations": 1000,
+      "n": 20
+    }
+  }
+]

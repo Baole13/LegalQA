@@ -1,0 +1,9 @@
+{
+  "task_id": "court_decision_prediction",
+  "task_type": "mcq",
+  "metric": "accuracy",
+  "n": 20,
+  "base_score": 0.55,
+  "qlora_score": 0.55,
+  "delta": 0.0
+}
